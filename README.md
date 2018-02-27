@@ -6,7 +6,7 @@ Ping urls.
 
 * Ruby, Rails
 * Postgres, Redis
-* PhantomJS and Firefox for tests
+* Chrome for tests (todo)
 
 ## Links
 
@@ -23,5 +23,3 @@ Ping urls.
 * bin/doc
 * mina deploy
 * mina restart
-
-## Notes
