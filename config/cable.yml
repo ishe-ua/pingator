@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: pingator_production
+  url: <%= redis.url %>
+  channel_prefix: <%= "#{APP::NAME.tr '-', '_'}_production" %>
