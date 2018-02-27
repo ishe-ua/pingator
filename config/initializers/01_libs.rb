@@ -4,3 +4,4 @@
 #
 
 require_relative '../../lib/app.rb'
+require_relative '../../lib/clock.rb'
