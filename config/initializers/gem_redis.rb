@@ -17,6 +17,5 @@ def redis
 end
 
 def redis.url
-  redis_opts['url'] ||
-    "redis://#{redis.client.host}:#{redis.client.port}/#{redis.client.db}"
+  redis.connection[:id]
 end
