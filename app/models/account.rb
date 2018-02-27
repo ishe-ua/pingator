@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: accounts
@@ -17,4 +19,6 @@
 #  index_accounts_on_email_confirmation_token  (email_confirmation_token) UNIQUE
 #
 class Account < ApplicationRecord
+  has_one :user, dependent: :destroy
+  accepts_nested_attributes_for :user
 end
