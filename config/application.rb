@@ -14,5 +14,20 @@ module Pingator
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    ###
+    # app
+    #
+
+    # Save SSD
+    if Rails.env.development? || Rails.env.test?
+      config.logger = Logger.new('/dev/null')
+    end
+
+    # Skip generation (bin/rails g ...)
+    config.generators do |g|
+      g.assets false # stylesheets, js
+      g.helper false # helpers
+    end
   end
 end
