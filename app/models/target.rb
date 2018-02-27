@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: targets
@@ -17,6 +19,9 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-
 class Target < ApplicationRecord
+  belongs_to :user
+
+  include Url
+  validates :url, uniqueness: { scope: :user }
 end

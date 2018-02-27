@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Field +url+ in table:
 # * string
 #
@@ -11,9 +13,8 @@ module Url
     before_validation :add_supported_scheme
 
     validates :url,
-
               presence: true,
-              format: { with: URI.regexp }
+              format: { with: URI::DEFAULT_PARSER.make_regexp }
   end
 
   protected

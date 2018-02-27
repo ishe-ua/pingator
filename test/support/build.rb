@@ -19,12 +19,14 @@ def build(model_name, attributes = {}) # rubocop:disable AbcSize, MethodLength
 
   correction = lambda do |ref|
     if hash[ref].present?
-      hash["#{ref}_id"] = accounts(hash[ref].to_sym).id
+      hash["#{ref}_id"] = accounts(hash[ref].to_sym).id if ref == 'account'
+      hash["#{ref}_id"] = users(hash[ref].to_sym).id if ref == 'user'
       hash.delete(ref)
     end
   end
 
   correction.call('account')
+  correction.call('user')
 
   ##
 

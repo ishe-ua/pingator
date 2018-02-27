@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UrlTest < ActiveSupport::TestCase
   setup do
-    @instance = build(%i[forum letter_item feed feed_item].shuffle.sample)
+    @instance = build(:target)
   end
 
   test 'required field' do

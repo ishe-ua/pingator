@@ -1,7 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+DEFAULTS: &DEFAULTS
+  user: mary
+  url: http://$LABEL.com
 
-one:
-  url: MyString1
+mary:
+  <<: *DEFAULTS
+  user: mary
 
-two:
-  url: MyString
+john:
+  <<: *DEFAULTS
+  user: john

@@ -22,6 +22,7 @@
 #
 class User < ApplicationRecord
   belongs_to :account
+  has_many :targets, dependent: :destroy
 
   include Country
   include Name
