@@ -1,0 +1,54 @@
+AllCops:
+  Include:
+    - app/views/**/*.json.jbuilder
+  Exclude:
+    - bin/**/*
+    - tmp/**/*                     # sometimes we put something there
+    - vendor/**/*
+    - db/schema.rb
+    - db/structure.sql
+    - config/application.rb
+    - config/environments/*
+
+Rails:
+  Enabled: true
+
+BlockLength:
+  Exclude:
+    - Guardfile
+    - config/routes.rb
+
+ClassAndModuleChildren:
+  Enabled: false
+  # Exclude:
+  #   - test/test_helper.rb
+
+Documentation:
+  Exclude:
+    - app/helpers/**/*
+    - db/migrate/**/*
+    - test/**/*
+
+FileName:
+  Exclude:
+    - Gemfile
+    - Rakefile
+    - Guardfile
+
+LineLength:
+  Exclude:
+    - config/**/*
+    - Rakefile
+    - Gemfile
+    - Guardfile
+
+MethodLength:
+  Exclude:
+    - db/migrate/*
+
+OrderedGems:
+  Exclude:
+    - Gemfile
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
