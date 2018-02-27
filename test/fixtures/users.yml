@@ -1,6 +1,6 @@
 DEFAULTS: &DEFAULTS
   account: mary
-  country: <%= 'Country::COUNTRIES_CODES.sample' %>
+  country: <%= Country::COUNTRIES_CODES.sample %>
   name: $LABEL
 
 mary:

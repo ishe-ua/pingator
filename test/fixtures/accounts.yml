@@ -3,7 +3,7 @@ DEFAULTS: &DEFAULTS
   password_digest: <%= BCrypt::Password.create(APP::DEFAULT_PASSWORD) %>
 
   email_confirmation_at: now
-  email_confirmation_token: <%= 'Account.new.email_confirmation_token' %>-$LABEL
+  email_confirmation_token: <%= Account.new.email_confirmation_token %>-$LABEL
 
 mary:
   <<: *DEFAULTS
