@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20180227153105) do
 
   create_table "targets", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "url", null: false
+    t.string "url"
+    t.integer "checktime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["checktime"], name: "index_targets_on_checktime"
     t.index ["url"], name: "index_targets_on_url", unique: true
     t.index ["user_id"], name: "index_targets_on_user_id"
   end
