@@ -8,16 +8,10 @@ class AdminMailerPreview < ActionMailer::Preview
   end
 
   def new_registration
-    AdminMailer.new_registration(random_account)
+    AdminMailer.new_registration(Account.sample)
   end
 
   def new_email_confirmation
-    AdminMailer.new_email_confirmation(random_account)
-  end
-
-  protected
-
-  def random_account
-    Account.order('RANDOM()').first
+    AdminMailer.new_email_confirmation(Account.sample)
   end
 end
