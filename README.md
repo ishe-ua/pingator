@@ -6,7 +6,7 @@ Ping urls.
 
 * Ruby, Rails
 * Postgres, Redis
-* Chrome for tests (todo)
+* Firefox for system tests
 
 ## Links
 
