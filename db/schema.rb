@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227134555) do
+ActiveRecord::Schema.define(version: 20180227153105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20180227134555) do
     t.index ["email_confirmation_token"], name: "index_accounts_on_email_confirmation_token", unique: true
   end
 
+  create_table "targets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_targets_on_url", unique: true
+    t.index ["user_id"], name: "index_targets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.bigint "account_id"
     t.string "country"
@@ -37,5 +46,6 @@ ActiveRecord::Schema.define(version: 20180227134555) do
     t.index ["country"], name: "index_users_on_country"
   end
 
+  add_foreign_key "targets", "users"
   add_foreign_key "users", "accounts"
 end
