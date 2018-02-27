@@ -1,13 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+DEFAULTS: &DEFAULTS
+  email: $LABEL@example.com
+  password_digest: <%= BCrypt::Password.create(APP::DEFAULT_PASSWORD) %>
 
-one:
-  email: MyString
-  password_digest: MyString
-  email_confirmation_at: MyString
-  email_confirmation_token: MyString
+  email_confirmation_at: now
+  email_confirmation_token: <%= 'Account.new.email_confirmation_token' %>-$LABEL
 
-two:
-  email: MyString
-  password_digest: MyString
-  email_confirmation_at: MyString
-  email_confirmation_token: MyString
+mary:
+  <<: *DEFAULTS
+
+john:
+  <<: *DEFAULTS

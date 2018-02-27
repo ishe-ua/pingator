@@ -1,11 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+DEFAULTS: &DEFAULTS
+  account: mary
+  country: <%= 'Country::COUNTRIES_CODES.sample' %>
+  name: $LABEL
 
-one:
-  account: one
-  country: MyString
-  name: MyString
+mary:
+  <<: *DEFAULTS
+  account: mary
+  country: us
 
-two:
-  account: two
-  country: MyString
-  name: MyString
+john:
+  <<: *DEFAULTS
+  account: john
+  country: ca
