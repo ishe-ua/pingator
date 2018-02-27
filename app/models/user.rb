@@ -22,5 +22,7 @@
 #
 class User < ApplicationRecord
   belongs_to :account
+
   include Country
+  include Name
 end
