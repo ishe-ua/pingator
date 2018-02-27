@@ -20,3 +20,6 @@
 
 # Ignore documentation
 /doc/*
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
