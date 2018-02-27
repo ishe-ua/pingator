@@ -24,4 +24,7 @@ class Account < ApplicationRecord
 
   include Email
   validates :email, uniqueness: true
+
+  include EmailConfirmation
+  include Password
 end

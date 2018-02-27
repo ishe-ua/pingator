@@ -29,7 +29,7 @@ class EmailTest < ActiveSupport::TestCase
   end
 
   test '#nullify_email_confirmation' do
-    acc = accounts(:hu)
+    acc = accounts(:mary)
     assert acc.email_confirmed?
 
     acc.update(email: 'test@example.com')
