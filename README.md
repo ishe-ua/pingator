@@ -1,24 +1,27 @@
-# README
+# Pingator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ping urls.
 
-Things you may want to cover:
+## Software stack
 
-* Ruby version
+* Ruby, Rails
+* Postgres, Redis
+* PhantomJS and Firefox for tests
 
-* System dependencies
+## Links
 
-* Configuration
+* [pingator.com](http://pingator.com)
+* [pingator.com/sidekiq](http://pingator.com/sidekiq)
 
-* Database creation
+# External services
 
-* Database initialization
+* [mailgun](http://mailgun.com) for __receive__ emails
+* [circle ci](http://circleci.com) for __ci__
 
-* How to run the test suite
+## Tasks and utils
 
-* Services (job queues, cache servers, search engines, etc.)
+* bin/doc
+* mina deploy
+* mina restart
 
-* Deployment instructions
-
-* ...
+## Notes
