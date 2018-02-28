@@ -8,10 +8,13 @@ class CreateTargets < ActiveRecord::Migration[5.1]
       t.string :url
 
       t.integer  :check_time
-      t.datetime :checked_at, default: nil
+      t.datetime :checked_at
 
-      t.datetime :verified_at, default: nil
+      t.datetime :verified_at
       t.string   :verification_token
+
+      t.datetime :locked_at
+      t.integer  :lock_reason
 
       t.timestamps
     end
@@ -21,5 +24,7 @@ class CreateTargets < ActiveRecord::Migration[5.1]
 
     add_index :targets, :verified_at
     add_index :targets, :verification_token, unique: true
+
+    add_index :targets, :locked_at
   end
 end

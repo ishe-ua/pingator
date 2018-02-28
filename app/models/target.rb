@@ -12,12 +12,15 @@
 #  checked_at         :datetime
 #  verified_at        :datetime
 #  verification_token :string
+#  locked_at          :datetime
+#  lock_reason        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
 # Indexes
 #
 #  index_targets_on_check_time          (check_time)
+#  index_targets_on_locked_at           (locked_at)
 #  index_targets_on_url                 (url)
 #  index_targets_on_user_id             (user_id)
 #  index_targets_on_verification_token  (verification_token) UNIQUE
