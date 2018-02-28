@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ChecktimeTest < ActiveSupport::TestCase
+class CheckTest < ActiveSupport::TestCase
   setup do
     @instance = build(:target)
   end

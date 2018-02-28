@@ -33,6 +33,6 @@ class Target < ApplicationRecord
   include Url
   validates :url, uniqueness: { scope: :user }
 
-  include Checktime
   include Verification
+  include Check
 end

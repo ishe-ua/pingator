@@ -3,7 +3,7 @@
 # Field +checktime+ in table:
 # * integer
 #
-module Checktime
+module Check
   extend ActiveSupport::Concern
 
   # Check Url every minutes
