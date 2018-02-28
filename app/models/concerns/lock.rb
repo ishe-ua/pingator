@@ -11,7 +11,7 @@ module Lock
   extend ActiveSupport::Concern
 
   included do
-    enum lock_reason: %i[url_not_found url_not_verified] # TODO
+    enum lock_reason: %i[admin not_found not_verified] # TODO
   end
 
   def locked?
