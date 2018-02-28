@@ -5,13 +5,21 @@ class CreateTargets < ActiveRecord::Migration[5.1]
     create_table :targets do |t|
       t.belongs_to :user, foreign_key: true
 
-      t.string  :url
-      t.integer :checktime
+      t.string :url
+
+      t.integer  :checktime
+      t.datetime :checked_at, default: nil # TODO
+
+      t.datetime :verified_at, default: nil
+      t.string   :verification_token
 
       t.timestamps
     end
 
     add_index :targets, :url, unique: true
     add_index :targets, :checktime
+
+    add_index :targets, :verified_at
+    add_index :targets, :verification_token, unique: true
   end
 end

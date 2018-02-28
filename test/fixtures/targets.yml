@@ -3,6 +3,9 @@ DEFAULTS: &DEFAULTS
   url:       http://example.com/$LABEL
   checktime: <%= Target.new.checktime %>
 
+  verified_at: now
+  verification_token: <%= Target.new.verification_token %>-$LABEL
+
 mary:
   <<: *DEFAULTS
   user: mary
