@@ -18,7 +18,7 @@
 # Indexes
 #
 #  index_targets_on_check_time          (check_time)
-#  index_targets_on_url                 (url) UNIQUE
+#  index_targets_on_url                 (url)
 #  index_targets_on_user_id             (user_id)
 #  index_targets_on_verification_token  (verification_token) UNIQUE
 #  index_targets_on_verified_at         (verified_at)

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180227153105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["check_time"], name: "index_targets_on_check_time"
-    t.index ["url"], name: "index_targets_on_url", unique: true
+    t.index ["url"], name: "index_targets_on_url"
     t.index ["user_id"], name: "index_targets_on_user_id"
     t.index ["verification_token"], name: "index_targets_on_verification_token", unique: true
     t.index ["verified_at"], name: "index_targets_on_verified_at"

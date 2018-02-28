@@ -16,7 +16,7 @@ class CreateTargets < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :targets, :url, unique: true
+    add_index :targets, :url
     add_index :targets, :check_time
 
     add_index :targets, :verified_at
