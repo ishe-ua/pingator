@@ -8,12 +8,15 @@ module Url
 
   SUPPORTED_SCHEMES = %w[http https].freeze
 
+  MAX_LENGTH = 256
+
   included do
     before_validation :downcase_url
     before_validation :add_supported_scheme
 
     validates :url,
               presence: true,
+              length: { maximum: MAX_LENGTH },
               format: { with: URI::DEFAULT_PARSER.make_regexp }
   end
 
