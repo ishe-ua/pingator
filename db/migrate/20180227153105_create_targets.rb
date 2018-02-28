@@ -7,8 +7,8 @@ class CreateTargets < ActiveRecord::Migration[5.1]
 
       t.string :url
 
-      t.integer  :checktime
-      t.datetime :checked_at, default: nil # TODO
+      t.integer  :check_time
+      t.datetime :checked_at, default: nil
 
       t.datetime :verified_at, default: nil
       t.string   :verification_token
@@ -17,7 +17,7 @@ class CreateTargets < ActiveRecord::Migration[5.1]
     end
 
     add_index :targets, :url, unique: true
-    add_index :targets, :checktime
+    add_index :targets, :check_time
 
     add_index :targets, :verified_at
     add_index :targets, :verification_token, unique: true

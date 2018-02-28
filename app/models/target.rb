@@ -8,7 +8,7 @@
 #  id                 :integer          not null, primary key
 #  user_id            :integer
 #  url                :string
-#  checktime          :integer
+#  check_time         :integer
 #  checked_at         :datetime
 #  verified_at        :datetime
 #  verification_token :string
@@ -17,7 +17,7 @@
 #
 # Indexes
 #
-#  index_targets_on_checktime           (checktime)
+#  index_targets_on_check_time          (check_time)
 #  index_targets_on_url                 (url) UNIQUE
 #  index_targets_on_user_id             (user_id)
 #  index_targets_on_verification_token  (verification_token) UNIQUE

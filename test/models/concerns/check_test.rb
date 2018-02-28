@@ -8,14 +8,14 @@ class CheckTest < ActiveSupport::TestCase
   end
 
   test 'protect enum values' do
-    assert_equal instance_class.checktimes[:a], 30
-    assert_equal instance_class.checktimes[:b], 15
-    assert_equal instance_class.checktimes[:c], 5
-    assert_equal instance_class.checktimes[:d], 1
+    assert_equal instance_class.check_times[:a], 30
+    assert_equal instance_class.check_times[:b], 15
+    assert_equal instance_class.check_times[:c], 5
+    assert_equal instance_class.check_times[:d], 1
   end
 
   test 'required field' do
-    instance.checktime = nil
+    instance.check_time = nil
     assert_not instance.valid?
   end
 
