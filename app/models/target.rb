@@ -34,7 +34,7 @@ class Target < ApplicationRecord
   belongs_to :user
 
   include Url
-
   include Verification
   include Check
+  include Lock
 end
