@@ -12,6 +12,16 @@ class UrlTest < ActiveSupport::TestCase
     assert_not instance.valid?
   end
 
+  test 'unique in scope' do
+    instance.url = targets(:mary).url
+    assert_not instance.valid?
+  end
+
+  test 'not unique outside scope' do
+    instance.url = targets(:john).url
+    assert instance.valid?
+  end
+
   test 'valid by regexp' do
     instance.url = 'xx'
     assert instance.valid?

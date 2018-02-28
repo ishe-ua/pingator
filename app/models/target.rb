@@ -31,7 +31,6 @@ class Target < ApplicationRecord
   belongs_to :user
 
   include Url
-  validates :url, uniqueness: { scope: :user }
 
   include Verification
   include Check

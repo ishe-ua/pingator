@@ -16,6 +16,7 @@ module Url
 
     validates :url,
               presence: true,
+              uniqueness: { scope: :user },
               length: { maximum: MAX_LENGTH },
               format: { with: URI::DEFAULT_PARSER.make_regexp }
   end
