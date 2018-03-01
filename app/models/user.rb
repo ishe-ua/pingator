@@ -6,7 +6,6 @@
 #
 #  id         :integer          not null, primary key
 #  account_id :integer
-#  country    :string
 #  name       :string
 #  suspend    :boolean
 #  created_at :datetime         not null
@@ -15,7 +14,6 @@
 # Indexes
 #
 #  index_users_on_account_id  (account_id)
-#  index_users_on_country     (country)
 #  index_users_on_suspend     (suspend)
 #
 # Foreign Keys
@@ -26,8 +24,6 @@ class User < ApplicationRecord
   belongs_to :account
   has_many :targets, dependent: :destroy
 
-  include Country
   include Name
-
   include Suspend
 end

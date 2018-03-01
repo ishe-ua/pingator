@@ -1,15 +1,12 @@
 DEFAULTS: &DEFAULTS
   account: mary
-  country: <%= Country::COUNTRIES_CODES.sample %>
   name: $LABEL
   suspend: <%= User.new.suspend %>
 
 mary:
   <<: *DEFAULTS
   account: mary
-  country: us
 
 john:
   <<: *DEFAULTS
   account: john
-  country: ca
