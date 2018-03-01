@@ -50,10 +50,12 @@ ActiveRecord::Schema.define(version: 20180227153105) do
     t.bigint "account_id"
     t.string "country"
     t.string "name"
+    t.boolean "suspend", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["country"], name: "index_users_on_country"
+    t.index ["suspend"], name: "index_users_on_suspend"
   end
 
   add_foreign_key "targets", "users"

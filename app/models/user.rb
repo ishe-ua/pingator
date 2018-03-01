@@ -8,6 +8,7 @@
 #  account_id :integer
 #  country    :string
 #  name       :string
+#  suspend    :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -15,6 +16,7 @@
 #
 #  index_users_on_account_id  (account_id)
 #  index_users_on_country     (country)
+#  index_users_on_suspend     (suspend)
 #
 # Foreign Keys
 #
@@ -26,4 +28,6 @@ class User < ApplicationRecord
 
   include Country
   include Name
+
+  include Suspend
 end
