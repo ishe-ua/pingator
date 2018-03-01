@@ -6,8 +6,6 @@ module APP
 
   HOST = 'pingator.com'
 
-  MOTO = 'Url monitoring tool'
-
   # Start development since
   SINCE = 2018
 

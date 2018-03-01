@@ -1,0 +1,13 @@
+<h1>
+  <span class="name"><%= APP::NAME.capitalize %>:</span>
+  <h3><%= I18n.t('moto.long').downcase %></h3>
+</h1>
+
+<p>Sign In:</p>
+
+<%= form_with do |f| %>
+  <%= f.text_field :email %><br/>
+  <%= f.text_field :password %><br/>
+
+  <%= f.submit 'OK' %> or <%= link_to 'Register' %>
+<% end %>
