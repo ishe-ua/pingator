@@ -60,4 +60,4 @@ source 'https://rails-assets.org' do
   # gem 'rails-assets-zepto',         '~> 1.2.0'
 end
 
-# gem 'autoprefixer-rails'
+gem 'autoprefixer-rails'

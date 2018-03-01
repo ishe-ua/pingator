@@ -9,10 +9,10 @@ module Check
   extend ActiveSupport::Concern
 
   # Check Url every minutes
-  PLANS = { a: 30, b: 15, c: 5, d: 1 }.freeze
+  PLANS = { a: 15, b: 5, c: 1 }.freeze
 
   # For PLANS
-  PRICES = { a: 0, b: 2, c: 5, d: 15 }.freeze
+  PRICES = { a: 0, b: 2, c: 5 }.freeze
 
   included do
     enum check_time: PLANS
