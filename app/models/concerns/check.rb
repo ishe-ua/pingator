@@ -11,6 +11,9 @@ module Check
   # Check Url every minutes
   PLANS = { a: 30, b: 15, c: 5, d: 1 }.freeze
 
+  # For PLANS
+  PRICES = { a: 0, b: 2, c: 5, d: 15 }.freeze
+
   included do
     enum check_time: PLANS
 
