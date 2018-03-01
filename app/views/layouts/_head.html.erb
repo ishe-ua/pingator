@@ -1,0 +1,10 @@
+<head>
+  <title><%= APP::NAME + ' | ' + I18n.t('moto.short') %></title>
+  <meta charset="<%= Rails.application.config.encoding %>" />
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <%= csrf_meta_tags %>
+  <%# TODO: favicon %>
+</head>

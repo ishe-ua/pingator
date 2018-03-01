@@ -55,11 +55,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-normalize-css', '~> 7.0.0'
-  gem 'rails-assets-zepto',         '~> 1.2.0'
-end
-
 gem 'autoprefixer-rails'
-gem 'bourbon', '~> 5.0.0'
-gem 'bitters', '~> 1.8.0'
+gem 'rails-assets-zepto', '~> 1.2.0', source: 'https://rails-assets.org'
+gem 'octicons_helper'
