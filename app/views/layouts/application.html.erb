@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <%= render 'layouts/head' %>
-  <body id="application" class="<%= controller_name %> <%= action_name %>">
-    <%= yield %>
+  <head><%= render 'layouts/head' %></head>
+  <body id="app" class="<%= controller_name %> <%= action_name %>">
+
+    <header class="app_header"><%= render 'layouts/app_header' %></header>
+    <main   class="app_main">  <%= yield %>                      </main>
+    <footer class="app_footer"><%= render 'layouts/app_footer' %></footer>
+
   </body>
 </html>

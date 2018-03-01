@@ -1,0 +1,11 @@
+<main>
+  <h3><%= I18n.t('moto.long') %></h3>
+
+  <%= form_with do |f| %>
+    <%= f.text_field :email %><br/>
+    <%= f.text_field :name %><br/>
+    <%= f.text_field :password %><br/>
+
+    <%= f.submit 'Create Account' %> or <%= link_to 'Register' %>
+  <% end %>
+</main>
