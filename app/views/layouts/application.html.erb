@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pingator</title>
-    <%= csrf_meta_tags %>
+    <title><%= APP::NAME + ' | ' + APP::MOTO %></title>
+    <meta charset="<%= Rails.application.config.encoding %>" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body id="application" class="<%= controller_name %> <%= action_name %>">
     <%= yield %>
   </body>
 </html>
