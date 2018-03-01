@@ -1,4 +1,9 @@
 <h1>
-  <%= octicon :bell, height: 32 %>
-  <%= APP::NAME.capitalize %>
+  <%= link_to root_path do %>
+    <span class="name">
+      <%= octicon :bell, height: 32 %>
+      <%= APP::NAME.capitalize %>
+    </span>
+    <span class="moto"><%= APP::MOTO %></span>
+  <% end %>
 </h1>

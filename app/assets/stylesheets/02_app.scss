@@ -1,0 +1,33 @@
+#app {
+
+  //
+  // Grid
+  //
+
+  //
+  // Header
+  //
+
+  .app_header {
+    h1 {
+      .name, .moto { display: block; }
+      .moto {
+        font-size: 100%;
+        font-weight: normal;
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  //
+  // Main
+  //
+
+  .app_main { margin-top: 2em; }
+
+  //
+  // Footer
+  //
+
+  .app_footer { margin-top: 5em; }
+}
