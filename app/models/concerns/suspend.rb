@@ -8,6 +8,11 @@
 module Suspend
   extend ActiveSupport::Concern
 
+  included do
+    validates :suspend, inclusion: { in: [true, false] }
+    after_initialize :set_default_suspend
+  end
+
   def suspended?
     suspend
   end
@@ -18,5 +23,11 @@ module Suspend
 
   def resume
     update(suspend: false)
+  end
+
+  protected
+
+  def set_default_suspend
+    self.suspend = false if suspend.nil?
   end
 end

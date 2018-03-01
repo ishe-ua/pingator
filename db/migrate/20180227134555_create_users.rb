@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :country
       t.string :name
 
-      t.boolean :suspend, default: false
+      t.boolean :suspend
       t.timestamps
     end
 

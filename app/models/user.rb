@@ -8,7 +8,7 @@
 #  account_id :integer
 #  country    :string
 #  name       :string
-#  suspend    :boolean          default(FALSE)
+#  suspend    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
