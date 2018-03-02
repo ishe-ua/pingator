@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'home'
     get 'info'
     get 'dash'
+    get 'settings'
   end
 
   ###

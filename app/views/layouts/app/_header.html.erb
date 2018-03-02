@@ -9,7 +9,7 @@
 
 <% if signed_in? %>
   <div class="menu">
-    <%= link_to 'Settings', 'todo' %> |
+    <%= link_to 'Settings', settings_path %> |
     <%= link_to 'Sign Out', session_path(current_account), method: :delete %>
   </div>
 <% end %>

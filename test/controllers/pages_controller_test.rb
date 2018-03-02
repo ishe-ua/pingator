@@ -18,4 +18,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get dash_url
     assert_response :success
   end
+
+  test 'settings' do
+    sign_in
+    get settings_url
+    assert_response :success
+  end
 end
