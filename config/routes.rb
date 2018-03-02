@@ -11,6 +11,22 @@ Rails.application.routes.draw do
   end
 
   ###
+  # Account
+  #
+
+  # resources :accounts, except: %i[index show]
+  # get 'register', to: redirect('accounts/new'), as: :register
+
+  get 'accounts/confirm_email/:token' =>
+      'accounts#confirm_email', as: :confirm_email
+
+  # get 'accounts/repeat_email_confirmation' =>
+  #     'accounts#repeat_email_confirmation', as: :repeat_email_confirmation
+
+  # match 'accounts/reset_password' =>
+  #       'accounts#reset_password', via: %i[get post], as: :reset_password
+
+  ###
   # Others
   #
 
