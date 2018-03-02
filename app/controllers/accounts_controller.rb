@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: %i[edit update]
   skip_before_action :require_sign_in, only: %i[new create]
 
-  # TODO: include ConfirmEmail
+  include ConfirmEmail
   # TODO: include ResetPassword
 
   def new
