@@ -13,7 +13,6 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create account => success' do
-    skip
     assert_enqueued_emails 2 do
       assert_difference('Account.count') do
         post accounts_path, params: {
@@ -30,7 +29,6 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create account => fail' do
-    skip
     assert_no_enqueued_emails do
       assert_no_difference('Account.count') do
         post accounts_path, params: {
@@ -47,7 +45,6 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    skip
     sign_in @account
     get edit_account_path(id: @account)
     assert_response :success
