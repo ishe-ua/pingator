@@ -12,4 +12,11 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get info_path
     assert_redirected_to controller: :pages, action: :home
   end
+
+  test 'dash' do
+    skip
+    sign_in
+    get dash_url
+    assert_response :success
+  end
 end

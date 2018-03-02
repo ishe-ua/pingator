@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   controller :pages do
     get 'home'
     get 'info'
+    get 'dash'
   end
 
   ###
