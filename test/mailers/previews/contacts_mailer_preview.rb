@@ -8,6 +8,12 @@ class ContactsMailerPreview < ActionMailer::Preview
   end
 
   def to_us
-    ContactsMailer.to_us(Account.sample.email, 'aa', 'bb')
+    ContactsMailer.to_us(email, 'aa', 'bb')
+  end
+
+  private
+
+  def email
+    Account.sample.email
   end
 end
