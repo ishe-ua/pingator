@@ -1,9 +1,6 @@
 <h1>
   <%= link_to root_path do %>
-    <span class="name">
-      <%= octicon :bell, height: 32 %>
-      <%= APP::NAME.capitalize %>
-    </span>
-    <span class="moto"><%= APP::MOTO %></span>
+    <%= octicon :bell, height: 32 %>&nbsp;<%= APP::NAME.capitalize %>
+    <%= tag.div I18n.t('app.moto').downcase, class: :moto %>
   <% end %>
 </h1>

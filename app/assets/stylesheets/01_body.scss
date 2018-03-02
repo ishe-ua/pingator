@@ -2,11 +2,7 @@ body {
   background: yellow;
 
   form {
-    input { display: block;
-            padding: .5em;
-          }
-
-    input[type=submit] { margin-top: 1em; }
+    input { padding: .5em; }
   }
 
   a {

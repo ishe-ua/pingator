@@ -9,13 +9,9 @@
   //
 
   .app_header {
-    h1 {
-      .name, .moto { display: block; }
-      .moto {
-        font-size: 100%;
-        font-weight: normal;
-        text-transform: lowercase;
-      }
+    h1 .moto {
+      font-size: 100%;
+      font-weight: normal;
     }
   }
 
@@ -23,11 +19,11 @@
   // Main
   //
 
-  .app_main { margin-top: 2em; }
+  .app_main {}
 
   //
   // Footer
   //
 
-  .app_footer { margin-top: 5em; }
+  .app_footer {}
 }
