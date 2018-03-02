@@ -7,4 +7,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get home_url
     assert_response :success
   end
+
+  test 'info' do
+    get info_path
+    assert_redirected_to controller: :pages, action: :home
+  end
 end
