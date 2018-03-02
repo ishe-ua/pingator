@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   end
 
   ###
+  # Others
+  #
+
+  resources :contacts, only: %i[new create]
+
+  ###
   # Sidekiq monitoring
   # See https://github.com/mperham/sidekiq/wiki/Monitoring
   #

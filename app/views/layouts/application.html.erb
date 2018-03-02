@@ -3,9 +3,9 @@
   <head><%= render 'layouts/head' %></head>
   <body id="app" class="<%= controller_name %> <%= action_name %>">
 
-    <header class="app_header"><%= render 'layouts/app_header' %></header><hr/>
+    <header class="app_header"><%= render 'layouts/app/header' %></header><hr/>
     <main   class="app_main">  <%= yield %>                      </main><br/><br/><br/><br/>
-    <footer class="app_footer"><%= render 'layouts/app_footer' %></footer>
+    <footer class="app_footer"><%= render 'layouts/app/footer' %></footer>
 
   </body>
 </html>

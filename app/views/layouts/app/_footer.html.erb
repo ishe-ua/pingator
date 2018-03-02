@@ -1,4 +1,5 @@
 --<br/>
+
 <span class="copyright"><%=
                         app_link = link_to(APP::NAME.camelize, root_path)
 
@@ -6,6 +7,7 @@
                         year2 = Time.zone.now.year
                         app_years = year1 == year2 ? year1.to_s : "#{year1}-#{year2}"
 
-                        "&copy; «#{app_link}» #{app_years}. #{t '.copyright'}.".html_safe
+                        "&copy; «#{app_link}», #{app_years}. #{t '.copyright'}.".html_safe
                         %></span>
-<%= link_to "t('.contact')", 'new_contact_path', class: :contact %>
+
+<%= link_to t('.contact'), new_contact_path, class: :contact %>

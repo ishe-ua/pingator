@@ -1,0 +1,13 @@
+en:
+  contacts:
+    new:
+      title: Email us
+    create:
+      thank_you: Thank you for message. We will respond in the near future.
+      fill_fields: Fill in all the fields
+    form:
+      theme: Theme
+      text: Text
+  contacts_mailer:
+    thank_you:
+      subject: Thank you
