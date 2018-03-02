@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
   skip_before_action :require_sign_in, only: %i[new create]
 
   include ConfirmEmail
-  # TODO: include ResetPassword
+  include ResetPassword
 
   def new
     @account = Account.new

@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   get 'accounts/repeat_email_confirmation' =>
       'accounts#repeat_email_confirmation', as: :repeat_email_confirmation
 
-  # match 'accounts/reset_password' =>
-  #       'accounts#reset_password', via: %i[get post], as: :reset_password
+  match 'accounts/reset_password' =>
+        'accounts#reset_password', via: %i[get post], as: :reset_password
 
   ###
   # Others
