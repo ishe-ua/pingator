@@ -1,17 +1,6 @@
-<h2>Sign Up:</h2>
+<h2>
+  Sign Up:
+  <sup>its free</sup>
+</h2>
 
-<%= form_with do |f| %>
-  <%= f.email_field :email, placeholder: 'Your email' %><br/>
-  <%= f.text_field :name, placeholder: 'Name' %><br/>
-  <%= f.password_field :password, placeholder: 'Password' %><br/><br/>
-
-  <%= f.submit 'Create Account' %>
-<% end %>
-
-<br/><br/>
-
-<div>
-  --<br/>
-  <%= link_to 'Sign In', new_session_path %><br/>
-  <%= link_to 'I forgot password' %>
-</div>
+<%= render 'accounts/form' %>

@@ -1,0 +1,17 @@
+<%= form_with model: @account do |f| %>
+  <%# TODO = render "shared/errors", instance: @account %>
+
+  <%= f.email_field :email, placeholder: 'Your email', title: 'Email', autofocus: true %><br/>
+  <%= f.text_field :name, placeholder: 'Name', title: 'Name' %><br/>
+  <%= f.password_field :password, placeholder: 'Password', title: 'Password' %><br/><br/>
+
+  <%= f.submit 'Create Account' %>
+<% end %>
+
+<br/><br/>
+
+<div>
+  --<br/>
+  <%= link_to 'Sign In', new_session_path %><br/>
+  <%= link_to 'I forgot password' %>
+</div>

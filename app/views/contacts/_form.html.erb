@@ -1,9 +1,9 @@
 <%= form_with(url: contacts_path, local: true) do |f| %>
   <%# TODO: = render 'shared/errors' %>
 
-  <%= f.email_field :email, placeholder: 'Your email', autofocus: true %><br/>
-  <%= f.text_field :theme, placeholder: 'Theme' %><br/>
-  <%= f.text_area :text, placeholder: 'Text', size: '30x8' %><br/><br/>
+  <%= f.email_field :email, placeholder: 'Your email', title: 'Email', autofocus: true %><br/>
+  <%= f.text_field :theme, placeholder: 'Theme', title: 'Theme' %><br/>
+  <%= f.text_area :text, placeholder: 'Text', title: 'Text', size: '30x8' %><br/><br/>
 
   <%= f.submit 'Send' %>
 <% end %>

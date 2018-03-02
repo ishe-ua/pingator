@@ -1,8 +1,8 @@
 <%= form_with url: sessions_path do |f| %>
   <%# TODO: = render 'shared/errors' %>
 
-  <%= f.email_field :email, placeholder: 'Email', autofocus: true %><br/>
-  <%= f.password_field :password, placeholder: 'Password' %><br/><br/>
+  <%= f.email_field :email, placeholder: 'Email', title: 'Email', autofocus: true %><br/>
+  <%= f.password_field :password, placeholder: 'Password', title: 'Password' %><br/><br/>
 
   <%= f.submit 'Sign In' %>
 <% end %>
@@ -11,6 +11,6 @@
 
 <div>
   --<br/>
-  <%= link_to 'Sign Up', 'todo: new_account_path' %><br/>
-  <%= link_to 'Restore password', 'todo: reset_password_path' %>
+  <%= link_to 'Sign Up', new_account_path %><br/>
+  <%= link_to 'I forgot password', 'todo: reset_password_path' %>
 </div>

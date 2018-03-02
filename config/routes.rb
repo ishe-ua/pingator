@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # Account
   #
 
-  # resources :accounts, except: %i[index show]
-  # get 'register', to: redirect('accounts/new'), as: :register
+  resources :accounts, except: %i[index show]
+  get 'register', to: redirect('accounts/new'), as: :register
 
   get 'accounts/confirm_email/:token' =>
       'accounts#confirm_email', as: :confirm_email

@@ -9,7 +9,7 @@ en:
         password_confirmation: Password again
   accounts:
     new:
-      title: Register
+      title: Sign Up
     create:
       we_sent_you_email: We have sent you an Email
     show:
