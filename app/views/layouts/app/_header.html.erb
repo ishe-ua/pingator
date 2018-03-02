@@ -4,3 +4,12 @@
     <%= tag.div I18n.t('app.motto').downcase, class: :motto %>
   <% end %>
 </h1>
+
+<hr/>
+
+<% if signed_in? %>
+  <div class="menu">
+    <%= link_to 'Settings', 'todo' %> |
+    <%= link_to 'Sign Out', 'todo' %>
+  </div>
+<% end %>

@@ -14,7 +14,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'dash' do
-    skip
     sign_in
     get dash_url
     assert_response :success
