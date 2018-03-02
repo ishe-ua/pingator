@@ -13,8 +13,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should post create - success' do
-    skip
-    post sessions_path(email: @account.email.upcase,
+    post sessions_path(email: @account.email,
                        password: APP::DEFAULT_PASSWORD)
 
     assert_equal session[:account_id], @account.id
@@ -22,7 +21,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should post create - fail' do
-    skip
     post sessions_path(email: 'left-email@example.com',
                        password: 'left password', lang: I18n.locale)
     assert_response :success
@@ -32,7 +30,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get destroy' do
-    skip
     sign_in(@account)
     delete session_path(id: @account.id)
 

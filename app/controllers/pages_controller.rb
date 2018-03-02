@@ -4,7 +4,9 @@
 class PagesController < ApplicationController
   skip_before_action :require_sign_in, only: %i[home info]
 
-  def home; end
+  def home
+    redirect_to dash_path if signed_in?
+  end
 
   # Show flash messages
   def info

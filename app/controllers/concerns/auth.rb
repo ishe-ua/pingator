@@ -30,7 +30,7 @@ module Auth
 
     if account.authenticate(password)
       session[:account_id] = account.id
-      # TODO: true
+      true
     else
       t('sessions.errors.fail')
     end
