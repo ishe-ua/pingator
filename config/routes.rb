@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Others
   #
 
+  resources :sessions, only: %i[new create destroy]
   resources :contacts, only: %i[new create]
 
   ###

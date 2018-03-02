@@ -2,7 +2,7 @@
 
 # Static pages
 class PagesController < ApplicationController
-  # TODO: skip_before_action :require_sign_in, only: %i[home info]
+  skip_before_action :require_sign_in, only: %i[home info]
 
   def home; end
 

@@ -3,5 +3,5 @@
 # Base controller
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  # TODO: include Auth
+  include Auth
 end

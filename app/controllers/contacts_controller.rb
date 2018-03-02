@@ -2,7 +2,7 @@
 
 # See Contact
 class ContactsController < ApplicationController
-  # TODO: skip_before_action :require_sign_in
+  skip_before_action :require_sign_in
 
   def new; end
 
