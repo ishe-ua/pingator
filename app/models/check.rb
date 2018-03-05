@@ -22,4 +22,5 @@
 class Check < ApplicationRecord
   belongs_to :target
   include Duration
+  include Code
 end

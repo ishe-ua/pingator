@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Check (response) duration (in milliseconds).
+# Response duration (in milliseconds).
 #
 # Field +duration+ in table:
 # * integer

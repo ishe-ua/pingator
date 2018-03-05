@@ -2,23 +2,23 @@
 
 require 'test_helper'
 
-class DurationTest < ActiveSupport::TestCase
+class CodeTest < ActiveSupport::TestCase
   setup do
     @instance = build(:check)
   end
 
   test 'required field' do
-    instance.duration = nil
+    instance.code = nil
     assert_not instance.valid?
   end
 
   test 'only integer' do
-    instance.duration = 1.1
+    instance.code = 1.1
     assert_not instance.valid?
   end
 
-  test 'greater than or equal to 0' do
-    instance.duration = -1
+  test 'greater than 0' do
+    instance.code = 0
     assert_not instance.valid?
   end
 end
