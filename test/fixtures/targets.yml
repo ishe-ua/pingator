@@ -1,7 +1,7 @@
 DEFAULTS: &DEFAULTS
   user: mary
-  url:       http://example.com/$LABEL
-  check_time: <%= Target.new.check_time %>
+  url:  http://example.com/$LABEL
+  plan: <%= Target.new.plan %>
 
   verified_at: now
   verification_token: <%= Target.new.verification_token %>-$LABEL

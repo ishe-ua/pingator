@@ -29,17 +29,16 @@ ActiveRecord::Schema.define(version: 20180227153105) do
 
   create_table "targets", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "url"
-    t.integer "check_time"
-    t.datetime "checked_at"
+    t.string "url", null: false
+    t.integer "plan", null: false
     t.datetime "verified_at"
     t.string "verification_token"
     t.datetime "locked_at"
     t.integer "lock_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["check_time"], name: "index_targets_on_check_time"
     t.index ["locked_at"], name: "index_targets_on_locked_at"
+    t.index ["plan"], name: "index_targets_on_plan"
     t.index ["url"], name: "index_targets_on_url"
     t.index ["user_id"], name: "index_targets_on_user_id"
     t.index ["verification_token"], name: "index_targets_on_verification_token", unique: true

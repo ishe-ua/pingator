@@ -2,19 +2,19 @@
 
 require 'test_helper'
 
-class CheckTest < ActiveSupport::TestCase
+class PlanTest < ActiveSupport::TestCase
   setup do
     @instance = build(:target)
   end
 
   test 'protect enum values' do
-    assert_equal instance_class.check_times[:a], 15
-    assert_equal instance_class.check_times[:b], 5
-    assert_equal instance_class.check_times[:c], 1
+    assert_equal instance_class.plans[:a], 15
+    assert_equal instance_class.plans[:b], 5
+    assert_equal instance_class.plans[:c], 1
   end
 
   test 'required field' do
-    instance.check_time = nil
+    instance.plan = nil
     assert_not instance.valid?
   end
 

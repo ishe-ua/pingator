@@ -7,9 +7,8 @@
 #
 #  id                 :integer          not null, primary key
 #  user_id            :integer
-#  url                :string
-#  check_time         :integer
-#  checked_at         :datetime
+#  url                :string           not null
+#  plan               :integer          not null
 #  verified_at        :datetime
 #  verification_token :string
 #  locked_at          :datetime
@@ -19,8 +18,8 @@
 #
 # Indexes
 #
-#  index_targets_on_check_time          (check_time)
 #  index_targets_on_locked_at           (locked_at)
+#  index_targets_on_plan                (plan)
 #  index_targets_on_url                 (url)
 #  index_targets_on_user_id             (user_id)
 #  index_targets_on_verification_token  (verification_token) UNIQUE
@@ -34,7 +33,7 @@ class Target < ApplicationRecord
   belongs_to :user
 
   include Url
+  include Plan
   include Verification
-  include Check
   include Lock
 end
