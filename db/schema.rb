@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20180305123352) do
 
   create_table "checks", force: :cascade do |t|
     t.bigint "target_id"
-    t.datetime "time", null: false
-    t.integer "duration", null: false, comment: "response duration"
-    t.integer "code", null: false, comment: "response code"
-    t.text "body", comment: "response body"
+    t.datetime "start", null: false
+    t.integer "duration", null: false
+    t.integer "code", null: false
+    t.text "body"
     t.index ["target_id"], name: "index_checks_on_target_id"
   end
 

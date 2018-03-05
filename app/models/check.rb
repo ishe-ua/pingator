@@ -1,12 +1,11 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: checks
 #
 #  id        :integer          not null, primary key
 #  target_id :integer
-#  time      :datetime         not null
+#  start     :datetime         not null
 #  duration  :integer          not null
 #  code      :integer          not null
 #  body      :text
