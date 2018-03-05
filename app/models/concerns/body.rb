@@ -8,7 +8,7 @@
 module Body
   extend ActiveSupport::Concern
 
-  MAX_BODY = 5.kilobytes
+  MAX_BODY = 4.kilobytes
 
   included do
     validates :body,

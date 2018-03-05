@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: checks
@@ -21,6 +22,7 @@
 class Check < ApplicationRecord
   belongs_to :target
 
+  include Start
   include Duration
   include Code
   include Body
