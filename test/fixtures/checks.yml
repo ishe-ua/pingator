@@ -1,0 +1,29 @@
+DEFAULTS: &DEFAULTS
+  target: mary
+  time: <%= Time.current %>
+
+  duration: 70
+  code: 200
+  body: ok
+
+mary_success:
+  <<: *DEFAULTS
+  target: mary
+  time: <%= 10.minutes.ago %>
+
+  duration: 200
+  code: 200
+  body: success
+
+mary_fail:
+  <<: *DEFAULTS
+  target: mary
+  time: <%= 2.minutes.ago %>
+
+  duration: 30000
+  code: 400
+  body: bad request
+
+john:
+  <<: *DEFAULTS
+  target: john
