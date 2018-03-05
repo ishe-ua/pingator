@@ -3,7 +3,10 @@
 require 'test_helper'
 
 class CheckTest < ActiveSupport::TestCase
-  test 'the truth' do
-    skip
+  setup do
+    @instance = build(:check)
   end
+
+  include ValidateInstanceTest
+  include ValidateFixturesTest
 end
