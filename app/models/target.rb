@@ -31,7 +31,7 @@
 #
 class Target < ApplicationRecord
   belongs_to :user
-  has_many :states, dependent: :delete_all
+  has_many :checks, dependent: :delete_all
 
   include Url
   include Plan

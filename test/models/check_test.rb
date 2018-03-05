@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class StateTest < ActiveSupport::TestCase
+class CheckTest < ActiveSupport::TestCase
   test 'the truth' do
     skip
   end
