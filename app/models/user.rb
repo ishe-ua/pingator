@@ -7,6 +7,7 @@
 #  id         :integer          not null, primary key
 #  account_id :integer
 #  name       :string
+#  timezone   :string
 #  suspend    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -25,5 +26,6 @@ class User < ApplicationRecord
   has_many :targets, dependent: :destroy
 
   include Name
+  include Timezone
   include Suspend
 end
