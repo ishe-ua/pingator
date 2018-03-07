@@ -1,20 +1,22 @@
-<h3><%= Account.model_name.human %> :</h3>
+<h3><%= Account.model_name.human %>:</h3>
 
-<dl>
-  <dt><%= Account.human_attribute_name(:email) %></dt>
-  <dd>
-    <span><%= current_account.email %>
-      <% unless current_account.email_confirmed? %>
-        <i class="not-confirmed">
-          &nbsp;<%= t('.email_not_confirmed') %>
-        </i>
-      <% end %>
+<div class="field">
+  <%= Account.human_attribute_name(:email) %>:
+  <span class="bold"><%= current_account.email %></span>
+
+  <% unless current_account.email_confirmed? %>
+    <span class="red italic">
+      &nbsp;<%= t('.email_not_confirmed') %>
     </span>
-  </dd>
+  <% end %>
+</div>
 
-  <dt><%= Account.human_attribute_name(:password) %></dt>
-  <dd><span>***</span></dd>
+<div class="field">
+  <%= Account.human_attribute_name(:password) %>: ***
+</div>
 
-</dl>
+<br/>
 
-<%= link_to t(:edit), edit_account_path(current_account), class: 'btn-edit' %>
+<%= link_to 'todo: edit_account_path(current_account)' do %>
+  <button><%= t :edit %></button>
+<% end %>
