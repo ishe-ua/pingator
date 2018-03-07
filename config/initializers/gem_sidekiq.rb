@@ -15,7 +15,7 @@ end
 # See:
 # 1. https://github.com/mperham/sidekiq/wiki/Monitoring
 # 2. routes.rb
-def protect_sidekiq # rubocop:disable AbcSize
+def protect_sidekiq_with_password # rubocop:disable AbcSize
   unless Rails.env.development? ||
          Rails.env.test?
     sidekiq_username = Rails.application.secrets.sidekiq[:username]

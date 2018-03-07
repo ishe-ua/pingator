@@ -39,5 +39,5 @@ Rails.application.routes.draw do
   #
 
   mount Sidekiq::Web, at: '/sidekiq'
-  protect_sidekiq
+  protect_sidekiq_with_password
 end
