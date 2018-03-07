@@ -5,7 +5,7 @@
   <%= f.text_field :name, placeholder: 'Name', title: 'Name' %><br/>
   <%= f.password_field :password, placeholder: 'Password', title: 'Password' %><br/><br/>
 
-  <%= f.submit 'Create Account' %>
+  <%= f.submit(current_page?(root_path) ? 'Create Account' : 'OK') %>
 <% end %>
 
 <br/><br/>

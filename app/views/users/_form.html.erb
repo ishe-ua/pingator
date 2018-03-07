@@ -1,0 +1,11 @@
+<%= form_with model: @user do |f| %>
+  <%#= render "shared/errors", instance: @company %>
+
+  <%= f.text_field :name, autofocus: true, title: 'Name' %><br/>
+  <%= f.select :country, Country::COUNTRIES_HASH.invert, prompt: '- Select country -' %><br/>
+  <%= f.select :timezone, Timezone::SUPPORTED_TZ_NAMES.sort, prompt: '- Select timezone -' %><br/>
+
+  <br/>
+
+  <%= f.submit 'OK' %>
+<% end %>
