@@ -1,0 +1,17 @@
+<h3><%= User.model_name.human %>:</h3>
+
+<div class="field">
+  <%= User.human_attribute_name(:name) %>:
+  <span class="bold"><%= current_user.name %></span>
+</div>
+
+<div class="field">
+  <%= User.human_attribute_name(:timezone) %>:
+  <span class="bold"><%= d current_user.tz %></span>
+</div>
+
+<br/>
+
+<%= link_to 'todo: edit_user_path(current_user)' do %>
+  <button><%= t :edit %></button>
+<% end %>
