@@ -6,6 +6,11 @@
 </div>
 
 <div class="field">
+  <%= User.human_attribute_name(:country) %>:
+  <span class="bold"><%= d Country::COUNTRIES_HASH[current_user.country] %></span>
+</div>
+
+<div class="field">
   <%= User.human_attribute_name(:timezone) %>:
   <span class="bold"><%= d current_user.tz %></span>
 </div>
