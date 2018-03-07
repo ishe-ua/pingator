@@ -57,11 +57,13 @@ ActiveRecord::Schema.define(version: 20180305123352) do
   create_table "users", force: :cascade do |t|
     t.bigint "account_id"
     t.string "name"
+    t.string "country"
     t.string "timezone"
     t.boolean "suspend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id"
+    t.index ["name"], name: "index_users_on_name"
     t.index ["suspend"], name: "index_users_on_suspend"
   end
 

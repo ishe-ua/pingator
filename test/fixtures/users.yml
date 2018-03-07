@@ -10,3 +10,4 @@ mary:
 john:
   <<: *DEFAULTS
   account: john
+  country: ua
