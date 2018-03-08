@@ -1,5 +1,5 @@
 <%= form_with model: @account do |f| %>
-  <%# TODO = render "shared/errors", instance: @account %>
+  <%= render 'layouts/errors' %>
 
   <%= f.email_field :email, placeholder: 'Your email', title: 'Email', autofocus: true %><br/>
   <% unless signed_in? %>

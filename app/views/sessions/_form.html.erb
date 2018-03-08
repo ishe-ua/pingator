@@ -1,5 +1,5 @@
 <%= form_with url: sessions_path do |f| %>
-  <%# TODO: = render 'shared/errors' %>
+  <%= render 'layouts/errors' %>
 
   <%= f.email_field :email, placeholder: 'Email', title: 'Email', autofocus: true %><br/>
   <%= f.password_field :password, placeholder: 'Password', title: 'Password' %><br/><br/>

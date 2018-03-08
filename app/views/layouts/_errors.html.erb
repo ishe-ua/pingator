@@ -1,0 +1,11 @@
+<ul class="errors">
+  <% resource&.errors&.full_messages&.each do |msg| %>
+    <li><%= msg.html_safe %></li>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <li><%= flash[:alert].html_safe %></li>
+  <% elsif flash.now[:alert].present? %>
+    <li><%= flash.now[:alert].html_safe %></li>
+  <% end %>
+</ul>
