@@ -2,7 +2,9 @@
   <%# TODO = render "shared/errors", instance: @account %>
 
   <%= f.email_field :email, placeholder: 'Your email', title: 'Email', autofocus: true %><br/>
-  <%= f.text_field :name, placeholder: 'Name', title: 'Name' %><br/>
+  <% unless signed_in? %>
+    <%= f.text_field :name, placeholder: 'Name', title: 'Name' %><br/>
+  <% end  %>
   <%= f.password_field :password, placeholder: 'Password', title: 'Password' %><br/><br/>
 
   <%= f.submit(current_page?(root_path) ? 'Create Account' : 'OK') %>
