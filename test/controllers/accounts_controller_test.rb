@@ -33,9 +33,8 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
       assert_no_difference('Account.count') do
         post accounts_path, params: {
           account: {
-            email: 'company@example.com',
-            password: '12345678',
-            password_confirmation: '87654321'
+            email: '',
+            password: '12345678'
           }
         }
 

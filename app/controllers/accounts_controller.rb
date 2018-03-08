@@ -14,7 +14,10 @@ class AccountsController < ApplicationController
 
   # See AccountsMailer#email_confirmation
   def create
-    @account = Account.new(account_params)
+    ap = account_params
+    ap[:password_confirmation] = ap[:password]
+
+    @account = Account.new(ap)
     if @account.save
       AccountsMailer.email_confirmation(@account).deliver_later
       AdminMailer.new_registration(@account).deliver_later
