@@ -12,6 +12,9 @@ module Timezone
 
   included do
     alias_attribute :tz, :timezone
-    validates :timezone, inclusion: { in: SUPPORTED_TZ_NAMES }, allow_nil: true
+
+    validates :timezone,
+              inclusion: { in: SUPPORTED_TZ_NAMES },
+              allow_blank: true
   end
 end

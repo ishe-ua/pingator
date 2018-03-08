@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 # Country code (2 chars).
@@ -268,6 +269,6 @@ module Country # rubocop:disable ModuleLength
   included do
     validates :country,
               length:    { is: 2 },
-              inclusion: { in: COUNTRIES_CODES }, allow_nil: true
+              inclusion: { in: COUNTRIES_CODES }, allow_blank: true
   end
 end

@@ -2,7 +2,6 @@
 
 # See User
 class UsersController < ApplicationController
-  skip_before_action :require_sign_in, only: :show
   before_action :set_user, only: %i[edit update]
 
   def edit; end
