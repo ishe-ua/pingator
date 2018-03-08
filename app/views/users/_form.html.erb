@@ -1,4 +1,4 @@
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, local: true do |f| %>
   <%= render 'layouts/errors' %>
 
   <%= f.text_field :name, autofocus: true, title: 'Name' %><br/>

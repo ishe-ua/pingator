@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # User _resource_
 #
 module Resource
@@ -13,7 +15,6 @@ module Resource
   def resource_name
     controller_name.singularize
   end
-
 
   # Like 'account' => 'accounts'
   def resources_name
