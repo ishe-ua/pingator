@@ -6,6 +6,35 @@ class TargetsController < ApplicationController
 
   def index; end
 
+  def new
+    @target = current_user.targets.build
+  end
+
+  def create
+    @target = current_user.targets.build(target_params)
+    if @target.save
+      redirect_to dash_path
+    else
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @target.update(target_params)
+      redirect_to dash_path
+    else
+      render :edit
+    end
+  end
+
+  # See TargetsMailer#destroy_notification
+  def destroy
+    @target.destroy!
+    TargetsMailer.destroy_notification(@target).deliver_later
+  end
+
   private
 
   def set_target

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create destroy]
   resources :contacts, only: %i[new create]
 
-  resources :targets
+  resources :targets, except: :show
   get '/dash', to: 'targets#index'
 
   ###
