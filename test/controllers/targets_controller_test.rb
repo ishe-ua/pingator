@@ -3,7 +3,18 @@
 require 'test_helper'
 
 class TargetsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @target = targets(:mary)
+    sign_in(:mary)
+  end
+
   test 'should get index' do
-    skip
+    get targets_path
+    assert_response :success
+  end
+
+  test 'should get new' do
+    get new_target_path
+    assert_response :success
   end
 end

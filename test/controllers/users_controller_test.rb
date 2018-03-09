@@ -5,7 +5,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:mary)
-    sign_in @user.account
+    sign_in(:mary)
   end
 
   test 'should get edit' do

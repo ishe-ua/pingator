@@ -8,4 +8,8 @@ module TargetsHelper
   def current_status_color(target)
     target.success? ? 'green' : 'red'
   end
+
+  def plans_for_select
+    Target.plans.keys.map { |k, v| [k + ' - ', v] }
+  end
 end

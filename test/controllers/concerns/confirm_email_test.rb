@@ -35,7 +35,7 @@ class ConfirmEmailTest < ActionDispatch::IntegrationTest
   end
 
   test 'repeat_email_confirmation' do
-    sign_in(@account)
+    sign_in(:mary)
     assert_enqueued_emails 1 do
       get repeat_email_confirmation_path
       assert_redirected_to controller: :pages, action: :info

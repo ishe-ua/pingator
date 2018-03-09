@@ -24,7 +24,8 @@ class ActionDispatch::IntegrationTest
   include ActionMailer::TestHelper
   include ActiveJob::TestHelper
 
-  def sign_in(account = accounts(:mary))
+  def sign_in(sym_name = :mary)
+    account = accounts(sym_name)
     post sessions_path, params: {
       email: account.email,
       password: APP::DEFAULT_PASSWORD

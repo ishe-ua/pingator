@@ -44,13 +44,13 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    sign_in @account
+    sign_in
     get edit_account_path(id: @account)
     assert_response :success
   end
 
   test 'should update account' do
-    sign_in @account
+    sign_in
     patch account_path(id: @account), params: {
       account: {
         email:                @account.email,
@@ -63,7 +63,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update account, unconfirm email and send confirmation' do
-    sign_in @account
+    sign_in
     assert_enqueued_emails 1 do
       patch account_path(id: @account), params: {
         account: { email: 'new@example.com' }
