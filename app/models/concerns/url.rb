@@ -11,7 +11,6 @@ module Url
   MAX_LENGTH = 256
 
   included do
-    before_validation :downcase_url
     before_validation :add_supported_scheme
 
     validates :url,
@@ -22,10 +21,6 @@ module Url
   end
 
   protected
-
-  def downcase_url
-    url.downcase! if url.present?
-  end
 
   def add_supported_scheme
     return if url.blank?
