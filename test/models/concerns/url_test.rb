@@ -27,6 +27,12 @@ class UrlTest < ActiveSupport::TestCase
     assert instance.valid?
   end
 
+  test '#downcase_url' do
+    instance.url = 'httP://eXample.com'
+    instance.save!
+    assert_equal instance.url, 'http://example.com'
+  end
+
   test '#add_http_or_https if need' do
     instance.url = 'example.com'
     instance.save!

@@ -7,4 +7,7 @@ Status: <%= link_to current_status(target), 'todo', class: (current_status_color
 <br/>
 <br/>
 
-<%= link_to t(:edit) + '...', 'TODO', class: 'f90' %>
+<div class="f90">
+  <%= link_to t(:edit) + '...', 'TODO' %>
+  <%= link_to t(:destroy) + '...', 'TODO' %>
+</div>
