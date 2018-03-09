@@ -19,4 +19,8 @@ module Status
       last_ping.code >= 200 &&
       last_ping.code < 300
   end
+
+  def fail?
+    !success?
+  end
 end
