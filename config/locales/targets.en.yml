@@ -1,0 +1,4 @@
+en:
+  targets_mailer:
+    destroy_notification:
+      subject: Url has been destroyed
