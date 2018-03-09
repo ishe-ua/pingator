@@ -4,7 +4,7 @@ require 'test_helper'
 
 class BodyTest < ActiveSupport::TestCase
   setup do
-    @instance = build(:check)
+    @instance = build(:ping)
   end
 
   test 'limited length' do

@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20180305123352) do
     t.index ["email_confirmation_token"], name: "index_accounts_on_email_confirmation_token", unique: true
   end
 
-  create_table "checks", force: :cascade do |t|
+  create_table "pings", force: :cascade do |t|
     t.bigint "target_id"
     t.datetime "start", null: false
     t.integer "duration", null: false
     t.integer "code", null: false
     t.text "body"
-    t.index ["target_id"], name: "index_checks_on_target_id"
+    t.index ["target_id"], name: "index_pings_on_target_id"
   end
 
   create_table "targets", force: :cascade do |t|
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180305123352) do
     t.index ["suspend"], name: "index_users_on_suspend"
   end
 
-  add_foreign_key "checks", "targets"
+  add_foreign_key "pings", "targets"
   add_foreign_key "targets", "users"
   add_foreign_key "users", "accounts"
 end

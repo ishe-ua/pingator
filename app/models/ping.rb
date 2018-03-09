@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: checks
+# Table name: pings
 #
 #  id        :integer          not null, primary key
 #  target_id :integer
@@ -13,13 +13,13 @@
 #
 # Indexes
 #
-#  index_checks_on_target_id  (target_id)
+#  index_pings_on_target_id  (target_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (target_id => targets.id)
 #
-class Check < ApplicationRecord
+class Ping < ApplicationRecord
   belongs_to :target
 
   include Start

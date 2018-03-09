@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class CheckTest < ActiveSupport::TestCase
+class PingTest < ActiveSupport::TestCase
   setup do
-    @instance = build(:check)
+    @instance = build(:ping)
   end
 
   include ValidateInstanceTest

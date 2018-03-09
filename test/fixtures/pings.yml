@@ -5,7 +5,7 @@ DEFAULTS: &DEFAULTS
   duration: 70
 
   code: 200
-  body: ok
+  body: ...
 
 mary_success:
   <<: *DEFAULTS

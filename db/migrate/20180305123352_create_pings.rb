@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateChecks < ActiveRecord::Migration[5.1]
+class CreatePings < ActiveRecord::Migration[5.1]
   def change
-    create_table :checks do |t| # rubocop:disable CreateTableWithTimestamps
+    create_table :pings do |t| # rubocop:disable CreateTableWithTimestamps
       t.belongs_to :target, foreign_key: true
 
       t.datetime :start, null: false

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-#
 # == Schema Information
 #
 # Table name: targets
@@ -31,10 +30,11 @@
 #
 class Target < ApplicationRecord
   belongs_to :user
-  has_many :checks, dependent: :delete_all
+  has_many :pings, dependent: :delete_all
 
   include Url
   include Plan
+  # TODO: include Status
   include Verification
   include Lock
 end

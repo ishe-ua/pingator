@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CodeTest < ActiveSupport::TestCase
   setup do
-    @instance = build(:check)
+    @instance = build(:ping)
   end
 
   test 'required field' do
