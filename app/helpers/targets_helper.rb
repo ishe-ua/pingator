@@ -10,6 +10,15 @@ module TargetsHelper
   end
 
   def plans_for_select
-    Target.plans.keys.map { |k, v| [k + ' - ', v] }
+    Target.plans.map do |k, v|
+      time = "#{v}min"
+
+      price = begin
+                dollars = Plan::PRICES[k.to_sym]
+                dollars.positive? ? "#{dollars}$ month" : 'free'
+              end
+
+      ["#{time} - #{price}", k]
+    end
   end
 end
