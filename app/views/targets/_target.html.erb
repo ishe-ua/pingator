@@ -9,7 +9,7 @@ Status: <%= link_to current_status(target), 'todo', class: (current_status_color
 
 <div class="f90">
   <%= link_to t(:edit) + '...', edit_target_path(target) %>
-  <%= link_to t(:destroy) + '...', target, method: :delete %>
+  <%= link_to t(:destroy) + '...', target, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
 <br/>

@@ -33,6 +33,7 @@ class TargetsController < ApplicationController
   def destroy
     @target.destroy!
     TargetsMailer.destroy_notification(@target).deliver_later
+    redirect_to targets_url
   end
 
   private
