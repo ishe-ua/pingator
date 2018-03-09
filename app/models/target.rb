@@ -8,6 +8,7 @@
 #  user_id            :integer
 #  url                :string           not null
 #  plan               :integer          not null
+#  status             :integer          not null
 #  verified_at        :datetime
 #  verification_token :string
 #  locked_at          :datetime
@@ -34,7 +35,7 @@ class Target < ApplicationRecord
 
   include Url
   include Plan
-  # TODO: include Status
+  include Status
   include Verification
   include Lock
 end

@@ -1,7 +1,9 @@
 DEFAULTS: &DEFAULTS
   user: mary
-  url:  http://example.com/$LABEL
+
+  url: http://example.com/$LABEL
   plan: <%= Target.plans[Target.new.plan] %>
+  status: <%= Target.statuses[Target.new.status] %>
 
   verified_at: now
   verification_token: <%= Target.new.verification_token %>-$LABEL
