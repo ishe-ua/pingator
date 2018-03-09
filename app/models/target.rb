@@ -8,7 +8,6 @@
 #  user_id            :integer
 #  url                :string           not null
 #  plan               :integer          not null
-#  status             :integer          not null
 #  verified_at        :datetime
 #  verification_token :string
 #  locked_at          :datetime

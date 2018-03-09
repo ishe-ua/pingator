@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20180305123352) do
     t.bigint "user_id"
     t.string "url", null: false
     t.integer "plan", null: false
-    t.integer "status", null: false
     t.datetime "verified_at"
     t.string "verification_token"
     t.datetime "locked_at"

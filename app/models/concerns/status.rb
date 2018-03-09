@@ -1,26 +1,22 @@
 # frozen_string_literal: true
 
-# Field +status+ in table:
-# * integer
-#
+# Dynamic calcs.
 module Status
   extend ActiveSupport::Concern
 
-  included do
-    enum status: %i[wait
-                    informational
-                    success
-                    redirection
-                    client_error
-                    server_error]
-
-    validates :status, presence: true
-    after_initialize :set_default_status
+  # From Redis or Ping
+  def last_ping
+    @last_ping ||= begin
+                     json = nil # TODO: get from Redis
+                     json.present? ? Ping.new(json.to_hash) : pings.last
+                   end
   end
 
-  protected
-
-  def set_default_status
-    self.status ||= :wait
+  # See http status codes
+  def success?
+    last_ping&.code &&
+      last_ping.code.is_a?(Integer) &&
+      last_ping.code >= 200 &&
+      last_ping.code < 300
   end
 end
