@@ -2,8 +2,8 @@
   <%= render 'layouts/errors' %>
 
   <%= f.text_field :name, autofocus: true, title: 'Name' %><br/>
-  <%= f.select :country, Country::COUNTRIES_HASH.invert, { prompt: '- Your country -' }, { title: 'Country' } %><br/>
-  <%= f.select :timezone, Timezone::SUPPORTED_TZ_NAMES.sort, { prompt: '- Your timezone -'}, { title: 'Timezone' } %><br/>
+  <%= f.select :country, Country::COUNTRIES_HASH.invert, include_blank: '- Your country -' %><br/>
+  <%= f.select :timezone, Timezone::SUPPORTED_TZ_NAMES.sort, include_blank: '- Your timezone -' %><br/>
 
   <br/>
 
