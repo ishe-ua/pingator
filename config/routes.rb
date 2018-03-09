@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   controller :pages do
     get 'home'
     get 'info'
-    get 'dash'
     get 'settings'
   end
 
@@ -33,10 +32,11 @@ Rails.application.routes.draw do
   #
 
   resources :users, only: %i[edit update]
-  resources :targets # TODO
-
   resources :sessions, only: %i[new create destroy]
   resources :contacts, only: %i[new create]
+
+  resources :targets
+  get '/dash', to: 'targets#index'
 
   ###
   # Sidekiq monitoring

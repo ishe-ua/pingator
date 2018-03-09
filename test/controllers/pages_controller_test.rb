@@ -13,12 +13,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to controller: :pages, action: :home
   end
 
-  test 'dash' do
-    sign_in
-    get dash_url
-    assert_response :success
-  end
-
   test 'settings' do
     sign_in
     get settings_url
