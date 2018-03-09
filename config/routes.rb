@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'targets/index'
+
   root 'pages#home'
 
   controller :pages do
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   #
 
   resources :users, only: %i[edit update]
+  resources :targets # TODO
 
   resources :sessions, only: %i[new create destroy]
   resources :contacts, only: %i[new create]
