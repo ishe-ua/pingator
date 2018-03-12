@@ -19,6 +19,13 @@ class TargetsControllerTest < ActionDispatch::IntegrationTest
     assert_select '.any', text: 'Add first and start monitoring'
   end
 
+  test 'should show dns section if domain not verified' do
+    assert @target.unverify
+    get targets_path
+    assert_select 'caption',
+                  text: 'Add to DNS the next record and wait some minutes:'
+  end
+
   test 'should get new' do
     get new_target_path
     assert_response :success

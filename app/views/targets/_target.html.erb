@@ -5,11 +5,7 @@ Status: <%= link_to current_status(target), 'todo', class: (current_status_class
 <span class="f90">last ping: <time><%= last_ping_time(target) %></time>, <%= link_to 'Details', 'todo' %></span>
 
 <% if target.not_verified? %>
-  <div class="dns">
-    <br/>
-    Add to DNS the next record and wait some minutes:<br/><br/>
-    <b><%= target.verification_token %> TXT <%= target.url %></b>
-  </div>
+  <%= render 'dns', target: target %>
 <% end %>
 
 <br/>
