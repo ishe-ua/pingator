@@ -10,10 +10,6 @@
 module Lock
   extend ActiveSupport::Concern
 
-  included do
-    enum lock_reason: %i[admin not_found not_verified] # TODO
-  end
-
   def locked?
     locked_at ? true : false
   end

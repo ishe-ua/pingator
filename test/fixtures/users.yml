@@ -1,7 +1,6 @@
 DEFAULTS: &DEFAULTS
   account: mary
   name: $LABEL
-  suspend: <%= User.new.suspend %>
 
 mary:
   <<: *DEFAULTS

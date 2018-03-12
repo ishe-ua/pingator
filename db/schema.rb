@@ -59,12 +59,13 @@ ActiveRecord::Schema.define(version: 20180305123352) do
     t.string "name"
     t.string "country"
     t.string "timezone"
-    t.boolean "suspend"
+    t.datetime "locked_at"
+    t.string "lock_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id"
+    t.index ["locked_at"], name: "index_users_on_locked_at"
     t.index ["name"], name: "index_users_on_name"
-    t.index ["suspend"], name: "index_users_on_suspend"
   end
 
   add_foreign_key "pings", "targets"
