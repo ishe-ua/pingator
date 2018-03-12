@@ -21,6 +21,11 @@ module Url
               format: { with: URI::DEFAULT_PARSER.make_regexp }
   end
 
+  def host
+    h = URI.parse(url).host.downcase
+    h.start_with?('www.') ? h.remove('www.') : h
+  end
+
   protected
 
   def downcase_url

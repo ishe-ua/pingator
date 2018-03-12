@@ -44,4 +44,9 @@ class UrlTest < ActiveSupport::TestCase
     instance.save!
     assert_equal instance.url, 'https://example.com'
   end
+
+  test 'host from url' do
+    instance.url = 'http://example.com/123'
+    assert_equal instance.host, 'example.com'
+  end
 end
