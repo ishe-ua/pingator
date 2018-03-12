@@ -13,6 +13,12 @@ class TargetsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should show empty index pages' do
+    Target.destroy_all
+    get targets_path
+    assert_select '.any', text: 'Add first and start monitoring'
+  end
+
   test 'should get new' do
     get new_target_path
     assert_response :success

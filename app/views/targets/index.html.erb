@@ -2,8 +2,19 @@
 
 <%= link_to 'Add new', new_target_path %>
 
-<ol>
-  <% current_user.targets.each do |target| %>
-    <li><%= render target %></li>
-  <% end %>
-</ol>
+<% if current_user.targets.any? %>
+
+  <ol>
+    <% current_user.targets.each do |target| %>
+      <li><%= render target %></li>
+    <% end %>
+  </ol>
+
+<% else %>
+
+  <div class="any">
+    <br/>
+    Add first and start monitoring
+  </div>
+
+<% end %>
