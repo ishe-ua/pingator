@@ -13,15 +13,15 @@ class StatusTest < ActiveSupport::TestCase
 
   test 'last_ping => from db' do
     last_ping = targets(:mary).last_ping
-    assert_equal last_ping.code, 400
+    assert_equal last_ping.code, 200
   end
 
   test 'success?' do
-    targets(:mary).pings.last.destroy
     assert targets(:mary).success?
   end
 
   test 'fail?' do
+    targets(:mary).pings.last.destroy
     assert targets(:mary).fail?
   end
 end

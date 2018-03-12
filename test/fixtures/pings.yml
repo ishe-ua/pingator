@@ -11,7 +11,7 @@ mary_success:
   <<: *DEFAULTS
   target: mary
 
-  start: <%= 10.minutes.ago %>
+  start: <%= 15.minutes.ago %>
   duration: 200
 
   code: 200
@@ -21,11 +21,21 @@ mary_fail:
   <<: *DEFAULTS
   target: mary
 
-  start: <%= 2.minutes.ago %>
+  start: <%= 10.minutes.ago %>
   duration: 30000
 
   code: 400
   body: bad request
+
+mary_restore:
+  <<: *DEFAULTS
+  target: mary
+
+  start: <%= 5.minutes.ago %>
+  duration: 200
+
+  code: 200
+  body: success
 
 john:
   <<: *DEFAULTS
