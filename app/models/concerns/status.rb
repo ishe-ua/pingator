@@ -13,7 +13,7 @@ module Status
   end
 
   # See http status codes
-  def ok?
+  def success?
     last_ping&.code &&
       last_ping.code.is_a?(Integer) &&
       last_ping.code >= 200 &&
@@ -21,6 +21,6 @@ module Status
   end
 
   def fail?
-    !ok?
+    !success?
   end
 end

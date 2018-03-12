@@ -21,6 +21,10 @@ module Verification
     verified_at ? true : false
   end
 
+  def not_verified?
+    !verified?
+  end
+
   def verify!
     update!(verified_at: Time.zone.now)
   end
