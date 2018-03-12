@@ -17,8 +17,8 @@ class StatusTest < ActiveSupport::TestCase
   end
 
   test 'success' do
-    targets(:mary).last_ping.destroy
-    assert targets(:mary).fail?
+    targets(:mary).pings.last.destroy
+    assert targets(:mary).ok?
   end
 
   test 'fail' do

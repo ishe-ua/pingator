@@ -13,6 +13,17 @@ class TargetsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should show ok status on index page' do
+    @target.pings.last.destroy
+    get targets_path
+    assert_select '.ok', text: 'OK'
+  end
+
+  test 'should show fail status on index page' do
+    get targets_path
+    assert_select '.fail', text: 'FAIL'
+  end
+
   test 'should show empty index pages' do
     Target.destroy_all
     get targets_path

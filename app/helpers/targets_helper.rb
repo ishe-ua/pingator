@@ -2,11 +2,11 @@
 
 module TargetsHelper
   def current_status(target)
-    target.success? ? 'OK' : 'FAIL'
+    target.ok? ? 'OK' : 'FAIL'
   end
 
-  def current_status_color(target)
-    target.success? ? 'green' : 'red'
+  def current_status_class(target)
+    target.ok? ? 'ok' : 'fail'
   end
 
   def plans_for_select

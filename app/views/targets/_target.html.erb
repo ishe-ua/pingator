@@ -1,7 +1,7 @@
 <%= link_to target.url, target.url %><br/>
 
 Ping every <b><%= Target.plans[target.plan] %></b> minutes<br/>
-Status: <%= link_to current_status(target), 'todo', class: (current_status_color(target) + " bold") %>,
+Status: <%= link_to current_status(target), 'todo', class: (current_status_class(target) + " bold") %>,
 <span class="f90">last ping: <time><%= time_ago_in_words(Time.zone.now) %> ago</time>, <%= link_to 'Details', 'todo' %></span>
 
 <br/>
