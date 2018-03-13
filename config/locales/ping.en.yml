@@ -1,8 +1,0 @@
-en:
-  pings_mailer:
-    success:
-      subject: SUCCESS ping <%{host}>
-    fail:
-      subject: FAIL ping <%{host}>
-    restore:
-      subject: RESTORED ping <%{host}>

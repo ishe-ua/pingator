@@ -8,6 +8,11 @@ class TargetsMailerTest < ActionMailer::TestCase
     @target = targets(:john)
   end
 
+  test 'current_status' do
+    mail = mailer.current_status(@target)
+    assert_equal [@target.user.account.email], mail.to
+  end
+
   test 'destroy_notification' do
     mail = mailer.destroy_notification(@target)
     assert_equal [@target.user.account.email], mail.to
