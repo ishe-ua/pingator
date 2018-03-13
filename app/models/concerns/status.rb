@@ -5,9 +5,9 @@ module Status
   extend ActiveSupport::Concern
 
   SUCCESS = 'SUCCESS'
-
   FAIL = 'FAIL'
 
+  # See Verification#current_verification_status
   def current_ping_status
     b = SUCCESS if success?
     b = FAIL if fail?

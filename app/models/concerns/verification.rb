@@ -12,9 +12,21 @@ module Verification
 
   VERIFICATION_TOKEN_SIZE = 40
 
+  VERIFIED = 'VERIFIED'
+  NOT_VERIFIED = 'NOT VERIFIED'
+
   included do
     after_initialize :set_default_verification_token
     validates :verification_token, presence: true, uniqueness: true
+  end
+
+  # See Status#current_ping_status
+  def current_verification_status
+    b = VERIFIED if verified?
+    b = NOT_VERIFIED if not_verified?
+
+    raise 'Undefined status' unless defined?(b)
+    b
   end
 
   def verified?

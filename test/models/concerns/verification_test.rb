@@ -17,6 +17,10 @@ class VerificationTest < ActiveSupport::TestCase
     assert_not targets(:john).update(verification_token: 'aa')
   end
 
+  test 'current_verification_status' do
+    assert instance.respond_to?(:current_verification_status)
+  end
+
   test '#verified?' do
     assert targets(:mary).verified?
     assert_not instance.verified?, 'by default all are unverified'
