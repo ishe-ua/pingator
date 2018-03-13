@@ -3,7 +3,7 @@
 # See TargetsController
 class TargetsMailer < ApplicationMailer
   # See Status
-  def current_status(target)
+  def current_ping_status(target)
     @target = target
     @current_status = target.current_ping_status
 

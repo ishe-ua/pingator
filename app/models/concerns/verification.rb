@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Verified Url (through DNS) or not.
+# Verify Url through DNS.
 #
 # Fields in table:
 #

@@ -27,12 +27,4 @@ module Status
   def fail?
     !success?
   end
-
-  # From Redis or Ping
-  def last_ping
-    @last_ping ||= begin
-                     json = nil # TODO: get from Redis
-                     json.present? ? Ping.new(json.to_hash) : pings.last
-                   end
-  end
 end

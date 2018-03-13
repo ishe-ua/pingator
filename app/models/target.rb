@@ -37,4 +37,10 @@ class Target < ApplicationRecord
   include Status
   include Verification
   include Lock
+
+  # From redis or db
+  def last_ping
+    json = nil # TODO: get from Redis
+    json ? Ping.new(json.to_hash) : pings.last
+  end
 end
