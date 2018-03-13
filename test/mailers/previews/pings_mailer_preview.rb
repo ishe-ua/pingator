@@ -11,7 +11,7 @@ class PingsMailerPreview < ActionMailer::Preview
     PingsMailer.fail(Ping.sample)
   end
 
-  def restored
-    PingsMailer.restored(Ping.sample)
+  def restore
+    PingsMailer.restore(Ping.sample)
   end
 end

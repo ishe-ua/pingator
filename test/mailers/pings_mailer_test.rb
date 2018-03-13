@@ -21,7 +21,7 @@ class PingsMailerTest < ActionMailer::TestCase
     @mail = mailer.fail(@ping)
   end
 
-  test 'restored' do
-    @mail = mailer.restored(@ping)
+  test 'restore' do
+    @mail = mailer.restore(@ping)
   end
 end

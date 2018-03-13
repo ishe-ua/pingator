@@ -4,5 +4,5 @@ en:
       subject: SUCCESS ping <%{host}>
     fail:
       subject: FAIL ping <%{host}>
-    restored:
+    restore:
       subject: RESTORED ping <%{host}>

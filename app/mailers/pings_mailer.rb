@@ -10,7 +10,7 @@ class PingsMailer < ApplicationMailer
     _ ping
   end
 
-  def restored(ping)
+  def restore(ping)
     _ ping
   end
 
