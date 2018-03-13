@@ -10,6 +10,8 @@
 module Lock
   extend ActiveSupport::Concern
 
+  LOCKED = 'LOCKED'
+
   def locked?
     locked_at ? true : false
   end

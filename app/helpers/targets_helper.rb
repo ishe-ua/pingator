@@ -3,15 +3,15 @@
 module TargetsHelper
   def current_status(target) # rubocop:disable all
     if target.locked?
-      'LOCKED'
+      Lock::LOCKED
     elsif target.not_verified?
-      'NOT VERIFIED'
+      Verification::NOT_VERIFIED
     elsif target.verified? && target.pings.empty?
-      'WAIT'
+      Verification::VERIFIED
     elsif target.success?
-      'SUCCESS'
+      Status::SUCCESS
     elsif target.fail?
-      'FAIL'
+      Status::FAIL
     else
       raise 'Current status not found'
     end
