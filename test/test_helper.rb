@@ -13,7 +13,7 @@ Dir[
 require 'minitest/autorun'
 
 class ActiveSupport::TestCase
-  attr_reader :instance, :modul, :klass, :mailer, :job
+  attr_reader :instance, :modul, :klass, :mailer, :job, :m
   delegate :class, to: :instance, prefix: true
 
   fixtures :all

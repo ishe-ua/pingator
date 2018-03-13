@@ -3,18 +3,22 @@
 require 'test_helper'
 
 class AdminMailerTest < ActionMailer::TestCase
+  setup do
+    @mailer = AdminMailer
+  end
+
   test 'stats' do
-    mail = AdminMailer.stats
+    mail = mailer.stats
     assert_equal [APP::ADMIN_EMAIL], mail.to
   end
 
   test 'new_registration' do
-    mail = AdminMailer.new_registration(accounts(:mary))
+    mail = mailer.new_registration(accounts(:mary))
     assert_equal [APP::ADMIN_EMAIL], mail.to
   end
 
   test 'new_email_confirmation' do
-    mail = AdminMailer.new_email_confirmation(accounts(:john))
+    mail = mailer.new_email_confirmation(accounts(:john))
     assert_equal [APP::ADMIN_EMAIL], mail.to
   end
 end
