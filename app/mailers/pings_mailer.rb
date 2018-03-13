@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
-# See TargetsHelper#current_status
+# See Status#current_status
 class PingsMailer < ApplicationMailer
   def success(ping)
     _ ping
   end
 
   def fail(ping)
-    _ ping
-  end
-
-  def restore(ping)
     _ ping
   end
 

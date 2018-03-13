@@ -20,8 +20,4 @@ class PingsMailerTest < ActionMailer::TestCase
   test 'fail' do
     @mail = mailer.fail(@ping)
   end
-
-  test 'restore' do
-    @mail = mailer.restore(@ping)
-  end
 end
