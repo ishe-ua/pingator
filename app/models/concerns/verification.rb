@@ -12,8 +12,8 @@ module Verification
 
   VERIFICATION_TOKEN_SIZE = 40
 
-  VERIFIED = 'VERIFIED'
-  NOT_VERIFIED = 'NOT VERIFIED'
+  SUCCESS = 'VERIFIED'
+  FAIL    = 'NOT VERIFIED'
 
   included do
     after_initialize :set_default_verification_token

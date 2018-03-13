@@ -5,9 +5,9 @@ module TargetsHelper
     if target.locked?
       Lock::LOCKED
     elsif target.not_verified?
-      Verification::NOT_VERIFIED
+      Verification::FAIL
     elsif target.verified? && target.pings.empty?
-      Verification::VERIFIED
+      Verification::SUCCESS
     elsif target.success?
       Status::SUCCESS
     elsif target.fail?
