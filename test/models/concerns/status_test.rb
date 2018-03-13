@@ -16,6 +16,10 @@ class StatusTest < ActiveSupport::TestCase
     assert_equal last_ping.code, 200
   end
 
+  test 'current_ping_status' do
+    assert instance.respond_to?(:current_ping_status)
+  end
+
   test 'success?' do
     assert targets(:mary).success?
   end

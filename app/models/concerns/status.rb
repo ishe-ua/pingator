@@ -4,12 +4,16 @@
 module Status
   extend ActiveSupport::Concern
 
-  # From Redis or Ping
-  def last_ping
-    @last_ping ||= begin
-                     json = nil # TODO: get from Redis
-                     json.present? ? Ping.new(json.to_hash) : pings.last
-                   end
+  SUCCESS = 'SUCCESS'
+
+  FAIL = 'FAIL'
+
+  def current_ping_status
+    b = SUCCESS if success?
+    b = FAIL if fail?
+
+    raise 'Undefined status' unless defined?(b)
+    b
   end
 
   # See http status codes
@@ -22,5 +26,13 @@ module Status
 
   def fail?
     !success?
+  end
+
+  # From Redis or Ping
+  def last_ping
+    @last_ping ||= begin
+                     json = nil # TODO: get from Redis
+                     json.present? ? Ping.new(json.to_hash) : pings.last
+                   end
   end
 end
