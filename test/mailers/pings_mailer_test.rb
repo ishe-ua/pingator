@@ -4,29 +4,24 @@ require 'test_helper'
 
 class PingsMailerTest < ActionMailer::TestCase
   setup do
+    @ping = Ping.sample
     @mailer = PingsMailer
   end
 
+  teardown do
+    assert_equal @mail.to, [@ping.target.user.account.email]
+    assert_equal @mail.from, [APP::NOREPLY_EMAIL]
+  end
+
   test 'success' do
-    skip
-    mail = mailer.success
+    @mail = mailer.success(@ping)
   end
 
   test 'fail' do
-    skip
-    mail = PingsMailer.fail
-    assert_equal 'Fail', mail.subject
-    assert_equal ['to@example.org'], mail.to
-    assert_equal ['from@example.com'], mail.from
-    assert_match 'Hi', mail.body.encoded
+    @mail = mailer.fail(@ping)
   end
 
   test 'restored' do
-    skip
-    mail = PingsMailer.restored
-    assert_equal 'Restored', mail.subject
-    assert_equal ['to@example.org'], mail.to
-    assert_equal ['from@example.com'], mail.from
-    assert_match 'Hi', mail.body.encoded
+    @mail = mailer.restored(@ping)
   end
 end
