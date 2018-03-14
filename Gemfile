@@ -56,5 +56,4 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'autoprefixer-rails'
-gem 'rails-assets-zepto', '~> 1.2.0', source: 'https://rails-assets.org' # TODO
 gem 'octicons_helper'
