@@ -4,7 +4,7 @@
 module APP
   NAME = 'pingator'
 
-  HOST = 'pingator.com'
+  HOST = 'pingator.io'
 
   # Start development since
   SINCE = 2018
