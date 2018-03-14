@@ -9,6 +9,8 @@ unless defined?(Rails)
   require_relative 'gem_sidekiq.rb'
 
   require_relative '../../app/jobs/application_job.rb'
+  require_relative '../../app/jobs/system_job.rb'
+
   Dir[File.expand_path('../../app/jobs/**/*.rb', __dir__)]
     .sort
     .each { |f| require f }
