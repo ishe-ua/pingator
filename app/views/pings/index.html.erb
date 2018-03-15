@@ -1,2 +1,12 @@
-<h1>Pings#index</h1>
-<p>Find me in app/views/pings/index.html.erb</p>
+<h1>Pings history:
+  <sup class="italic"><%= link_to @target.url, @target.url %></sup>
+</h1>
+
+<% if @pings.any? %>
+  <div class="bold">Date / Duration / Response code:</div><br/>
+  <% @pings.each do |ping| %>
+    <%= render ping %>
+  <% end %>
+<% else %>
+  <p class="red italic">No pings (:</p>
+<% end %>

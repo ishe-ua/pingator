@@ -34,7 +34,7 @@ mary_restore:
   start: <%= 5.minutes.ago %>
   duration: 200
 
-  code: 200
+  code: 210
   body: success
 
 john:

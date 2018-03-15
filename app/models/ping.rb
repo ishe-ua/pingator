@@ -27,4 +27,12 @@ class Ping < ApplicationRecord
   include Duration
   include Code
   include Body
+
+  def red?
+    !green?
+  end
+
+  def green?
+    (code >= 200) && (code < 300)
+  end
 end

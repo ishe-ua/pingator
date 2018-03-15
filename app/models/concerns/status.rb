@@ -20,8 +20,7 @@ module Status
   def success?
     last_ping&.code &&
       last_ping.code.is_a?(Integer) &&
-      last_ping.code >= 200 &&
-      last_ping.code < 300
+      last_ping.green?
   end
 
   def fail?
