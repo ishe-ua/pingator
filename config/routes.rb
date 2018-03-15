@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'targets/index'
-
   root 'pages#home'
 
   controller :pages do
@@ -35,7 +33,10 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create destroy]
   resources :contacts, only: %i[new create]
 
-  resources :targets, except: :show
+  resources :targets, except: :show do
+    resources :pings, only: :index
+  end
+
   get '/dash', to: 'targets#index'
 
   ###

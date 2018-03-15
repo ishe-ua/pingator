@@ -2,5 +2,5 @@
 
 require 'test_helper'
 
-class CleanChecksRunnerJobTest < ActiveJob::TestCase
+class CleanPingsRunnerJobTest < ActiveJob::TestCase
 end
