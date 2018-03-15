@@ -21,7 +21,6 @@
 #
 class Ping < ApplicationRecord
   belongs_to :target
-  default_scope { order :start }
 
   include Start
   include Duration

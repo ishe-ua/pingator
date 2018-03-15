@@ -18,9 +18,7 @@ module Status
 
   # See http status codes
   def success?
-    last_ping&.code &&
-      last_ping.code.is_a?(Integer) &&
-      last_ping.green?
+    pings.last.green?
   end
 
   def fail?
