@@ -5,7 +5,9 @@ class PingsController < ApplicationController
   before_action :set_target, only: :index
 
   def index
-    @pings = @target.pings # TODO: order, pagination
+    @pings = @target.pings.order(start: :desc)
+                    .page(params[:page])
+                    .per(80)
   end
 
   private

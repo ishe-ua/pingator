@@ -40,3 +40,11 @@ mary_restore:
 john:
   <<: *DEFAULTS
   target: john
+
+<% 1.upto(40) do |i| %> # view pagination
+john_<%= i %>:
+  <<: *DEFAULTS
+  target: john
+  start: <%= i.minutes.ago %>
+  code:  <%= rand(526) %>
+<% end %>
