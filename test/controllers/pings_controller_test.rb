@@ -18,4 +18,9 @@ class PingsControllerTest < ActionDispatch::IntegrationTest
     get target_pings_url(@target)
     assert_response :success
   end
+
+  test 'show ping' do
+    get target_ping_path(@target, @target.pings.first)
+    assert_response :success
+  end
 end

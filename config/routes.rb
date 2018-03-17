@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[new create]
 
   resources :targets, except: :show do
-    resources :pings, only: :index
+    resources :pings, only: %i[index show]
   end
 
   get '/dash', to: 'targets#index'
