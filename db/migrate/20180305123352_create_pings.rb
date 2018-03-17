@@ -2,7 +2,7 @@
 
 class CreatePings < ActiveRecord::Migration[5.1]
   def change
-    create_table :pings do |t| # rubocop:disable CreateTableWithTimestamps
+    create_table :pings do |t|
       t.belongs_to :target, foreign_key: true
 
       t.datetime :start, null: false
@@ -10,6 +10,8 @@ class CreatePings < ActiveRecord::Migration[5.1]
 
       t.integer :code, null: false
       t.text    :body
+
+      t.timestamps
     end
   end
 end

@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20180305123352) do
     t.integer "duration", null: false
     t.integer "code", null: false
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["target_id"], name: "index_pings_on_target_id"
   end
 
