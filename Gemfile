@@ -44,7 +44,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'rubocop', require: false
   gem 'rdoc'
-  gem 'bullet' # TODO
+  gem 'bullet'
 
   gem 'web-console', '>= 3.3.0' # IRB console on exception pages or <%= console %>
   gem 'listen', '>= 3.0.5', '< 3.2'
