@@ -1,5 +1,5 @@
 <div class="<%= :red if ping.red? %>">
   <%= time_tag ping.start %> /
   <%= ping.duration %> mc /
-  <%= ping.code %>
+  <%= ping.code %> <%= Rack::Utils::HTTP_STATUS_CODES[ping.code.to_i] %>
 </div>
