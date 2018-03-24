@@ -13,4 +13,10 @@ module Code
                      numericality: { only_integer: true,
                                      greater_than: 0 }
   end
+
+  # Like '200 OK', '400 Bad Request'...
+  def code_with_name
+    msg = Rack::Utils::HTTP_STATUS_CODES[code]
+    "#{code} #{msg}"
+  end
 end

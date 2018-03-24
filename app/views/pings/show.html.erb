@@ -1,4 +1,8 @@
 <%= render 'title', text: 'Ping', url: @ping.target.url %>
 
-Pings#show
-todo
+<div class="<%= 'red' if @ping.red? %>">
+  <div><%= @ping.code_with_name %></div>
+  <%= @ping.duration %> mc</br><br/>
+
+  <%= time_tag @ping.start %></br>
+</div>
