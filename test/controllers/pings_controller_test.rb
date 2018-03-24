@@ -8,12 +8,12 @@ class PingsControllerTest < ActionDispatch::IntegrationTest
     @target = targets(:mary)
   end
 
-  test 'some pings' do
+  test 'get pings' do
     get target_pings_url(@target)
     assert_response :success
   end
 
-  test 'any pings' do
+  test 'get pings / any pings' do
     Ping.delete_all
     get target_pings_url(@target)
     assert_response :success
