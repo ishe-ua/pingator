@@ -1,6 +1,4 @@
-<h1>Pings history:
-  <sup class="italic"><%= link_to @target.url, @target.url %></sup>
-</h1>
+<%= render 'title', text: 'Pings log', url: @target.url %>
 
 <% if @pings.any? %>
   <div class="bold">Date / Duration / Response code:</div><br/>
