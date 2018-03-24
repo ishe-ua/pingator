@@ -1,5 +1,7 @@
-<p>
-  <%== link_to @ping.target.url, @ping.target.url %> has <%= @status %> status.
-</p>
+<%= @ping.code_with_name %>
+<br/>
+<br/>
+
+See <%== link_to 'details', [@ping.target, @ping] %> ...
 
 <%= yield %>

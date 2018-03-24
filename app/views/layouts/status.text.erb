@@ -1,3 +1,5 @@
-<%== @ping.target.url %> has <%= @status %> status.
+<%= @ping.code_with_name %>
+
+See <%== target_ping_url(@ping.target, @ping) %>
 
 <%= yield %>
