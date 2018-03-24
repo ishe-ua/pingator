@@ -1,8 +1,17 @@
 <%= render 'title', text: 'Ping', url: @ping.target.url %>
 
 <div class="<%= 'red' if @ping.red? %>">
-  <div><%= @ping.code_with_name %></div>
-  <%= @ping.duration %> mc</br><br/>
+  <div title="Status Code"><%= @ping.code_with_name %></div>
+  <div title="Duration"><%= number_with_delimiter @ping.duration %> mc</div>
 
-  <%= time_tag @ping.start %></br>
+  <br/>
+
+  <%= time_tag @ping.start, title: 'Request Time' %></br>
 </div>
+
+
+<br/>--<br/>
+
+<p title="Response Body">
+  <%= @ping.body %> ...
+</p>
