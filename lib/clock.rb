@@ -19,12 +19,13 @@ module Clockwork
       Dir.exist?(LOG_DIR)
   end
 
-  # rubocop:disable LineLength
+  every(1.week, 'Run system tasks', at: 'Friday 15:20') do
+    AdminMailer.stats.deliver_later
+  end
 
-  every(1.week, 'Run system tasks', at: 'Friday 15:20') { AdminMailer.stats.deliver_later }
-  every(1.day, 'Run system tasks', at: SYS_TIME) { CleanChecksRunnerJob.perform_later }
-
-  # rubocop:enable LineLength
+  every(1.day, 'Run system tasks', at: SYS_TIME) do
+    CleanChecksRunnerJob.perform_later
+  end
 
   Plan::NAMES.each do |plan_name, plan_interval|
     time = if plan_interval >= 1
