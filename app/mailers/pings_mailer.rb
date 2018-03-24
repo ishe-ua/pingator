@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# See Status
-class StatusMailer < ApplicationMailer
-  layout 'status'
+# See Ping, Status
+class PingsMailer < ApplicationMailer
+  layout 'pings_mailer'
 
   def success(ping)
     _ ping, Status::SUCCESS

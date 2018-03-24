@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class StatusMailerTest < ActionMailer::TestCase
+class PingsMailerTest < ActionMailer::TestCase
   setup do
-    @mailer = StatusMailer
+    @mailer = PingsMailer
   end
 
   test 'success' do
