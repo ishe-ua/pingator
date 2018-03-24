@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 # Field +plan+ in table:
-# * integer
+# * float
 #
 module Plan
   extend ActiveSupport::Concern
 
   # Check Url every minutes
-  NAMES = { a: 15, b: 5, c: 1 }.freeze
+  NAMES = { a: 15, b: 5, c: 1, d: 0.5 }.freeze
 
   # For PLANS
-  PRICES = { a: 0, b: 2, c: 5 }.freeze
+  PRICES = { a: 0, b: 2, c: 5, d: 15 }.freeze
 
   # How many days keep Check.
   #
   # See CleanChecksRunnerJob
-  KEEP = { a: 5, b: 15, c: 30 }.freeze
+  KEEP = { a: 5, b: 15, c: 30, d: 45 }.freeze
 
   included do
     enum plan: NAMES

@@ -5,8 +5,8 @@ class CreateTargets < ActiveRecord::Migration[5.1]
     create_table :targets do |t|
       t.belongs_to :user, foreign_key: true
 
-      t.string  :url,  null: false
-      t.integer :plan, null: false
+      t.string :url,  null: false
+      t.float  :plan, null: false
 
       t.datetime :verified_at
       t.string   :verification_token

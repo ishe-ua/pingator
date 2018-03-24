@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180305123352) do
   create_table "targets", force: :cascade do |t|
     t.bigint "user_id"
     t.string "url", null: false
-    t.integer "plan", null: false
+    t.float "plan", null: false
     t.datetime "verified_at"
     t.string "verification_token"
     t.datetime "locked_at"

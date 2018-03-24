@@ -11,6 +11,7 @@ class PlanTest < ActiveSupport::TestCase
     assert_equal instance_class.plans[:a], 15
     assert_equal instance_class.plans[:b], 5
     assert_equal instance_class.plans[:c], 1
+    assert_equal instance_class.plans[:d], 0.5
   end
 
   test 'required field' do

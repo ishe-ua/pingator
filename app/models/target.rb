@@ -7,7 +7,7 @@
 #  id                 :integer          not null, primary key
 #  user_id            :integer
 #  url                :string           not null
-#  plan               :integer          not null
+#  plan               :float            not null
 #  verified_at        :datetime
 #  verification_token :string
 #  locked_at          :datetime
