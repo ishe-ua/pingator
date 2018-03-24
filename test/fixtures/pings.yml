@@ -22,7 +22,7 @@ mary_fail:
   target: mary
 
   start: <%= 10.minutes.ago %>
-  duration: 30000
+  duration: 30_000
 
   code: 400
   body: bad request
@@ -46,5 +46,5 @@ john_<%= i %>:
   <<: *DEFAULTS
   target: john
   start: <%= i.minutes.ago %>
-  code:  <%= rand(526) %>
+  code:  <%= rand(526) + 1 %>
 <% end %>

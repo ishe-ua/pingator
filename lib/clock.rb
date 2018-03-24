@@ -29,11 +29,13 @@ module Clockwork
 
   Plan::NAMES.each do |plan_name, plan_interval|
     time = if plan_interval >= 1
-             plan_interval.to_i.minutes
+             plan_interval.minutes
            else
              (60 * plan_interval).to_i.seconds
            end
 
-    every(time, "Run plan #{plan_name}") { RunPlanJob.peform_later(plan_name) }
+    every(time, "Run plan #{plan_name}") do
+      PingPlanJob.peform_later(plan_name.to_s)
+    end
   end
 end
