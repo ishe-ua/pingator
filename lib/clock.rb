@@ -3,6 +3,7 @@
 require 'clockwork'
 require_relative '../config/initializers/action_mailer'
 require_relative '../config/initializers/active_job'
+require_relative '../app/models/concerns/plan'
 
 # App clock, gem 'clockwork'
 module Clockwork
@@ -24,5 +25,15 @@ module Clockwork
 
   every(1.day, 'Run system tasks', at: SYS_TIME) do
     CleanChecksRunnerJob.perform_later
+  end
+
+  Plan::NAMES.each do |plan_name, plan_interval|
+    time = if plan_interval >= 1
+             plan_interval.to_i.minutes
+           else
+             (60 * plan_interval).to_i.seconds
+           end
+
+    every(time, "Run plan #{plan_name}") { RunPlanJob.peform_later(plan_name) }
   end
 end

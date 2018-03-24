@@ -4,8 +4,6 @@
 # * float
 #
 module Plan
-  extend ActiveSupport::Concern
-
   # Check Url every minutes
   NAMES = { a: 15, b: 5, c: 1, d: 0.5 }.freeze
 
@@ -17,16 +15,20 @@ module Plan
   # See CleanChecksRunnerJob
   KEEP = { a: 5, b: 15, c: 30, d: 45 }.freeze
 
-  included do
-    enum plan: NAMES
+  if defined?(Rails)
+    extend ActiveSupport::Concern
 
-    validates :plan, presence: true
-    after_initialize :set_default_plan
-  end
+    included do
+      enum plan: NAMES
 
-  protected
+      validates :plan, presence: true
+      after_initialize :set_default_plan
+    end
 
-  def set_default_plan
-    self.plan ||= :a
+    protected
+
+    def set_default_plan
+      self.plan ||= :a
+    end
   end
 end
