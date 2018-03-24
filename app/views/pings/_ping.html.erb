@@ -2,4 +2,8 @@
   <%= time_tag ping.start %> /
   <%= ping.duration %> mc /
   <%= ping.code %> <%= Rack::Utils::HTTP_STATUS_CODES[ping.code.to_i] %>
+
+  <% if ping.red? %>
+    <%= link_to 'Details', [ping.target, ping], class: 'f90 italic' %>
+  <% end %>
 </div>
