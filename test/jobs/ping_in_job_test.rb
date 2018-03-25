@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class PingTargetJobTest < ActiveJob::TestCase
-  setup { @job = PingTargetJob.new }
+class PinginJobTest < ActiveJob::TestCase
+  setup { @job = PingInJob.new }
 
   test 'the truth' do
     skip

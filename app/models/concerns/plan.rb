@@ -13,7 +13,7 @@ module Plan
   # How many days keep Check.
   #
   # See CleanChecksRunnerJob
-  KEEP = { a: 5, b: 15, c: 30, d: 45 }.freeze
+  KEEP = { a: 2, b: 10, c: 20, d: 30 }.freeze
 
   if defined?(Rails)
     extend ActiveSupport::Concern

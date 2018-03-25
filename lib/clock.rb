@@ -35,7 +35,7 @@ module Clockwork
            end
 
     every(time, "Run plan #{plan_name}") do
-      PingPlanJob.peform_later(plan_name.to_s)
+      PingOutJob.peform_later(plan_name.to_s)
     end
   end
 end
