@@ -23,3 +23,8 @@ Ping urls.
 * bin/doc
 * mina deploy
 * mina restart
+
+## READ
+
+* Scaling I/O
+https://github.com/jondot/sneakers/wiki/How-To:-Scrape-Web-Pages
