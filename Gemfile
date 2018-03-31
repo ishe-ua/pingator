@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'autoprefixer-rails'
 gem 'octicons_helper'
 gem 'kaminari'
+
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'dnsruby'

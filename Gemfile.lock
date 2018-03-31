@@ -77,6 +77,7 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
+    dnsruby (1.60.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -86,6 +87,10 @@ GEM
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
     execjs (2.7.0)
+    faraday (0.14.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.23)
     formatador (0.2.5)
     globalid (0.4.1)
@@ -152,6 +157,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
@@ -290,7 +296,10 @@ DEPENDENCIES
   capybara (~> 2.13)
   clockwork
   coffee-rails (~> 4.2)
+  dnsruby
   exception_notification
+  faraday
+  faraday_middleware
   god
   guard-livereload (~> 2.5)
   guard-migrate
