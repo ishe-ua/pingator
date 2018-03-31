@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class PingOutJobTest < ActiveJob::TestCase
-  setup { @job = PingOutJob }
+class PingPlanJobTest < ActiveJob::TestCase
+  setup { @job = PingPlanJob }
 
   test 'perform' do
     skip
