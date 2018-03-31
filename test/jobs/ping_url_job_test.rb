@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PingUrlJobTest < ActiveJob::TestCase
   setup do
-    @job = PingUrlJob.new
+    @job = PingUrlJob
     @target = targets(:mary)
   end
 
@@ -24,6 +24,12 @@ class PingUrlJobTest < ActiveJob::TestCase
 
   test 'from fail to success' do
     skip
+  end
+
+  test 'exception if left url' do
+    mary = targets(:mary)
+    mary.update!(url: 'https://left-example-url.com')
+    assert_no_difference('Ping.count') { job.perform_now(mary.id) }
   end
 
   private

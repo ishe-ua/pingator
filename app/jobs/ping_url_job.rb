@@ -25,6 +25,8 @@ class PingUrlJob < ApplicationJob
 
     current_ping.save!
     notify(current_ping, prev_ping)
+  rescue StandardError => e
+    Rails.logger.error e.message
   end
 
   protected
