@@ -28,15 +28,15 @@ class UrlTest < ActiveSupport::TestCase
   end
 
   test '#downcase_url' do
-    instance.url = 'httP://eXample.com'
+    instance.url = 'httPs://eXample.com'
     instance.save!
-    assert_equal instance.url, 'http://example.com'
+    assert_equal instance.url, 'https://example.com'
   end
 
   test '#add_http_or_https if need' do
     instance.url = 'example.com'
     instance.save!
-    assert_equal instance.url, 'http://example.com'
+    assert_equal instance.url, 'https://example.com'
   end
 
   test 'not #add_http_or_https if do not need' do
@@ -46,7 +46,7 @@ class UrlTest < ActiveSupport::TestCase
   end
 
   test 'host from url' do
-    instance.url = 'http://example.com/123'
+    instance.url = 'https://example.com/123'
     assert_equal instance.host, 'example.com'
   end
 end
