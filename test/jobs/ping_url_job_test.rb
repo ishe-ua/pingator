@@ -3,14 +3,13 @@
 require 'test_helper'
 
 class PingUrlJobTest < ActiveJob::TestCase
-  setup do
-    @job = PingUrlJob
-    @target = targets(:mary)
-  end
+  setup { @job = PingUrlJob }
 
   test 'success first ping' do
     destroy_all_pings
-    skip
+    assert_enqueued_emails(1) do
+      job.perform_now(@target)
+    end
   end
 
   test 'fail first ping' do
@@ -27,12 +26,15 @@ class PingUrlJobTest < ActiveJob::TestCase
   end
 
   test 'exception if left url' do
-    mary = targets(:mary)
-    mary.update!(url: 'https://left-example-url.com')
+    mary.update!(url: 'https://example.com/left-url')
     assert_no_difference('Ping.count') { job.perform_now(mary.id) }
   end
 
   private
+
+  def mary
+    targets(:mary)
+  end
 
   def destroy_all_pings
     Ping.destroy_all

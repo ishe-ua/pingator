@@ -20,6 +20,10 @@ class ActiveSupport::TestCase
   include ActiveRecord::Tasks::DatabaseTasks # for fixtures_path
 end
 
+class ActiveJob::TestCase
+  include ActionMailer::TestHelper
+end
+
 class ActionDispatch::IntegrationTest
   include ActionMailer::TestHelper
   include ActiveJob::TestHelper

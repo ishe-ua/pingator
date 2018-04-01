@@ -6,9 +6,9 @@
 class PingUrlJob < ApplicationJob
   queue_as :default
 
-  def perform(target_id) # rubocop:disable AbcSize, MethodLength
-    target = Target.find_by(id: target_id)
-    return unless target
+  def perform(target_id, opts = {}) # rubocop:disable AbcSize, MethodLength
+    target = Target.find_tby(id: target_id)
+    return unless target || target.locked? || target.user.locked?
 
     prev_ping = target.pings.last
     current_ping = target.pings.build
@@ -18,7 +18,7 @@ class PingUrlJob < ApplicationJob
       current_ping.duration = ((ends - starts) * 1000).to_i
     end
 
-    response = faraday.get(target_id)
+    response = Rails.env.test? ? OpenStruct.new(opts) : faraday.get(target_id)
 
     current_ping.code = response.status
     current_ping.body = response.body
