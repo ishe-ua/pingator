@@ -6,22 +6,22 @@
 class PingUrlJob < ApplicationJob
   queue_as :default
 
-  def perform(target_id, opts = {}) # rubocop:disable AbcSize, MethodLength
+  def perform(target_id, stubs = {}) # rubocop:disable AbcSize, MethodLength, LineLength, CyclomaticComplexity, PerceivedComplexity
     target = Target.find_by(id: target_id)
-    return unless target || target.locked? || target.user.locked?
+    return if target.nil? || target.locked? || target.user.locked?
 
     prev_ping = target.pings.last
-    current_ping = target.pings.build(Rails.env.test? ? opts : {})
+    current_ping = target.pings.build(Rails.env.test? ? stubs : {})
 
     ActiveSupport::Notifications.subscribe('request.faraday') do |_, starts, ends, _, _| # rubocop:disable LineLength
       current_ping.start = starts
       current_ping.duration = ((ends - starts) * 1000).to_i
     end
 
-    response = Rails.env.test? ? Object.new : faraday.get(target.url)
+    response = Rails.env.test? ? OpenStruct.new(stubs) : faraday.get(target.url)
 
-    current_ping.code = response.status if response.respond_to?(:status)
-    current_ping.body = response.body   if response.respond_to?(:body)
+    current_ping.code = response.try(:status) || response.try(:code)
+    current_ping.body = response.body
 
     current_ping.save!
     notify(current_ping, prev_ping)
@@ -48,10 +48,10 @@ class PingUrlJob < ApplicationJob
   private
 
   def to_success?(current, prev)
-    (prev.nil? && current.green?) || (prev && prev.red? && current.green?)
+    (prev.nil? && current.green?) || (prev&.red? && current.green?)
   end
 
   def to_fail_status?(current, prev)
-    (prev.nil? && current.red?) || (prev && prev.green? && current.red?)
+    (prev.nil? && current.red?) || (prev&.green? && current.red?)
   end
 end
