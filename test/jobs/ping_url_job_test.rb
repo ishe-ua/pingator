@@ -8,13 +8,15 @@ class PingUrlJobTest < ActiveJob::TestCase
   test 'success first ping' do
     destroy_all_pings
     assert_enqueued_emails(1) do
-      job.perform_now(@target)
+      job.perform_now(mary.id, default_response.merge(code: 200))
     end
   end
 
   test 'fail first ping' do
     destroy_all_pings
-    skip
+    assert_enqueued_emails(1) do
+      job.perform_now(mary.id, default_response.merge(code: 404))
+    end
   end
 
   test 'from success to fail' do
@@ -32,8 +34,14 @@ class PingUrlJobTest < ActiveJob::TestCase
 
   private
 
+
   def mary
     targets(:mary)
+  end
+
+  # stub
+  def default_response
+    { start: Time.current, duration: 10, code: 200, body: 'test' }
   end
 
   def destroy_all_pings
