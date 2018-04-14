@@ -23,10 +23,11 @@ class VerificationTest < ActiveSupport::TestCase
 
   test '#verified?' do
     assert targets(:mary).verified?
-    assert_not instance.verified?, 'by default all are unverified'
+    assert_not instance.class.new.verified?, 'by default all are unverified'
   end
 
   test '#verify!' do
+    instance.verified_at = nil
     instance.save
     assert_not instance.verified?
 

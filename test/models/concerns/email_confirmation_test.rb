@@ -19,10 +19,11 @@ class EmailConfirmationTest < ActiveSupport::TestCase
 
   test '#email_confirmed?' do
     assert accounts(:mary).email_confirmed?
-    assert_not instance.email_confirmed?, 'by default all are unconfirmed'
+    assert_not instance.class.new.email_confirmed?, 'unconfirmed by default'
   end
 
   test '#email_confirm!' do
+    instance.email_confirmation_at = nil
     instance.save
     assert_not instance.email_confirmed?
 
