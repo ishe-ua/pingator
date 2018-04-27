@@ -2,7 +2,7 @@ DEFAULTS: &DEFAULTS
   target: mary
 
   start: <%= Time.current %>
-  duration: 70
+  duration: <%= Ping.new.duration %>
 
   code: 200
   body: ...

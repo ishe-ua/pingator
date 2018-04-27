@@ -21,4 +21,8 @@ class DurationTest < ActiveSupport::TestCase
     instance.duration = -1
     assert_not instance.valid?
   end
+
+  test '0 by default' do
+    assert_equal instance.duration, 0
+  end
 end
