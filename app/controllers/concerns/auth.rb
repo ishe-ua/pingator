@@ -2,9 +2,7 @@
 
 # Authentication.
 #
-# Concern for ApplicationController. Should be first or mostly first
-# there.
-#
+# See ApplicationController (should be first or mostly first).
 module Auth
   extend ActiveSupport::Concern
 
