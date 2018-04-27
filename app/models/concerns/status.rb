@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Dynamic calcs.
+# See Target
 module Status
   extend ActiveSupport::Concern
 
