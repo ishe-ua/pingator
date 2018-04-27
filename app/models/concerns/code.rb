@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Response (http) code.
+# Response (http status) code.
 #
 # Field +code+ in table:
 # * integer
