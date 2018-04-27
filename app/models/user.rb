@@ -4,8 +4,8 @@
 #
 # Table name: users
 #
-#  id          :integer          not null, primary key
-#  account_id  :integer
+#  id          :bigint(8)        not null, primary key
+#  account_id  :bigint(8)
 #  name        :string
 #  country     :string
 #  timezone    :string

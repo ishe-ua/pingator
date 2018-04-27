@@ -4,8 +4,8 @@
 #
 # Table name: targets
 #
-#  id                 :integer          not null, primary key
-#  user_id            :integer
+#  id                 :bigint(8)        not null, primary key
+#  user_id            :bigint(8)
 #  url                :string           not null
 #  plan               :float            not null
 #  verified_at        :datetime

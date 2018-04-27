@@ -4,8 +4,8 @@
 #
 # Table name: pings
 #
-#  id         :integer          not null, primary key
-#  target_id  :integer
+#  id         :bigint(8)        not null, primary key
+#  target_id  :bigint(8)
 #  start      :datetime         not null
 #  duration   :integer          not null
 #  code       :integer          not null

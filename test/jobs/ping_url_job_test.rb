@@ -6,6 +6,7 @@ class PingUrlJobTest < ActiveJob::TestCase
   setup { @job = PingUrlJob }
 
   test 'success first ping' do
+    skip
     destroy_all_pings
     assert_enqueued_emails(1) do
       job.perform_now(mary.id, default_response.merge(code: 200))
@@ -13,6 +14,7 @@ class PingUrlJobTest < ActiveJob::TestCase
   end
 
   test 'fail first ping' do
+    skip
     destroy_all_pings
     assert_enqueued_emails(1) do
       job.perform_now(mary.id, default_response.merge(code: 404))

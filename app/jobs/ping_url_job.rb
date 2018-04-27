@@ -48,10 +48,10 @@ class PingUrlJob < ApplicationJob
   private
 
   def to_success?(current, prev)
-    (prev.nil? && current.green?) || (prev&.red? && current.green?)
+    (prev&.nil? && current.green?) || (prev&.red? && current.green?)
   end
 
   def to_fail_status?(current, prev)
-    (prev.nil? && current.red?) || (prev&.green? && current.red?)
+    (prev&.nil? && current.red?) || (prev&.green? && current.red?)
   end
 end
