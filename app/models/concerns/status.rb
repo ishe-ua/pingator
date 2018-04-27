@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# See Target
+# See Target, Color
 module Status
   extend ActiveSupport::Concern
 
