@@ -17,7 +17,7 @@ module Lock
   end
 
   def lock!(reason)
-    update!(locked_at: Time.zone.now, lock_reason: reason)
+    update!(locked_at: Time.current, lock_reason: reason)
   end
 
   def unlock
