@@ -24,7 +24,7 @@ module TargetsHelper
 
   def last_ping_time(target)
     ping = target.pings.last
-    ping && ping.start.present? ? time_ago_in_words(ping.start) + ' ago' : '-'
+    ping && ping.start.present? ? time_ago_in_words(ping.start) + ' ago' : dash
   end
 
   def plans_for_select
