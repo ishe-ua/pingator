@@ -1,7 +1,13 @@
 <%= render 'title', text: 'Pings log', url: @target.url %>
 
 <% if @pings.any? %>
-  <div class="bold">Date / Duration / Response code:</div><br/>
+  <div class="bold">Date / Duration / Response code:</div>
+
+  <div class="filters">
+    <%= link_to 'all',   target_pings_path(@target, filter: :all),   class: (:bold if select_all?) %>
+    <%= link_to 'fails', target_pings_path(@target, filter: :fails), class: (:bold if select_fails?) %>
+  </div>
+
   <% @pings.each do |ping| %>
     <%= render ping %>
   <% end %>

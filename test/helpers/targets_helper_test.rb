@@ -3,5 +3,7 @@
 require 'test_helper'
 
 class TargetsHelperTest < ActionView::TestCase
-  # TODO
+  test 'truth' do
+    skip
+  end
 end

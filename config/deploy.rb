@@ -15,14 +15,14 @@ set :branch, 'master'
 set :user,   'deploy' # Username in the server to SSH to
 
 set :shared_dirs, fetch(:shared_dirs, []).push(
-      'public/system',
-      'tmp',
-      'log'
-    )
+  'public/system',
+  'tmp',
+  'log'
+)
 
 set :shared_files, fetch(:shared_files, []).push(
-      "db/#{fetch :application_name}_#{fetch :rails_env}.sqlite3"
-    )
+  "db/#{fetch :application_name}_#{fetch :rails_env}.sqlite3"
+)
 
 # This task is the environment that is loaded for all remote run
 # commands, such as `mina deploy` or `mina rake`.
