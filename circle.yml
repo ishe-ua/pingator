@@ -1,6 +1,5 @@
 test:
   post:
     - bundle exec brakeman
-    - bundle exec rubocop
     - bundle exec rails test
     - bundle exec rails test:system
