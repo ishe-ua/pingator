@@ -4,7 +4,7 @@
 #
 # Table name: accounts
 #
-#  id                       :bigint(8)        not null, primary key
+#  id                       :integer          not null, primary key
 #  email                    :string           not null
 #  password_digest          :string           not null
 #  email_confirmation_at    :datetime

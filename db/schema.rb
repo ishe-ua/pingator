@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_03_05_123352) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "accounts", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -28,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
   end
 
   create_table "pings", force: :cascade do |t|
-    t.bigint "target_id"
+    t.integer "target_id"
     t.datetime "start", null: false
     t.integer "duration", null: false
     t.integer "code", null: false
@@ -39,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
   end
 
   create_table "targets", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "url", null: false
     t.float "plan", null: false
     t.datetime "verified_at"
@@ -57,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "account_id"
+    t.integer "account_id"
     t.string "name"
     t.string "country"
     t.string "timezone"
@@ -70,7 +67,4 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
     t.index ["name"], name: "index_users_on_name"
   end
 
-  add_foreign_key "pings", "targets"
-  add_foreign_key "targets", "users"
-  add_foreign_key "users", "accounts"
 end
