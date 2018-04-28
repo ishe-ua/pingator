@@ -21,7 +21,7 @@ set :shared_dirs, fetch(:shared_dirs, []).push(
     )
 
 set :shared_files, fetch(:shared_files, []).push(
-      'db/pingator_development.sqlite3'
+      "db/#{fetch :application_name}_#{fetch :rails_env}.sqlite3"
     )
 
 # This task is the environment that is loaded for all remote run
