@@ -6,7 +6,7 @@
 class PingUrlJob < ApplicationJob
   queue_as :default
 
-  def perform(target_id, stubs = {}) # rubocop:disable AbcSize, MethodLength, LineLength, CyclomaticComplexity, PerceivedComplexity
+  def perform(target_id, stubs = {}) # rubocop:disable AbcSize, MethodLength, LineLength
     target = Target.find_by(id: target_id)
     return if target.nil? || target.locked? || target.user.locked?
 

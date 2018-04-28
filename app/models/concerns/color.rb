@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 # HTTP status code to color matching
+#
+# See Status
 module Color
   extend ActiveSupport::Concern
 
@@ -18,7 +20,7 @@ module Color
     scope :reds,    -> { where code: REDS    }
   end
 
-  def color # rubocop:disable CyclomaticComplexity
+  def color
     n = nil
     n = GREEN_NAME  if !n && green?
     n = YELLOW_NAME if !n && yellow?

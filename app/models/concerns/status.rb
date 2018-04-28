@@ -4,24 +4,31 @@
 module Status
   extend ActiveSupport::Concern
 
-  SUCCESS = 'SUCCESS'
-  FAIL = 'FAIL'
+  SUCCESS = 'success'
+  WARN    = 'warn'
+  FAIL    = 'fail'
+  UNKNOWN = 'unknown'
 
   # See Verification#current_verification_status
   def current_ping_status
-    b = SUCCESS if success?
-    b = FAIL if fail?
+    b = nil
 
-    raise 'Undefined status' unless defined?(b)
-    b
+    b = SUCCESS if !b && success?
+    b = WARN    if !b && warn?
+    b = FAIL    if !b && fail?
+
+    b || UNKNOWN
   end
 
-  # See http status codes
   def success?
-    pings.last.green?
+    last_ping&.green?
+  end
+
+  def warn?
+    last_ping&.yellow?
   end
 
   def fail?
-    !success?
+    last_ping&.red?
   end
 end

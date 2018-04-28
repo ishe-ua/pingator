@@ -33,4 +33,8 @@ class Target < ApplicationRecord
   include Status
   include Verification
   include Lock
+
+  def last_ping
+    pings.order(:created_at).last
+  end
 end

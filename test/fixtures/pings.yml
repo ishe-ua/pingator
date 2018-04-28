@@ -10,31 +10,45 @@ DEFAULTS: &DEFAULTS
 mary_success:
   <<: *DEFAULTS
   target: mary
+  created_at: <%= 20.minutes.ago %>
 
   start: <%= 15.minutes.ago %>
   duration: 200
 
-  code: 200
+  code: <%= Color::GREEN.sample %>
+  body: success
+
+mary_warn:
+  <<: *DEFAULTS
+  target: mary
+  created_at: <%= 15.minutes.ago %>
+
+  start: <%= 15.minutes.ago %>
+  duration: 200
+
+  code: <%= Color::YELLOW.sample %>
   body: success
 
 mary_fail:
   <<: *DEFAULTS
   target: mary
+  created_at: <%= 10.minutes.ago %>
 
   start: <%= 10.minutes.ago %>
   duration: 30_000
 
-  code: 400
+  code: <%= Color::RED.sample %>
   body: bad request
 
 mary_restore:
   <<: *DEFAULTS
   target: mary
+  created_at: <%= 5.minutes.ago %>
 
   start: <%= 5.minutes.ago %>
   duration: 200
 
-  code: 210
+  code: <%= Color::GREEN.sample %>
   body: success
 
 john:
