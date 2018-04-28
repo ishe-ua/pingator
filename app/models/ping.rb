@@ -19,10 +19,10 @@
 #
 class Ping < ApplicationRecord
   belongs_to :target
+  include Color
 
   include Start
   include Duration
   include Code
   include Body
-  include Color
 end
