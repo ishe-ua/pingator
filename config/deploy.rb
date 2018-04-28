@@ -15,18 +15,22 @@ set :branch, 'master'
 set :user,   'deploy' # Username in the server to SSH to
 
 set :shared_dirs, fetch(:shared_dirs, []).push(
-  'public/system',
-  'tmp',
-  'log'
-)
+      'public/system',
+      'tmp',
+      'log'
+    )
 
-# This task is the environment that is loaded for all remote run commands, such as
-# `mina deploy` or `mina rake`.
+set :shared_files, fetch(:shared_files, []).push(
+      'db/pingator_development.sqlite3'
+    )
+
+# This task is the environment that is loaded for all remote run
+# commands, such as `mina deploy` or `mina rake`.
 task :remote_environment do
   invoke :'rbenv:load'
 end
 
-# Put any custom commands you need to run at setup
+# Put any custom commands you need to run at setup.
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   # command %{rbenv install 2.5.0}
@@ -34,7 +38,8 @@ end
 
 desc 'Deploys the current version to the server.'
 task :deploy do
-  # uncomment this line to make sure you pushed your local branch to the remote origin
+  # uncomment this line to make sure you pushed your local branch to
+  # the remote origin
   invoke :'git:ensure_pushed'
   deploy do
     # Put things that will set up an empty directory into a fully set-up
