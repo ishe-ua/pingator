@@ -1,6 +1,6 @@
 # Pingator
 
-Site (url) monitoring tool.
+Url (site) monitoring tool.
 
 ## Software stack
 
