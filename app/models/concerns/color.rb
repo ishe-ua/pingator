@@ -10,9 +10,10 @@ module Color
   YELLOW = (300...400).to_a
   RED    = (400...600).to_a
 
-  GREEN_NAME  = 'green'
-  YELLOW_NAME = 'yellow'
-  RED_NAME    = 'red'
+  GREEN_NAME  = :green
+  YELLOW_NAME = :yellow
+  RED_NAME    = :red
+  UNDEFINED   = :undefined
 
   included do
     scope :greens,  -> { where code: GREENS  }
@@ -21,11 +22,9 @@ module Color
   end
 
   def color
-    n = nil
-    n = GREEN_NAME  if !n && green?
-    n = YELLOW_NAME if !n && yellow?
-    n = RED_NAME    if !n && red?
-    n
+    (GREEN_NAME if green?) ||
+      (YELLOW_NAME if yellow?) ||
+      (RED_NAME if red?) || UNDEFINED
   end
 
   class_methods do

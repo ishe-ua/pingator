@@ -4,17 +4,16 @@
 module Status
   extend ActiveSupport::Concern
 
-  SUCCESS   = 'success'
-  WARN      = 'warn'
-  FAIL      = 'fail'
-  UNDEFINED = 'undefined'
+  SUCCESS   = :success
+  WARN      = :warn
+  FAIL      = :fail
+  UNDEFINED = :undefined
 
   # See Verification#current_verification_status
   def current_ping_status
     (SUCCESS if success?) ||
       (WARN if warn?) ||
-      (FAIL if fail?) ||
-      UNDEFINED
+      (FAIL if fail?) || UNDEFINED
   end
 
   def success?
