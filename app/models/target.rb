@@ -8,7 +8,7 @@
 #  user_id            :integer
 #  url                :string           not null
 #  plan               :float            not null
-#  verified_at        :datetime
+#  verification       :integer
 #  verification_token :string
 #  locked_at          :datetime
 #  lock_reason        :integer
@@ -21,8 +21,8 @@
 #  index_targets_on_plan                (plan)
 #  index_targets_on_url                 (url)
 #  index_targets_on_user_id             (user_id)
+#  index_targets_on_verification        (verification)
 #  index_targets_on_verification_token  (verification_token) UNIQUE
-#  index_targets_on_verified_at         (verified_at)
 #
 class Target < ApplicationRecord
   belongs_to :user

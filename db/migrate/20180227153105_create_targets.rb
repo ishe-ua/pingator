@@ -8,7 +8,7 @@ class CreateTargets < ActiveRecord::Migration[5.1]
       t.string :url,  null: false
       t.float  :plan, null: false
 
-      t.datetime :verified_at
+      t.integer  :verification
       t.string   :verification_token
 
       t.datetime :locked_at
@@ -20,7 +20,7 @@ class CreateTargets < ActiveRecord::Migration[5.1]
     add_index :targets, :url
     add_index :targets, :plan
 
-    add_index :targets, :verified_at
+    add_index :targets, :verification
     add_index :targets, :verification_token, unique: true
 
     add_index :targets, :locked_at

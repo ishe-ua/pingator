@@ -8,9 +8,9 @@ class StatusTest < ActiveSupport::TestCase
     Ping.destroy_all
   end
 
-  test 'current_ping_status' do
+  test 'status' do
     build(:ping, code: 200).save!
-    assert instance.current_ping_status
+    assert instance.status
   end
 
   test 'success?' do

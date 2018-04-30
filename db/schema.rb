@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
     t.integer "user_id"
     t.string "url", null: false
     t.float "plan", null: false
-    t.datetime "verified_at"
+    t.integer "verification"
     t.string "verification_token"
     t.datetime "locked_at"
     t.integer "lock_reason"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
     t.index ["plan"], name: "index_targets_on_plan"
     t.index ["url"], name: "index_targets_on_url"
     t.index ["user_id"], name: "index_targets_on_user_id"
+    t.index ["verification"], name: "index_targets_on_verification"
     t.index ["verification_token"], name: "index_targets_on_verification_token", unique: true
-    t.index ["verified_at"], name: "index_targets_on_verified_at"
   end
 
   create_table "users", force: :cascade do |t|
