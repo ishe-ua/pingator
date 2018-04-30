@@ -22,7 +22,7 @@ module Color
     scope :reds,    -> { where code: RED_CODES    }
   end
 
-  def color
+  def color # rubocop:disable CyclomaticComplexity
     ((GREEN  if green?)  ||
      (YELLOW if yellow?) ||
      (RED    if red?)    || APP::UNDEFINED)

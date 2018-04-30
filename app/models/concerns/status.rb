@@ -7,13 +7,14 @@ module Status
   SUCCESS   = :success
   WARN      = :warn
   FAIL      = :fail
-  UNDEFINED = :undefined
+
+  LIST = [SUCCESS, WARN, FAIL].freeze
 
   # See Verification#current_verification_status
-  def current_ping_status
-    (SUCCESS if success?) ||
-      (WARN if warn?) ||
-      (FAIL if fail?) || UNDEFINED
+  def current_ping_status # rubocop:disable CyclomaticComplexity
+    ((SUCCESS if success?) ||
+     (WARN    if warn?) ||
+     (FAIL    if fail?) || APP::UNDEFINED)
   end
 
   def success?
