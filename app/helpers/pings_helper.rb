@@ -2,10 +2,10 @@
 
 module PingsHelper
   def select_all?
-    params[:filter].nil? || params[:filter] == 'all'
+    params[:status].nil?
   end
 
-  def select_fails?
-    params[:filter] == 'fails'
+  def select?(status)
+    status.to_s == params[:status]
   end
 end

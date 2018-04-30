@@ -3,9 +3,13 @@
 <% if @pings.any? %>
   <div class="bold">Date / Duration / Response code:</div>
 
-  <div class="filters">
-    <%= link_to 'all',   target_pings_path(@target, filter: :all),   class: (:bold if select_all?) %>
-    <%= link_to 'fails', target_pings_path(@target, filter: :fails), class: (:bold if select_fails?) %>
+  <div class="statuses">
+    <%= link_to 'all', target_pings_path(@target), class: (:bold if select_all?) %>
+    <% Status::LIST.reverse.each do |status| %>
+      <%= link_to(status,
+                  target_pings_path(@target, status: status),
+                  class: (:bold if select?(status))) %>
+    <% end %>
   </div>
 
   <% @pings.each do |ping| %>
