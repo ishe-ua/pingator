@@ -15,7 +15,7 @@ mary_success:
   start: <%= 15.minutes.ago %>
   duration: 200
 
-  code: <%= Color::GREEN.sample %>
+  code: <%= Color::GREEN_CODES.sample %>
   body: success
 
 mary_warn:
@@ -26,7 +26,7 @@ mary_warn:
   start: <%= 15.minutes.ago %>
   duration: 200
 
-  code: <%= Color::YELLOW.sample %>
+  code: <%= Color::YELLOW_CODES.sample %>
   body: success
 
 mary_fail:
@@ -37,7 +37,7 @@ mary_fail:
   start: <%= 10.minutes.ago %>
   duration: 30_000
 
-  code: <%= Color::RED.sample %>
+  code: <%= Color::RED_CODES.sample %>
   body: bad request
 
 mary_restore:
@@ -48,7 +48,7 @@ mary_restore:
   start: <%= 5.minutes.ago %>
   duration: 200
 
-  code: <%= Color::GREEN.sample %>
+  code: <%= Color::GREEN_CODES.sample %>
   body: success
 
 john:

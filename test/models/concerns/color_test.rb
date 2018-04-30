@@ -9,9 +9,9 @@ class ColorTest < ActiveSupport::TestCase
 
   test 'unique codes' do
     codes =
-      instance.class::GREEN +
-      instance.class::YELLOW +
-      instance.class::RED
+      instance.class::GREEN_CODES  +
+      instance.class::YELLOW_CODES +
+      instance.class::RED_CODES
 
     assert_equal codes.count, codes.uniq.count, 'any not uniqueness'
   end
@@ -21,34 +21,28 @@ class ColorTest < ActiveSupport::TestCase
   end
 
   test 'names' do
-    assert_equal instance.class::GREEN_NAME,  'green'
-    assert_equal instance.class::YELLOW_NAME, 'yellow'
-    assert_equal instance.class::RED_NAME,    'red'
+    assert_equal instance.class::GREEN,  :green
+    assert_equal instance.class::YELLOW, :yellow
+    assert_equal instance.class::RED,    :red
   end
 
   test 'color' do
     assert instance.green?
-    assert_equal instance.color, instance_class::GREEN_NAME
-  end
-
-  test 'colors' do
-    colors = instance.class.colors
-    assert_equal colors.count, 3
-    assert_equal colors.uniq.count, 3
+    assert_equal instance.color, instance_class::GREEN
   end
 
   test 'green?' do
-    instance.code = instance.class::GREEN.sample
+    instance.code = instance.class::GREEN_CODES.sample
     assert instance.green?
   end
 
   test 'yellow?' do
-    instance.code = instance.class::YELLOW.sample
+    instance.code = instance.class::YELLOW_CODES.sample
     assert instance.yellow?
   end
 
   test 'red?' do
-    instance.code = instance.class::RED.sample
+    instance.code = instance.class::RED_CODES.sample
     assert instance.red?
   end
 end

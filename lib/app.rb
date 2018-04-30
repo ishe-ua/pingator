@@ -17,4 +17,7 @@ module APP
 
   # For test and development environments
   DEFAULT_PASSWORD = '1234567'
+
+  # See Color, Status
+  UNDEFINED = :undefined
 end

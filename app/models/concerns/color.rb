@@ -6,42 +6,37 @@
 module Color
   extend ActiveSupport::Concern
 
-  GREEN  = (200...300).to_a
-  YELLOW = (300...400).to_a
-  RED    = (400...600).to_a
+  GREEN  = :green
+  YELLOW = :yellow
+  RED    = :red
 
-  GREEN_NAME  = :green
-  YELLOW_NAME = :yellow
-  RED_NAME    = :red
-  UNDEFINED   = :undefined
+  LIST = [GREEN, YELLOW, RED].freeze
+
+  GREEN_CODES  = (200...300).to_a
+  YELLOW_CODES = (300...400).to_a
+  RED_CODES    = (400...600).to_a
 
   included do
-    scope :greens,  -> { where code: GREENS  }
-    scope :yellows, -> { where code: YELLOWS }
-    scope :reds,    -> { where code: REDS    }
+    scope :greens,  -> { where code: GREEN_CODES  }
+    scope :yellows, -> { where code: YELLOW_CODES }
+    scope :reds,    -> { where code: RED_CODES    }
   end
 
   def color
-    (GREEN_NAME if green?) ||
-      (YELLOW_NAME if yellow?) ||
-      (RED_NAME if red?) || UNDEFINED
-  end
-
-  class_methods do
-    def colors
-      [GREEN_NAME, YELLOW_NAME, RED_NAME]
-    end
+    ((GREEN  if green?)  ||
+     (YELLOW if yellow?) ||
+     (RED    if red?)    || APP::UNDEFINED)
   end
 
   def green?
-    GREEN.include?(code)
+    GREEN_CODES.include?(code)
   end
 
   def yellow?
-    YELLOW.include?(code)
+    YELLOW_CODES.include?(code)
   end
 
   def red?
-    RED.include?(code)
+    RED_CODES.include?(code)
   end
 end
