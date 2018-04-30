@@ -36,4 +36,8 @@ module Status
   def fail?
     last_ping&.red?
   end
+
+  def find_by(status)
+    # TODO
+  end
 end
