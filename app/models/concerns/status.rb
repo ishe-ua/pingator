@@ -10,6 +10,15 @@ module Status
 
   LIST = [SUCCESS, WARN, FAIL].freeze
 
+  class_methods do
+    # See Color#color_by
+    def status_by(color)
+      ((SUCCESS if color == Color::GREEN) ||
+        (WARN if color == Color::YELLOW) ||
+        (FAIL if color == Color::RED) || APP::UNDEFINED)
+    end
+  end
+
   def status # rubocop:disable CyclomaticComplexity
     ((SUCCESS if success?) ||
      (WARN    if warn?) ||

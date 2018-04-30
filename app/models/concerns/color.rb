@@ -22,6 +22,15 @@ module Color
     scope :reds,    -> { where code: RED_CODES    }
   end
 
+  class_methods do
+    # See Status#status_by
+    def color_by(status)
+      ((GREEN  if status == Status::SUCCESS) ||
+       (YELLOW if status == Status::WARN) ||
+       (RED    if status == Status::FAIL) || APP::UNDEFINED)
+    end
+  end
+
   def color # rubocop:disable CyclomaticComplexity
     ((GREEN  if green?)  ||
      (YELLOW if yellow?) ||

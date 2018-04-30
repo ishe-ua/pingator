@@ -20,6 +20,10 @@ class ColorTest < ActiveSupport::TestCase
     skip
   end
 
+  test 'color_by' do
+    skip
+  end
+
   test 'names' do
     assert_equal instance.class::GREEN,  :green
     assert_equal instance.class::YELLOW, :yellow

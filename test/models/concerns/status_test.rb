@@ -8,6 +8,10 @@ class StatusTest < ActiveSupport::TestCase
     Ping.destroy_all
   end
 
+  test 'status_by' do
+    skip
+  end
+
   test 'status' do
     build(:ping, code: 200).save!
     assert instance.status
