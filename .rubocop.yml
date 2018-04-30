@@ -52,9 +52,3 @@ OrderedGems:
 
 Rails/LexicallyScopedActionFilter:
   Enabled: false
-
-CyclomaticComplexity:
-  Enabled: false
-
-PerceivedComplexity:
-  Enabled: false
