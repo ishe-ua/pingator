@@ -6,10 +6,10 @@ class PingsController < ApplicationController
   before_action :set_ping, only: :show
 
   def index
-    status = params[:status] || :all
-    @pings = @target.pings_with(status).order(created_at: :desc)
-               .page(params[:page])
-               .per(80)
+    base = params[:status] ? @target.pings_with(params[:status]) : @target.pings
+    @pings = base.order(created_at: :desc)
+                 .page(params[:page])
+                 .per(80)
   end
 
   def show; end
