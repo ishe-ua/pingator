@@ -34,8 +34,4 @@ class StatusTest < ActiveSupport::TestCase
     assert target.last_ping.red?
     assert target.fail?
   end
-
-  test 'find_by' do
-    skip
-  end
 end

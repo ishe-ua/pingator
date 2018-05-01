@@ -25,9 +25,9 @@ module Color
   class_methods do
     # See Status#status_by
     def color_by(status)
-      ((GREEN  if status == Status::SUCCESS) ||
-       (YELLOW if status == Status::WARN) ||
-       (RED    if status == Status::FAIL) || APP::UNDEFINED)
+      ((GREEN  if status.to_sym == Status::SUCCESS) ||
+       (YELLOW if status.to_sym == Status::WARN) ||
+       (RED    if status.to_sym == Status::FAIL) || APP::UNDEFINED)
     end
   end
 

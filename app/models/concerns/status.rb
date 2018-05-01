@@ -13,9 +13,9 @@ module Status
   class_methods do
     # See Color#color_by
     def status_by(color)
-      ((SUCCESS if color == Color::GREEN) ||
-        (WARN if color == Color::YELLOW) ||
-        (FAIL if color == Color::RED) || APP::UNDEFINED)
+      ((SUCCESS if color.to_sym == Color::GREEN) ||
+        (WARN if color.to_sym == Color::YELLOW) ||
+        (FAIL if color.to_sym == Color::RED) || APP::UNDEFINED)
     end
   end
 
@@ -35,9 +35,5 @@ module Status
 
   def fail?
     last_ping&.red?
-  end
-
-  def find_by(status)
-    # TODO
   end
 end
