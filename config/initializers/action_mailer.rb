@@ -20,17 +20,21 @@ am.default_url_options = { host: 'localhost', port: 3000 } if
   am.respond_to?(:default_url_options) &&
   defined?(Rails) && (Rails.env.development? || Rails.env.test?)
 
-if defined?(Rails) && (!Rails.env.development? && !Rails.env.test?)
-  am.default_url_options = { host: "http://#{APP::HOST}" }
-  am.delivery_method = :smtp
+if defined?(Rails)
+  unless Rails.env.development? ||
+         Rails.env.test?
 
-  am.smtp_settings = {
-    address:              Rails.application.secrets.smtp[:server],
-    port:                 Rails.application.secrets.smtp[:port],
-    domain:               APP::HOST,
-    user_name:            Rails.application.secrets.smtp[:username],
-    password:             Rails.application.secrets.smtp[:password],
-    authentication:       :login,
-    enable_starttls_auto: true
-  }
+    am.default_url_options = { host: "http://#{APP::HOST}" }
+    am.delivery_method = :smtp
+
+    am.smtp_settings = {
+      address:              APP.cred(:smtp, :server),
+      port:                 APP.cred(:smtp, :port),
+      user_name:            APP.cred(:smtp, :username),
+      password:             APP.cred(:smtp, :password),
+      domain:               APP::HOST,
+      authentication:       :login,
+      enable_starttls_auto: true
+    }
+  end
 end

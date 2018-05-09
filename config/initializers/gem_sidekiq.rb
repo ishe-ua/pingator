@@ -15,11 +15,11 @@ end
 # See:
 # 1. https://github.com/mperham/sidekiq/wiki/Monitoring
 # 2. routes.rb
-def protect_sidekiq_with_password # rubocop:disable AbcSize
+def protect_sidekiq_with_password
   unless Rails.env.development? ||
          Rails.env.test?
-    sidekiq_username = Rails.application.secrets.sidekiq[:username]
-    sidekiq_password = Rails.application.secrets.sidekiq[:password]
+    sidekiq_username = APP::SIDEKIQ_USERNAME
+    sidekiq_password = APP.cred(:sidekiq_passsword)
 
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
       ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(sidekiq_username)) &
