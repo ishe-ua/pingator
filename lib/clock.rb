@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-require 'clockwork'
-require_relative '../config/initializers/action_mailer'
-require_relative '../config/initializers/active_job'
-require_relative '../app/models/concerns/plan'
+# TODO
+# require 'clockwork'
+# require_relative '../config/initializers/action_mailer'
+# require_relative '../config/initializers/active_job'
+# require_relative '../app/models/concerns/plan'
 
 # App clock, gem 'clockwork'
 module Clockwork
