@@ -1,16 +1,16 @@
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 1 } %> # " for circle ci (not ')
-  timeout: 5000
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: db/pingator_development.sqlite3
+  database: pingator_development
 
 test:
   <<: *default
-  database: db/pingator_test.sqlite3
+  database: pingator_test
 
 production:
   <<: *default
-  database: db/pingator_production.sqlite3
+  database: pingator_production

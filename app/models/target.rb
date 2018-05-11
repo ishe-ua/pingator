@@ -4,8 +4,8 @@
 #
 # Table name: targets
 #
-#  id                 :integer          not null, primary key
-#  user_id            :integer
+#  id                 :bigint(8)        not null, primary key
+#  user_id            :bigint(8)
 #  url                :string           not null
 #  plan               :float            not null
 #  verification       :integer
@@ -23,6 +23,10 @@
 #  index_targets_on_user_id             (user_id)
 #  index_targets_on_verification        (verification)
 #  index_targets_on_verification_token  (verification_token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 class Target < ApplicationRecord
   belongs_to :user

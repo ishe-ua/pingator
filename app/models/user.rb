@@ -4,8 +4,8 @@
 #
 # Table name: users
 #
-#  id          :integer          not null, primary key
-#  account_id  :integer
+#  id          :bigint(8)        not null, primary key
+#  account_id  :bigint(8)
 #  name        :string
 #  country     :string
 #  timezone    :string
@@ -19,6 +19,10 @@
 #  index_users_on_account_id  (account_id)
 #  index_users_on_locked_at   (locked_at)
 #  index_users_on_name        (name)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (account_id => accounts.id)
 #
 class User < ApplicationRecord
   belongs_to :account

@@ -4,8 +4,8 @@
 #
 # Table name: pings
 #
-#  id         :integer          not null, primary key
-#  target_id  :integer
+#  id         :bigint(8)        not null, primary key
+#  target_id  :bigint(8)
 #  start      :datetime         not null
 #  duration   :integer          not null
 #  code       :integer          not null
@@ -16,6 +16,10 @@
 # Indexes
 #
 #  index_pings_on_target_id  (target_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (target_id => targets.id)
 #
 class Ping < ApplicationRecord
   belongs_to :target
