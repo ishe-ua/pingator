@@ -31,7 +31,7 @@ module Color
     end
   end
 
-  def color # rubocop:disable CyclomaticComplexity
+  def color
     ((GREEN  if green?)  ||
      (YELLOW if yellow?) ||
      (RED    if red?)    || APP::UNDEFINED)

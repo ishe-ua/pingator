@@ -23,6 +23,9 @@ ClassAndModuleChildren:
   # Exclude:
   #   - test/test_helper.rb
 
+CyclomaticComplexity:
+  Enabled: false
+
 Documentation:
   Exclude:
     - app/helpers/**/*

@@ -19,7 +19,7 @@ module Status
     end
   end
 
-  def status # rubocop:disable CyclomaticComplexity
+  def status
     ((SUCCESS if success?) ||
      (WARN    if warn?) ||
      (FAIL    if fail?) || APP::UNDEFINED)
