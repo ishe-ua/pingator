@@ -12,6 +12,7 @@ gem 'redis', '~> 4.0'
 gem 'sidekiq'
 gem 'clockwork'
 
+gem 'devise'
 gem 'exception_notification'
 gem 'mina', '~> 1.2.0'
 gem 'god'
