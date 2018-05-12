@@ -20,8 +20,8 @@ def build(model_name, attributes = {}) # rubocop:disable AbcSize, MethodLength
   correction = lambda do |ref|
     if hash[ref].present?
       hash["#{ref}_id"] = accounts(hash[ref].to_sym).id if ref == 'account'
-      hash["#{ref}_id"] = users(hash[ref].to_sym).id if ref == 'user'
-      hash["#{ref}_id"] = targets(hash[ref].to_sym).id if ref == 'target'
+      hash["#{ref}_id"] = users(hash[ref].to_sym).id    if ref == 'user'
+      hash["#{ref}_id"] = targets(hash[ref].to_sym).id  if ref == 'target'
 
       hash.delete(ref)
     end

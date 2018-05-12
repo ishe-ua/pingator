@@ -1,9 +1,6 @@
 DEFAULTS: &DEFAULTS
   email: $LABEL@example.com
-  password_digest: <%= BCrypt::Password.create(APP::DEFAULT_PASSWORD) %>
-
-  email_confirmation_at: <%= Time.current %>
-  email_confirmation_token: <%= Account.new.email_confirmation_token %>-$LABEL
+  encrypted_password: <%= BCrypt::Password.create(APP::DEFAULT_PASSWORD) %>
 
 mary:
   <<: *DEFAULTS
