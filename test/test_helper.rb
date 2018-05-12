@@ -28,10 +28,6 @@ class ActionDispatch::IntegrationTest
   include ActionMailer::TestHelper
   include ActiveJob::TestHelper
 
-  def sign_in(account = accounts(:mary))
-    post sessions_path, params: {
-      email: account.email,
-      password: APP::DEFAULT_PASSWORD
-    }
-  end
+  include Devise::Test::IntegrationHelpers
+  setup { sign_in accounts(:mary) }
 end

@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
+  setup { sign_out :account }
+
   test 'home' do
     get home_url
     assert_response :success
@@ -14,7 +16,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'settings' do
-    sign_in
+    sign_in accounts(:mary)
     get settings_url
     assert_response :success
   end

@@ -4,8 +4,8 @@ require 'test_helper'
 
 class PingsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in
     @target = targets(:mary)
+    sign_in(@target.user.account)
   end
 
   test 'get pings' do

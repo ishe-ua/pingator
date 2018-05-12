@@ -2,7 +2,7 @@
 
 # Email us
 class ContactsController < ApplicationController
-  skip_before_action :require_sign_in
+  skip_before_action :authenticate_account!
 
   def new; end
 
