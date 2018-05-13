@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: accounts
@@ -13,16 +15,21 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
 # Indexes
 #
+#  index_accounts_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_accounts_on_email                 (email) UNIQUE
 #  index_accounts_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class Account < ApplicationRecord
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ###

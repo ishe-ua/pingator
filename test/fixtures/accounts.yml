@@ -1,6 +1,7 @@
 DEFAULTS: &DEFAULTS
   email: $LABEL@example.com
   encrypted_password: <%= BCrypt::Password.create(APP::DEFAULT_PASSWORD) %>
+  confirmed_at: <%= 1.day.ago %>
 
 mary:
   <<: *DEFAULTS
