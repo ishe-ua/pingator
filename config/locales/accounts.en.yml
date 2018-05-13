@@ -1,0 +1,4 @@
+en:
+  accounts:
+    show:
+      email_not_confirmed: Not confirmed
