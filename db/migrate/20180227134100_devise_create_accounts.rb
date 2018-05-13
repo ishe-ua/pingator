@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable AbcSize, LineLength
+
 class DeviseCreateAccounts < ActiveRecord::Migration[5.2]
   def change
     create_table :accounts do |t|
@@ -41,3 +43,5 @@ class DeviseCreateAccounts < ActiveRecord::Migration[5.2]
     # add_index :accounts, :unlock_token,         unique: true
   end
 end
+
+# rubocop:enable AbcSize, LineLength

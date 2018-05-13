@@ -24,7 +24,6 @@
 #
 #  fk_rails_...  (account_id => accounts.id)
 #
-
 class User < ApplicationRecord
   belongs_to :account
   has_many :targets, dependent: :destroy

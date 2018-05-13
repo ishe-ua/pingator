@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateTargets < ActiveRecord::Migration[5.1]
+class CreateTargets < ActiveRecord::Migration[5.2]
   def change
     create_table :targets do |t|
       t.belongs_to :user, foreign_key: true
