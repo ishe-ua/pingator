@@ -11,11 +11,7 @@ gem 'puma',  '~> 3.11'
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
 gem 'clockwork'
-
-gem 'devise'
 gem 'exception_notification'
-gem 'mina', '~> 1.2.0'
-gem 'god'
 
 gem 'sass-rails',   '~> 5.0'
 gem 'uglifier',     '>= 1.3.0'
@@ -66,6 +62,7 @@ gem 'autoprefixer-rails'
 gem 'octicons_helper'
 gem 'kaminari'
 
+gem 'devise'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'dnsruby' # TODO
