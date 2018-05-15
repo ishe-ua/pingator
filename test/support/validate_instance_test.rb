@@ -7,6 +7,8 @@ module ValidateInstanceTest
   end
 
   def test_instance_is_valid
-    assert instance.valid?, "instance of #{instance.class} is valid"
+    b = instance.valid?
+    puts instance.errors.full_messages unless b
+    assert b, "instance of #{instance.class} is valid"
   end
 end

@@ -3,7 +3,7 @@ AllCops:
     - app/views/**/*.json.jbuilder
   Exclude:
     - bin/**/*
-    - tmp/**/*                     # sometimes we put something there
+    - tmp/**/*  # sometimes we put something there
     - vendor/**/*
     - db/schema.rb
     - db/structure.sql
