@@ -42,4 +42,11 @@ class Account < ApplicationRecord
   #
 
   has_one :user, dependent: :destroy
+  after_create :create_user
+
+  protected
+
+  def create_user
+    build_user.save!(validate: false) unless user
+  end
 end
