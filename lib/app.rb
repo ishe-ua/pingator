@@ -20,11 +20,11 @@ module APP
   # Start development since
   SINCE = 2018
 
-  ADMIN_EMAIL   = prod? ? cred(:admin_email) : "admin@#{HOST}"
+  ADMIN_EMAIL = prod? ? cred(:admin_email) : "admin@#{HOST}"
   NOREPLY_EMAIL = "no-reply@#{HOST}"
   SUPPORT_EMAIL = "support@#{HOST}"
 
-  # For test and development environments
+  # For development and test environments
   DEFAULT_PASSWORD = '1234567'
 
   # See Color, Status
