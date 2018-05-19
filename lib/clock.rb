@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-# TODO
-# require 'clockwork'
-# require_relative '../config/initializers/action_mailer'
-# require_relative '../config/initializers/active_job'
-# require_relative '../app/models/concerns/plan'
+unless defined?(Rails)
+  require_relative '../config/boot'
+  require_relative '../config/environment'
+end
 
 # App clock, gem 'clockwork'
 module Clockwork
@@ -36,7 +35,7 @@ module Clockwork
            end
 
     every(time, "Run plan #{plan_name}") do
-      PingPlanJob.peform_later(plan_name.to_s)
+      PingPlanJob.perform_later(plan_name.to_s)
     end
   end
 end
