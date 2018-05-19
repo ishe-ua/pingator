@@ -2,11 +2,11 @@
 
 am = ActionMailer::Base
 am.default_url_options = { host: APP::HOST }
-am.default_url_options = { host: 'localhost', port: '3000' } unless prod?
+am.default_url_options.merge!(port: APP::PORT) unless prod?
 
 if prod?
   am.delivery_method = :smtp
-  am.smtp_settings   = {
+  am.smtp_settings = {
     address:   cred(:smtp, :server),
     port:      cred(:smtp, :port),
     user_name: cred(:smtp, :username),

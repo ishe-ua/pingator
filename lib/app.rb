@@ -15,7 +15,9 @@ end
 # APP constants
 module APP
   NAME = 'pingator'
-  HOST = 'pingator.io'
+  HOST = prod? ? 'pingator.io' : 'localhost'
+
+  PORT = 3000
 
   # Start development since
   SINCE = 2018
