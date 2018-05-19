@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :accounts
   root 'pages#home'
+  devise_for :accounts
 
   controller :pages do
     get 'home'
@@ -19,11 +19,6 @@ Rails.application.routes.draw do
 
   get '/dash', to: 'targets#index'
 
-  ###
-  # Sidekiq monitoring
-  # See https://github.com/mperham/sidekiq/wiki/Monitoring
-  #
-
-  mount Sidekiq::Web, at: '/sidekiq'
+  mount Sidekiq::Web, at: APP::SIDEKIQ_URL
   protect_sidekiq_with_password
 end

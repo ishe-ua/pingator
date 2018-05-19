@@ -2,7 +2,6 @@
 
 require 'sidekiq'
 require 'sidekiq/web'
-require_relative 'gem_redis.rb'
 
 Sidekiq.configure_client do |config|
   config.redis = { url: redis.url }
