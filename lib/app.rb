@@ -29,7 +29,7 @@ module APP
   # For development and test environments
   DEFAULT_PASSWORD = '1234567'
 
-  SIDEKIQ_URL = '/sidekiq'
+  SIDEKIQ_URI = '/sidekiq'
 
   # See Color, Status
   UNDEFINED = :undefined

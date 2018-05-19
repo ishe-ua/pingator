@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'sidekiq'
 require 'sidekiq/web'
 
 Sidekiq.configure_client do |config|

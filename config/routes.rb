@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
   get '/dash', to: 'targets#index'
 
-  mount Sidekiq::Web, at: APP::SIDEKIQ_URL
+  mount Sidekiq::Web, at: APP::SIDEKIQ_URI
   protect_sidekiq_with_password
 end
