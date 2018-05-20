@@ -1,12 +1,14 @@
 DEFAULTS: &DEFAULTS
   account: mary
   name: $LABEL
+  country: ua
 
 mary:
   <<: *DEFAULTS
   account: mary
+  country: ca
 
 john:
   <<: *DEFAULTS
   account: john
-  country: ua
+  country: us
