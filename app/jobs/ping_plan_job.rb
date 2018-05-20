@@ -8,7 +8,7 @@ class PingPlanJob < ApplicationJob
 
   def perform(plan_name)
     Target.where(plan: plan_name).find_each do |t|
-      PingUrlJob.perform_later(t.url)
+      PingUrlJob.perform_later(t.id, t.url)
     end
   end
 end
