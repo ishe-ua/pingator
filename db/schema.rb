@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
     t.bigint "account_id"
     t.string "name"
     t.string "country"
-    t.string "timezone"
     t.datetime "locked_at"
     t.string "lock_reason"
     t.datetime "created_at", null: false

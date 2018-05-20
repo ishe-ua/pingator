@@ -22,6 +22,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :country, :timezone)
+    params.require(:user).permit(:name, :country)
   end
 end

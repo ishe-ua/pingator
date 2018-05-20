@@ -7,7 +7,7 @@ class PingPlanJob < ApplicationJob
   queue_as :default
 
   def perform(plan_name)
-    Target.where(plan: plan_name).find_each do |t|
+    Target.where(plan: plan_name).find_each do |t| # TODO: replace to pg view
       PingUrlJob.perform_later(t.id, t.url)
     end
   end

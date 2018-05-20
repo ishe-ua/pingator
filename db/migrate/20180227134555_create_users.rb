@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.string :country
-      t.string :timezone
 
       t.datetime :locked_at
       t.string   :lock_reason

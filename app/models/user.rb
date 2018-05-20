@@ -8,7 +8,6 @@
 #  account_id  :bigint(8)
 #  name        :string
 #  country     :string
-#  timezone    :string
 #  locked_at   :datetime
 #  lock_reason :string
 #  created_at  :datetime         not null
@@ -30,6 +29,5 @@ class User < ApplicationRecord
 
   include Name
   include Country
-  include Timezone
   include Lock
 end
