@@ -21,9 +21,6 @@ module Lock
   end
 
   def unlock
-    update_columns(
-      locked_at: nil,
-      lock_reason: nil
-    )
+    update!(locked_at: nil, lock_reason: nil)
   end
 end
