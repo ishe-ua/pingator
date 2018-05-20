@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# See PingPlanJob, PingResultJob
+# See PingPlanJob, PingUrlResultJob
 class PingUrlJob < ApplicationJob
   queue_as :default
 
-  # See Target, Url
+  # See Target
   def perform(target_id, target_url, stubs = {})
     start = nil
     duration = nil
@@ -19,7 +19,7 @@ class PingUrlJob < ApplicationJob
     code = response.try(:status) || response.try(:code)
     body = response.body
 
-    PingResultJob.perform_later(target_id, start, duration, code, body)
+    PingUrlResultJob.perform_later(target_id, start, duration, code, body)
   rescue StandardError => e
     Rails.logger.error e.message
   end
