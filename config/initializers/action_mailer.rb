@@ -2,7 +2,7 @@
 
 am = ActionMailer::Base
 am.default_url_options = { host: APP::HOST }
-am.default_url_options.merge!(port: APP::PORT) unless prod?
+am.default_url_options[:port] = APP::PORT unless prod?
 
 if prod?
   am.delivery_method = :smtp

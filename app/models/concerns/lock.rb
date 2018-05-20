@@ -21,7 +21,7 @@ module Lock
   end
 
   def unlock
-    update_columns( # rubocop:disable SkipsModelValidations
+    update_columns(
       locked_at: nil,
       lock_reason: nil
     )

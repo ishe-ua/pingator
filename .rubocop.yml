@@ -1,6 +1,4 @@
 AllCops:
-  Include:
-    - app/views/**/*.json.jbuilder
   Exclude:
     - bin/**/*
     - tmp/**/*  # sometimes we put something there

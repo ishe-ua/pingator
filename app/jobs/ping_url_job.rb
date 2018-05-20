@@ -5,11 +5,12 @@ class PingUrlJob < ApplicationJob
   queue_as :default
 
   # See Target
-  def perform(target_id, target_url, stubs = {})
+  def perform(target_id, target_url, stubs = {}) # rubocop:disable AbcSize, MethodLength, LineLength
     start = nil
     duration = nil
 
-    ActiveSupport::Notifications.subscribe('request.faraday') do |_, starts, ends, _, _| # rubocop:disable MethodLength
+    ActiveSupport::Notifications
+      .subscribe('request.faraday') do |_, starts, ends, _, _|
       start = starts
       duration = ((ends - starts) * 1000).to_i
     end
