@@ -5,13 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read('.ruby-version').strip
 
+gem 'rails', '~> 5.2.0'
+gem 'pg',    '>= 0.18', '< 2.0'
+gem 'redis', '~> 4.0'
+gem 'puma',  '~> 3.11'
+gem 'sidekiq'
 gem 'clockwork'
 gem 'exception_notification'
-gem 'pg',    '>= 0.18', '< 2.0'
-gem 'puma',  '~> 3.11'
-gem 'rails', '~> 5.2.0'
-gem 'redis', '~> 4.0'
-gem 'sidekiq'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'sass-rails',   '~> 5.0'
@@ -29,10 +29,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rails', require: false
   gem 'guard-migrate'
   gem 'guard-minitest'
-  gem 'guard-rails', require: false
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
 end
 
