@@ -5,6 +5,7 @@ class PingUrlJob < ApplicationJob
   queue_as :default
 
   def perform(target_id, target_url) # rubocop:disable MethodLength
+    response = nil
     start = nil
     duration = nil
 
@@ -14,17 +15,15 @@ class PingUrlJob < ApplicationJob
       duration = ((ends - starts) * 1000).to_i
     end
 
-    response = nil
     response = faraday.get(target_url)
     response = { start: start.to_i,
                  duration: duration.to_i,
                  code: response.status,
-                 body: response.body }
-  rescue StandardError => e
-    response = nil
-    Rails.logger.info e.message
+                 body: 'response.body' }
+  rescue Faraday::ConnectionFailed => e
+    response = { error: true }
   ensure
-    PingUrlResultJob.perform_later(target_id, response.deep_stringify_keys)
+    PingUrlResultJob.perform_later(target_id, formatted(response))
   end
 
   protected
@@ -39,5 +38,12 @@ class PingUrlJob < ApplicationJob
       conn.use :instrumentation
       conn.adapter Faraday.default_adapter
     end
+  end
+
+  def formatted(response)
+    response
+      .deep_stringify_keys
+      .to_json
+      .to_s
   end
 end
