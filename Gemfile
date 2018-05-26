@@ -66,3 +66,4 @@ gem 'devise'
 gem 'dnsruby' # TODO
 gem 'faraday'
 gem 'faraday_middleware'
+gem 'rchardet'

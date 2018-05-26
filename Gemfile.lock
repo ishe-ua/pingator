@@ -235,6 +235,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rchardet (1.7.0)
     rdoc (6.0.4)
     redis (4.0.1)
     responders (2.4.0)
@@ -339,6 +340,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-livereload
   rails (~> 5.2.0)
+  rchardet
   rdoc
   redis (~> 4.0)
   rubocop

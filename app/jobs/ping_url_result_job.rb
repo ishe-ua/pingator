@@ -4,9 +4,6 @@
 class PingUrlResultJob < ApplicationJob
   queue_as :default
 
-  # response:
-  # * Hash
-  # * nil - cant connect to Url
   def perform(target_id, response)
     target = Target.find_by(id: target_id)
     return unless target

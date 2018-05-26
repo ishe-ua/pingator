@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 # Ping Target and run PingUrlResultJob
+#
+# We do not support FollowRedirects middleware. So users should set
+# only pages without redirects (less load, free service).
+#
+# TODO: replace to Erlang service
 class PingUrlJob < ApplicationJob
   queue_as :default
 
@@ -19,7 +24,7 @@ class PingUrlJob < ApplicationJob
     response = { start: start.to_i,
                  duration: duration.to_i,
                  code: response.status,
-                 body: 'response.body' }
+                 body: encoded(response.body) }
   rescue Faraday::ConnectionFailed => e
     response = { error: true }
   ensure
@@ -29,15 +34,18 @@ class PingUrlJob < ApplicationJob
   protected
 
   # gem 'faraday'
-  #
-  # We do not support FollowRedirects middleware. So users should set
-  # only pages without redirects (less load, free service).
   def faraday
     Faraday.new do |conn|
       conn.response(:logger) if Rails.env.development?
       conn.use :instrumentation
       conn.adapter Faraday.default_adapter
     end
+  end
+
+  # gem 'rchardet'
+  def encoded(body)
+    encoding = CharDet.detect(body)['encoding']
+    body.force_encoding(encoding)
   end
 
   def formatted(response)
