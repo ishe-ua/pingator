@@ -6,7 +6,7 @@ class PingUrlResultJob < ApplicationJob
 
   def perform(target_id, response)
     response = JSON.parse(response).deep_symbolize_keys
-    return if bad?(response)
+    return if url_not_found?(response)
 
     target = Target.find_by(id: target_id)
     return unless target
@@ -37,7 +37,7 @@ class PingUrlResultJob < ApplicationJob
 
     if target_id.present? && target_url.present?
       Rails.logger.warn("Url #{response[:url_not_found]}")
-      end
+    end
   end
 
   private

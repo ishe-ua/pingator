@@ -40,10 +40,10 @@ class PingUrlResultJobTest < ActiveJob::TestCase
     assert mary.pings.last.green?
   end
 
-  test 'exception if left url' do
+  test 'url not found result' do
     skip
-    mary.update!(url: 'https://example.com/left-url')
-    assert_no_difference('Ping.count') { job.perform_now(mary.id) }
+    # mary.update!(url: 'https://example.com/left-url')
+    # assert_no_difference('Ping.count') { job.perform_now(mary.id) }
   end
 
   private
