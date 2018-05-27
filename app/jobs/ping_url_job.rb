@@ -26,7 +26,7 @@ class PingUrlJob < ApplicationJob
                  code: response.status,
                  body: encoded(response.body) }
   rescue Faraday::ConnectionFailed => e
-    response = { error: :url_not_found, # TODO: dry (move to constant)
+    response = { error: :connection_not_found,
                  target_id: target_id,
                  target_url: target_url }
   ensure
