@@ -14,7 +14,7 @@ module Color
 
   GREEN_CODES  = (200...300).to_a
   YELLOW_CODES = (300...400).to_a
-  RED_CODES    = (400...600).to_a
+  RED_CODES    = (400...600).to_a + [Code::BAD_CONNECTION]
 
   included do
     scope :greens,  -> { where code: GREEN_CODES  }
