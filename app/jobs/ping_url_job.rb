@@ -10,29 +10,22 @@ class PingUrlJob < ApplicationJob
   queue_as :default
 
   def perform(target_id, target_url) # rubocop:disable MethodLength
-    start = nil
-    duration = nil
+    resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: nil)
 
     ActiveSupport::Notifications
       .subscribe('request.faraday') do |_, starts, ends, _, _|
-      start = starts
-      duration = ((ends - starts) * 1000).to_i
+      resp.start = starts.to_i
+      resp.duration = ((ends - starts) * 1000).to_i
     end
 
-    response = begin
-                 faraday.get(target_url)
-               rescue Faraday::ConnectionFailed
-                 OpenStruct.new(status: Code::BAD_CONNECTION, body: '')
-               rescue StandardError
-                 nil
-               end
+    response = faraday.get(target_url)
 
-    PingUrlResultJob.perform_later(
-      target_id, formatted(start: start.to_i,
-                           duration: duration.to_i,
-                           code: response.status,
-                           body: encoded(response.body))
-    )
+    resp.code = response.status
+    resp.body = encoded(response.body)
+  rescue Faraday::ConnectionFailed
+    resp.code = Code::BAD_CONNECTION
+  ensure
+    PingUrlResultJob.perform_later(target_id, formatted(resp))
   end
 
   protected
