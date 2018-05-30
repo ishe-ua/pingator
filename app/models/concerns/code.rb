@@ -8,7 +8,7 @@
 module Code
   extend ActiveSupport::Concern
 
-  BAD_CONNECTION = 700
+  BAD_CONNECTION = 800
 
   included do
     validates :code, presence: true,
@@ -19,9 +19,8 @@ module Code
   # Like '200 OK', '400 Bad Request'...
   def code_with_name
     msg = Rack::Utils::HTTP_STATUS_CODES[code]
-    msg = 'Bad connection' if code == BAD_CONNECTION
+    msg = 'Bad Connection' if code == BAD_CONNECTION
 
-    raise 'Code not found' if msg.blank?
     "#{code} #{msg}"
   end
 end
