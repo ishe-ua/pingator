@@ -3,22 +3,16 @@
 require 'test_helper'
 
 class PingUrlResultJobTest < ActiveJob::TestCase
-  setup {
+  setup do
     @job = PingUrlResultJob
     Ping.delete_all
-  }
-
-  test 'success first ping' do
-    assert_enqueued_emails(1) do
-      job.perform_now(mary.id, resp(code: 200))
-    end
   end
 
-  test 'fail first ping' do
-    skip
-    destroy_all_pings
-    assert_enqueued_emails(1) do
-      job.perform_now(mary.id, default_response.merge(code: 404))
+  test 'first (success or fail) ping' do
+    assert_difference 'Ping.count' do
+      assert_enqueued_emails(1) do
+        job.perform_now(mary.id, resp(code: [200, 404].sample))
+      end
     end
   end
 
