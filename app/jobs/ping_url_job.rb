@@ -9,7 +9,7 @@
 class PingUrlJob < ApplicationJob
   queue_as :default
 
-  def perform(target_id, target_url) # rubocop:disable MethodLength
+  def perform(target_id, target_url) # rubocop:disable AbcSize, MethodLength
     resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: '')
 
     ActiveSupport::Notifications
@@ -18,14 +18,17 @@ class PingUrlJob < ApplicationJob
       resp.duration = ((ends - starts) * 1000).to_i
     end
 
-    response = faraday.get(target_url)
+    begin
+      response = faraday.get(target_url)
+      resp.code = response.status
+      resp.body = encoded(response.body || '')
+    rescue Faraday::ConnectionFailed
+      resp.code = Code::BAD_CONNECTION
+    ensure
+      resp = formatted(resp)
+    end
 
-    resp.code = response.status
-    resp.body = encoded(response.body || '')
-  rescue Faraday::ConnectionFailed
-    resp.code = Code::BAD_CONNECTION
-  ensure
-    PingUrlResultJob.perform_later(target_id, formatted!(resp))
+    PingUrlResultJob.perform_later(target_id, resp)
     resp # for tests
   end
 
@@ -46,12 +49,11 @@ class PingUrlJob < ApplicationJob
     body.force_encoding(encoding)
   end
 
-  def formatted!(response)
-    response =
-      response
-        .to_h
-        .deep_stringify_keys
-        .to_json
-        .to_s
+  def formatted(response)
+    response
+      .to_h
+      .deep_stringify_keys
+      .to_json
+      .to_s
   end
 end
