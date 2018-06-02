@@ -28,12 +28,14 @@ class PingUrlJob < PingJob
   protected
 
   # gem 'faraday'
-  def faraday
-    @faraday ||= Faraday.new do |conn|
+  def connection
+    Faraday.new do |conn|
       conn.response(:logger) if Rails.env.development? # logger on
       conn.adapter Faraday.default_adapter
     end
   end
+
+  alias faraday connection
 
   # gem 'rchardet'
   def encoded(body)

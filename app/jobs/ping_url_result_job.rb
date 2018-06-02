@@ -23,6 +23,8 @@ class PingUrlResultJob < PingJob
     PingsMailer.fail(current).deliver_later if to_fail_status?(current, prev)
   end
 
+  private
+
   def to_success?(current, prev)
     (prev.nil? && current.green?) || (prev&.red? && current.green?)
   end
