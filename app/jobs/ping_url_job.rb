@@ -8,16 +8,7 @@
 # WARN: we can easy replace it to Erlang service (for example).
 class PingUrlJob < PingJob
   def perform(target_id, target_url) # rubocop:disable MethodLength
-    resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: '')
-
-    resp.start = 10
-    resp.duration = 20
-
-    # ActiveSupport::Notifications
-    #   .subscribe('request.faraday') do |_, starts, ends, _, _|
-    #   resp.start = starts.to_i
-    #   resp.duration = ((ends - starts) * 1000).to_i
-    # end
+    resp = OpenStruct.new(start: Time.current, duration: 0, code: 0, body: '')
 
     begin
       response = faraday.get(target_url)
@@ -26,6 +17,7 @@ class PingUrlJob < PingJob
     rescue Faraday::ConnectionFailed
       resp.code = Code::BAD_CONNECTION
     ensure
+      resp.duration = ((Time.current - resp.start) * 1000).to_i
       resp = formatted(resp)
     end
 
@@ -37,9 +29,8 @@ class PingUrlJob < PingJob
 
   # gem 'faraday'
   def faraday
-    Faraday.new do |conn|
-      conn.response(:logger) if Rails.env.development?
-      conn.use :instrumentation
+    @faraday ||= Faraday.new do |conn|
+      conn.response(:logger) if Rails.env.development? # logger on
       conn.adapter Faraday.default_adapter
     end
   end

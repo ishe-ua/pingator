@@ -6,7 +6,7 @@ class PingUrlJobTest < ActiveJob::TestCase
   setup { @job = PingUrlJob }
 
   test 'success' do
-    ping
+    ping('https://www.google.com')
     assert_equal response[:code], 200
   end
 
@@ -29,7 +29,7 @@ class PingUrlJobTest < ActiveJob::TestCase
 
   private
 
-  def ping(url = 'https://www.google.com')
+  def ping(url = 'https://lb.ua')
     @response =
       VCR.use_cassette(url.tr('/', '_').delete(':')) do
         resp = job.perform_now(10_000, url)
