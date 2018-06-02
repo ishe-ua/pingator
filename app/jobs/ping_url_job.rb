@@ -5,12 +5,12 @@
 # We do not support FollowRedirects middleware. So users should set
 # only pages without redirects (less load, free service).
 #
-# TODO: replace to Erlang service
+# TODO: replace to Erlang service (for example)
 class PingUrlJob < ApplicationJob
   queue_as :default
 
   def perform(target_id, target_url) # rubocop:disable MethodLength
-    resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: nil)
+    resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: '')
 
     ActiveSupport::Notifications
       .subscribe('request.faraday') do |_, starts, ends, _, _|
@@ -21,7 +21,7 @@ class PingUrlJob < ApplicationJob
     response = faraday.get(target_url)
 
     resp.code = response.status
-    resp.body = encoded(response.body)
+    resp.body = encoded(response.body || '')
   rescue Faraday::ConnectionFailed
     resp.code = Code::BAD_CONNECTION
   ensure
@@ -47,6 +47,7 @@ class PingUrlJob < ApplicationJob
 
   def formatted(response)
     response
+      .to_h
       .deep_stringify_keys
       .to_json
       .to_s
