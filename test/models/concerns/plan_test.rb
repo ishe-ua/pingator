@@ -22,4 +22,11 @@ class PlanTest < ActiveSupport::TestCase
   test 'a plan by default' do
     assert instance.a?
   end
+
+  test 'scope' do
+    Plan::NAMES.keys.each do |plan_name|
+      scope_name = "with_#{plan_name}_plan"
+      assert instance.class.send(scope_name)
+    end
+  end
 end

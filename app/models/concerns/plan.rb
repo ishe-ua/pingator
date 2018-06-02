@@ -24,13 +24,9 @@ module Plan
       validates :plan, presence: true
       after_initialize :set_default_plan
 
-      protected def self.define_plans_scopes
-        NAMES.keys.each do |plan_name|
-          scope "#{plan_name}_plans", -> { where(plan: plan_name) }
-        end
+      NAMES.keys.each do |plan_name|
+        scope "with_#{plan_name}_plan", -> { where(plan: plan_name) }
       end
-
-      define_plans_scopes
     end
 
     protected
