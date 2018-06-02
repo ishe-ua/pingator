@@ -5,7 +5,6 @@ class PingUrlResultJob < PingJob
   # Response param should has PingJob::RESULT_ATTRIBUTES
   def perform(target_id, response)
     response = JSON.parse(response).deep_symbolize_keys
-    return if bad_connection?(response)
 
     target = Target.find_by(id: target_id)
     return unless target
@@ -14,8 +13,6 @@ class PingUrlResultJob < PingJob
     current_ping = target.pings.create!(response)
 
     notify_if_status_changed?(current_ping, prev_ping)
-  rescue StandardError => e
-    Rails.logger.error e.message
   end
 
   protected
@@ -25,19 +22,6 @@ class PingUrlResultJob < PingJob
     PingsMailer.success(current).deliver_later if to_success?(current, prev)
     PingsMailer.fail(current).deliver_later if to_fail_status?(current, prev)
   end
-
-  def bad_connection?(response)
-    error_code = response[:error]
-    return if error_code.blank? || error_code != :url_not_found
-
-    target_id = response[:target_id]
-    target_url = response[:target_url]
-
-    Rails.logger.warn("Url #{response[:url_not_found]}") if
-      target_id.present? && target_url.present?
-  end
-
-  private
 
   def to_success?(current, prev)
     (prev.nil? && current.green?) || (prev&.red? && current.green?)
