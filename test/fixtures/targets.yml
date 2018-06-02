@@ -1,7 +1,7 @@
 DEFAULTS: &DEFAULTS
   user: mary
 
-  url: https://example.com/$LABEL
+  url: https://blog.example.com/$LABEL
   plan: <%= Target.plans[Target.new.plan] %>
 
   verification:       <%= Target.verifications[Target.new.verification] %>

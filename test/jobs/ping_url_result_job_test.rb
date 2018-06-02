@@ -3,13 +3,14 @@
 require 'test_helper'
 
 class PingUrlResultJobTest < ActiveJob::TestCase
-  setup { @job = PingUrlResultJob }
+  setup {
+    @job = PingUrlResultJob
+    Ping.delete_all
+  }
 
   test 'success first ping' do
-    skip
-    destroy_all_pings
     assert_enqueued_emails(1) do
-      job.perform_now(mary.id, default_response.merge(code: 200))
+      job.perform_now(mary.id, resp(code: 200))
     end
   end
 
@@ -52,13 +53,12 @@ class PingUrlResultJobTest < ActiveJob::TestCase
     targets(:mary)
   end
 
-  # stub
-  def default_response
-    { start: Time.current, duration: 10, code: 200, body: 'test' }
+  def build_resp(opts = {})
+    { start: Time.current, duration: 200, code: 200, body: 'test' }
+      .merge(opts)
+      .to_json
+      .to_s
   end
 
-  def destroy_all_pings
-    Ping.destroy_all
-    assert_equal Ping.count, 0
-  end
+  alias resp build_resp
 end
