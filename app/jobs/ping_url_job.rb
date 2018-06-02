@@ -5,7 +5,7 @@
 # We do not support FollowRedirects middleware. So users should set
 # only pages without redirects (less load, free service).
 #
-# TODO: replace to Erlang service (for example)
+# WARN: we can easy replace it to Erlang service (for example).
 class PingUrlJob < ApplicationJob
   queue_as :default
 
@@ -25,7 +25,8 @@ class PingUrlJob < ApplicationJob
   rescue Faraday::ConnectionFailed
     resp.code = Code::BAD_CONNECTION
   ensure
-    PingUrlResultJob.perform_later(target_id, formatted(resp))
+    PingUrlResultJob.perform_later(target_id, formatted!(resp))
+    resp # for tests
   end
 
   protected
@@ -45,11 +46,12 @@ class PingUrlJob < ApplicationJob
     body.force_encoding(encoding)
   end
 
-  def formatted(response)
-    response
-      .to_h
-      .deep_stringify_keys
-      .to_json
-      .to_s
+  def formatted!(response)
+    response =
+      response
+        .to_h
+        .deep_stringify_keys
+        .to_json
+        .to_s
   end
 end
