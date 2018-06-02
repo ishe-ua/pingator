@@ -6,17 +6,18 @@
 # only pages without redirects (less load, free service).
 #
 # WARN: we can easy replace it to Erlang service (for example).
-class PingUrlJob < ApplicationJob
-  queue_as :default
-
-  def perform(target_id, target_url) # rubocop:disable AbcSize, MethodLength
+class PingUrlJob < PingJob
+  def perform(target_id, target_url) # rubocop:disable MethodLength
     resp = OpenStruct.new(start: 0, duration: 0, code: 0, body: '')
 
-    ActiveSupport::Notifications
-      .subscribe('request.faraday') do |_, starts, ends, _, _|
-      resp.start = starts.to_i
-      resp.duration = ((ends - starts) * 1000).to_i
-    end
+    resp.start = 10
+    resp.duration = 20
+
+    # ActiveSupport::Notifications
+    #   .subscribe('request.faraday') do |_, starts, ends, _, _|
+    #   resp.start = starts.to_i
+    #   resp.duration = ((ends - starts) * 1000).to_i
+    # end
 
     begin
       response = faraday.get(target_url)

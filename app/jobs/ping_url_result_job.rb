@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
 # See PingUrlJob
-class PingUrlResultJob < ApplicationJob
-  queue_as :default
-
-  INCOMING_ATTRIBUTES =  Ping.new.attribute_names -
-                         %w[id target_id created_at updated_at]
-
-  # Response param should has INCOMING_ATTRIBUTES
+class PingUrlResultJob < PingJob
+  # Response param should has PingJob::RESULT_ATTRIBUTES
   def perform(target_id, response)
     response = JSON.parse(response).deep_symbolize_keys
     return if bad_connection?(response)

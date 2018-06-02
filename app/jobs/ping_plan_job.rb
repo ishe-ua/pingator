@@ -3,7 +3,7 @@
 # Run PingUrlJob for each Target.
 #
 # See Clock
-class PingPlanJob < ApplicationJob
+class PingPlanJob < PingJob
   queue_as :default
 
   def perform(plan_name)
