@@ -28,6 +28,11 @@ class PingUrlResultJobTest < ActiveJob::TestCase
     # assert_no_difference('Ping.count') { job.perform_now(mary.id) }
   end
 
+  test '#bad?' do
+    assert job.new.send(:bad?, PingJob::RESULT_KEYS.shuffle)
+    assert_not job.new.send(:bad?, ['aa'])
+  end
+
   private
 
   def mary
