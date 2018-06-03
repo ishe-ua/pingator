@@ -2,12 +2,13 @@
 
 # See PingUrlJob
 class PingUrlResultJob < PingJob
-  # Response param should has PingJob::RESULT_ATTRIBUTES
+  # _Response_ param should has PingJob::RESULT_ATTRIBUTES
   def perform(target_id, response)
+    target = Target.find_by(id: target_id)
     response = JSON.parse(response).deep_symbolize_keys
 
-    target = Target.find_by(id: target_id)
-    return unless target
+    return if bad?(response.keys) ||
+              not_found?(target, target_id)
 
     prev_ping = target.last_ping
     current_ping = target.pings.create!(response)
@@ -23,7 +24,18 @@ class PingUrlResultJob < PingJob
     PingsMailer.fail(current).deliver_later if to_fail_status?(current, prev)
   end
 
+  def bad?(response_keys)
+    b = response_keys.sort == RESULT_KEYS.sort
+    Rails.logger.warn("Bad response keys #{response_keys.join ', ' }") unless b
+    b
+  end
+
   private
+
+  def not_found?(target, target_id)
+    Rails.logger.warn("Target not found (#{target_id})") if
+      target.nil?
+  end
 
   def to_success?(current, prev)
     (prev.nil? && current.green?) || (prev&.red? && current.green?)

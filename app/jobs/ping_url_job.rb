@@ -7,7 +7,7 @@
 #
 # WARN: we can easy replace it to Erlang service (for example).
 class PingUrlJob < PingJob
-  def perform(target_id, target_url) # rubocop:disable MethodLength
+  def perform(target_id, target_url) # rubocop:disable AbcSize, MethodLength
     resp = OpenStruct.new(start: Time.current, duration: 0, code: 0, body: '')
 
     begin

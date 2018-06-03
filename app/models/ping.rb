@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pings
@@ -20,7 +21,6 @@
 #
 #  fk_rails_...  (target_id => targets.id)
 #
-
 class Ping < ApplicationRecord
   belongs_to :target
 

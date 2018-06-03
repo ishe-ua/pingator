@@ -21,8 +21,8 @@ class PingUrlJobTest < ActiveJob::TestCase
 
   test 'response hash with right fields' do
     ping
-    assert_equal response.keys.count, PingJob::RESULT_ATTRIBUTES.count
-    PingJob::RESULT_ATTRIBUTES.shuffle.each do |key|
+    assert_equal response.keys.count, PingJob::RESULT_KEYS.count
+    PingJob::RESULT_KEYS.shuffle.each do |key|
       assert response.key?(key.to_sym)
     end
   end
