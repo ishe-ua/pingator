@@ -2,7 +2,7 @@
 
 # See PingUrlJob
 class PingUrlResultJob < PingJob
-  # _Response_ param should has PingJob::RESULT_ATTRIBUTES
+  # _Response_ param should has PingJob::RESULT_KEYS
   def perform(target_id, response)
     target = Target.find_by(id: target_id)
     response = JSON.parse(response).deep_symbolize_keys
