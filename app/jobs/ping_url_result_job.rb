@@ -26,7 +26,7 @@ class PingUrlResultJob < PingJob
 
   def bad?(response_keys)
     b = response_keys.sort == RESULT_KEYS.sort
-    Rails.logger.warn("Bad response keys #{response_keys.join ', ' }") unless b
+    Rails.logger.warn("Bad response keys (#{response_keys.join ', '})") unless b
     b
   end
 

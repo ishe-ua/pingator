@@ -11,21 +11,57 @@ class PingUrlResultJobTest < ActiveJob::TestCase
   test 'first (success or fail) ping' do
     assert_difference 'Ping.count' do
       assert_enqueued_emails(1) do
-        job.perform_now(mary.id, resp(code: [200, 404].sample))
+        job.perform_now(mary.id, build_resp(code: [200, 404].sample))
       end
     end
   end
 
   test 'from success to fail' do
+    Ping.create!(build_resp_hash(code: 200, target: mary))
+    assert Ping.last.green?
+
+    assert_difference 'Ping.count' do
+      assert_enqueued_emails(1) do
+        job.perform_now(mary.id, build_resp(code: 500))
+        assert Ping.last.red?
+      end
+    end
   end
 
   test 'from fail to success' do
+    Ping.create!(build_resp_hash(code: 404, target: mary))
+    assert Ping.last.red?
+
+    assert_difference 'Ping.count' do
+      assert_enqueued_emails(1) do
+        job.perform_now(mary.id, build_resp(code: 200))
+        assert Ping.last.green?
+      end
+    end
   end
 
-  test 'url not found result' do
-    skip
-    # mary.update!(url: 'https://example.com/left-url')
-    # assert_no_difference('Ping.count') { job.perform_now(mary.id) }
+  test 'from success to success' do
+    Ping.create!(build_resp_hash(code: 200, target: mary))
+    assert Ping.last.green?
+
+    assert_difference 'Ping.count' do
+      assert_no_enqueued_emails do
+        job.perform_now(mary.id, build_resp(code: 200))
+        assert Ping.last.green?
+      end
+    end
+  end
+
+  test 'from fail to fail' do
+    Ping.create!(build_resp_hash(code: 500, target: mary))
+    assert Ping.last.red?
+
+    assert_difference 'Ping.count' do
+      assert_no_enqueued_emails do
+        job.perform_now(mary.id, build_resp(code: 500))
+        assert Ping.last.red?
+      end
+    end
   end
 
   test '#bad?' do
@@ -39,12 +75,15 @@ class PingUrlResultJobTest < ActiveJob::TestCase
     targets(:mary)
   end
 
+  def build_resp_hash(opts = {})
+    { start: Time.current, duration: 70, code: 200, body: 'test' }
+      .merge(opts)
+  end
+
   def build_resp(opts = {})
-    { start: Time.current, duration: 200, code: 200, body: 'test' }
+    build_resp_hash(opts)
       .merge(opts)
       .to_json
       .to_s
   end
-
-  alias resp build_resp
 end
