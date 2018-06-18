@@ -1,14 +1,9 @@
-// dokku manifest
 {
     "name": "pingator",
-    "description": "mvp",
-    "keywords": [
-        "dokku",
-        "rails",
-        "pingator"
-    ],
+    "description": "",
+    "keywords": [],
     "scripts": {
-        "dokku": {
+        "run migrations": {
             "postdeploy": "bundle exec rails db:migrate"
         }
     }
