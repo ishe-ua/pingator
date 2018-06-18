@@ -1,0 +1,11 @@
+// dokku config file
+{
+  "name": "pingator",
+  "description": "",
+  "keywords": [],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rails db:migrate"
+    }
+  }
+}
