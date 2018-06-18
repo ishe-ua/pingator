@@ -1,11 +1,15 @@
-// dokku config file
+// dokku manifest
 {
-  "name": "pingator",
-  "description": "",
-  "keywords": [],
-  "scripts": {
-    "dokku": {
-      "postdeploy": "bundle exec rails db:migrate"
+    "name": "pingator",
+    "description": "mvp",
+    "keywords": [
+        "dokku",
+        "rails",
+        "pingator"
+    ],
+    "scripts": {
+        "dokku": {
+            "postdeploy": "bundle exec rails db:migrate"
+        }
     }
-  }
 }
