@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/app'
+require_relative '../lib/app' if defined?(Rails)
 
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
@@ -11,7 +11,7 @@ require_relative '../lib/app'
 threads_count = ENV.fetch('RAILS_MAX_THREADS') { 5 }
 threads threads_count, threads_count
 
-port ENV.fetch('PORT') { APP::PORT }
+port ENV.fetch('PORT') { defined?(APP) ? APP::PORT : 3000 }
 environment ENV.fetch('RAILS_ENV') { 'development' }
 
 # Specifies the number of `workers` to boot in clustered mode.
