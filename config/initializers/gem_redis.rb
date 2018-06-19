@@ -11,6 +11,7 @@ def redis
 end
 
 def redis.url
-  Rails.application
-       .config_for(:redis)[:url] || redis.connection[:id]
+  Rails
+    .application
+    .config_for(:redis)['url'] || redis.connection[:id]
 end
