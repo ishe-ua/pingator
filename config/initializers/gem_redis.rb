@@ -11,5 +11,6 @@ def redis
 end
 
 def redis.url
-  ENV.fetch('REDIS_URL', redis.connection[:id])
+  Rails.application
+       .config_for(:redis)[:url] || redis.connection[:id]
 end
