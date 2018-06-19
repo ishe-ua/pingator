@@ -10,4 +10,4 @@ test:
   <<: *default
 
 production:
-  url: <%= ENV["REDIS_URL"] + '/0' %>
+  url: <%= ENV["REDIS_URL"] %>

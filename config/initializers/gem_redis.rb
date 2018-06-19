@@ -11,5 +11,5 @@ def redis
 end
 
 def redis.url
-  redis.connection[:id]
+  ENV.fetch('REDIS_URL', redis.connection[:id])
 end
