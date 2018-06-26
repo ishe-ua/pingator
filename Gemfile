@@ -63,9 +63,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails' # for bootstrap
 gem 'octicons_helper'
 
-gem 'kaminari'
-
 gem 'devise'
 gem 'dnsruby' # TODO
 gem 'faraday'
 gem 'rchardet'
+gem 'kaminari'

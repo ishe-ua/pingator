@@ -1,8 +1,7 @@
 <h2>
-  <%= tag.div I18n.t('app.motto').downcase, class: :motto %>
+  <div class="motto">
+    <%= I18n.t('app.motto').downcase %>
+  </div>
+
   Free service with paid features
 </h2>
-
-<%= link_to 'Sign Up', new_account_registration_path %>
-
-<%= link_to 'Sign In', new_account_session_path %>
