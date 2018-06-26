@@ -1,13 +1,16 @@
---<br/>
+<nav class="navbar navbar-light w-100 bg-light d-flex justify-content-center">
 
-<span class="copyright"><%=
-                        app_link = link_to(APP::NAME.camelize, root_path)
+  <span class="nav-text"><%=
+                         app_name = APP::NAME.camelize
 
-                        year1 = APP::SINCE
-                        year2 = Time.zone.now.year
-                        app_years = year1 == year2 ? year1.to_s : "#{year1}-#{year2}"
+                         year1 = APP::SINCE
+                         year2 = Time.zone.now.year
+                         app_years = year1 == year2 ? year1.to_s : "#{year1}-#{year2}"
 
-                        "&copy; «#{app_link}», #{app_years}. #{t '.copyright'}.".html_safe
-                        %></span>
+                         "&copy; «#{app_name}», #{app_years}. #{t '.copyright'}.".html_safe
+                         %>
 
-<%= link_to t('.contact'), new_contact_path, class: :contact %>
+    <%= link_to t('.contact'), new_contact_path %>
+  </span>
+
+</nav>
