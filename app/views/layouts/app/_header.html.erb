@@ -1,15 +1,18 @@
-<h1>
-  <%= link_to root_path do %>
-    <%= octicon :bell, height: 32 %>&nbsp;<%= APP::NAME.capitalize %>
-    <%= tag.div I18n.t('app.motto').downcase, class: :motto %>
+<nav class="navbar navbar-light w-100 border">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= octicon :bell, height: 32, class: "d-inline-block align-top" %>
+    <%= APP::NAME.capitalize %>
   <% end %>
-</h1>
 
-<hr/>
-
-<% if signed_in? %>
-  <div class="menu">
-    <%= link_to 'Settings', settings_path %> |
-    <%= link_to 'Sign Out', destroy_account_session_path, method: :delete %>
-  </div>
-<% end %>
+  <ul class="nav justify-content-end">
+    <% if !signed_in? %>
+      <li class="nav-item"><%= link_to 'Log in', new_account_session_path, class: "nav-link" %></li>
+      <li class="nav-item">
+        <%= link_to 'Sign Up', new_account_registration_path, class: "btn btn-primary" %>
+      </li>
+    <% else %>
+      <li class="nav-item"><%= link_to 'Settings', settings_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to 'Sign Out', destroy_account_session_path, method: :delete, class: "nav-link" %></li>
+    <% end %>
+  </ul>
+</nav>
