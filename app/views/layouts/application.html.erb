@@ -3,10 +3,10 @@
   <head><%= render 'layouts/head' %></head>
   <body id="app" class="<%= controller_name %> <%= action_name %>">
 
-    <div class="container">
-      <header class="row"><%= render 'layouts/app/header' %></header>
-      <main   class="row"><%= yield %>                      </main>
-      <footer class="row"><%= render 'layouts/app/footer' %></footer>
+    <div>
+      <header><%= render 'layouts/app/header' %></header>
+      <main class="container"><%= yield %></main>
+      <footer><%= render 'layouts/app/footer' %></footer>
     </div>
 
   </body>

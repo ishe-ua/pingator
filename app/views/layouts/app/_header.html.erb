@@ -1,20 +1,24 @@
-<nav class="navbar navbar-light w-100 bg-light">
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
 
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= octicon :bell, height: 32, class: "d-inline-block align-top" %>
-    <%= APP::NAME.capitalize %>
-  <% end %>
+    <div class="col">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= octicon :bell, height: 32, class: "d-inline-block align-top" %>
+        <%= APP::NAME.capitalize %>
+      <% end %>
+    </div>
 
-  <ul class="nav justify-content-end">
-    <% if !signed_in? %>
-      <li class="nav-item"><%= link_to 'Log in', new_account_session_path, class: "nav-link" %></li>
-      <li class="nav-item">
-        <%= link_to 'Sign Up', new_account_registration_path, class: "btn btn-primary" %>
-      </li>
-    <% else %>
-      <li class="nav-item"><%= link_to 'Settings', settings_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to 'Sign Out', destroy_account_session_path, method: :delete, class: "nav-link" %></li>
-    <% end %>
-  </ul>
+    <ul class="col nav justify-content-end">
+      <% if !signed_in? %>
+        <li class="nav-item"><%= link_to 'Log in', new_account_session_path, class: "nav-link" %></li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_account_registration_path, class: "btn btn-primary" %>
+        </li>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Settings', settings_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to 'Sign Out', destroy_account_session_path, method: :delete, class: "nav-link" %></li>
+      <% end %>
+    </ul>
 
+  </div>
 </nav>
