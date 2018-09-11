@@ -31,5 +31,8 @@ module Pingator
       g.assets false # stylesheets, js
       g.helper false # helpers
     end
+
+    # Add fonts folder
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts').to_s
   end
 end
