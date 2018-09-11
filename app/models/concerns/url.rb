@@ -23,6 +23,7 @@ module Url
 
   def host
     return if url.blank?
+
     h = URI.parse(url).host.downcase
     h.start_with?('www.') ? h.remove('www.') : h
   end
@@ -35,6 +36,7 @@ module Url
 
   def add_supported_scheme
     return if url.blank?
+
     b = false
     SUPPORTED_SCHEMES.each { |name| b = true if url.start_with?(name + '://') }
     self.url = 'https://' + url unless b
