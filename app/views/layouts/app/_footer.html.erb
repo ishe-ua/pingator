@@ -1,18 +1,12 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container d-flex justify-content-center">
+<span><%=
+      app_name = APP::NAME.camelize
 
-    <div class="nav-text "><%=
-                          app_name = APP::NAME.camelize
+      year1 = APP::SINCE
+      year2 = Time.zone.now.year
+      app_years = year1 == year2 ? year1.to_s : "#{year1}-#{year2}"
 
-                          year1 = APP::SINCE
-                          year2 = Time.zone.now.year
-                          app_years = year1 == year2 ? year1.to_s : "#{year1}-#{year2}"
+      "&copy; «#{app_name}», #{app_years}. #{t '.copyright'}.".html_safe
+      %>
+</span>
 
-                          "&copy; «#{app_name}», #{app_years}. #{t '.copyright'}.".html_safe
-                          %>
-
-      <%= link_to t('.contact'), new_contact_path %>
-    </div>
-
-  </div>
-</nav>
+<%= link_to t('.contact'), new_contact_path %>

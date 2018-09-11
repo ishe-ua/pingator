@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head><%= render 'layouts/head' %></head>
-  <body id="app" class="<%= controller_name %> <%= action_name %>">
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
 
-    <div>
-      <header><%= render 'layouts/app/header' %></header>
-      <main class="container"><%= yield %></main>
-      <footer><%= render 'layouts/app/footer' %></footer>
-    </div>
+  <body id="app" class="layout">
+    <header class="app__header">
+      <%= render 'layouts/app/header' %>
+    </header>
 
+    <main class="app__main">
+      <div class="<%= controller_name %>">
+        <div class="<%= action_name %>">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app__footer">
+      <%= render 'layouts/app/footer' %>
+    </footer>
   </body>
 </html>

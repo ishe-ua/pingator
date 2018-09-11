@@ -7,6 +7,8 @@ $bourbon: (
 );
 
 @import "base/base";
+@import "body";
 @import "fonts";
 
-@import "index";
+@import "layouts/app";
+@import "pages/pages";
