@@ -6,4 +6,7 @@ $bourbon: (
   "rails-asset-pipeline": true,
 );
 
+@import "base/base";
+@import "fonts";
+
 @import "index";
