@@ -1,0 +1,9 @@
+@import "normalize.css";
+@import "bourbon";
+
+$bourbon: (
+  "global-font-file-formats": ("woff2"),
+  "rails-asset-pipeline": true,
+);
+
+// @import "bitters/bitters";

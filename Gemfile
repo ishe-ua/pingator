@@ -59,9 +59,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-# gem 'bootstrap', '~> 4.1.1'
-# gem 'jquery-rails' # for bootstrap
-# gem 'octicons_helper'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-normalize.css', '8.0.0'
+end
+
+gem 'bourbon', '~> 5.1.0'
+gem 'bitters', '~> 1.8.0'
+gem 'autoprefixer-rails'
 
 gem 'devise'
 gem 'dnsruby' # TODO
