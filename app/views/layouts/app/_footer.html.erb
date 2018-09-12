@@ -7,6 +7,6 @@
 
       "&copy; «#{app_name}», #{app_years}. #{t '.copyright'}.".html_safe
       %>
-</span>
 
-<%= link_to t('.contact'), new_contact_path %>
+  <%= link_to t('.contact'), new_contact_path, class: "email_us" %>
+</span>
