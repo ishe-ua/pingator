@@ -1,3 +1,28 @@
 .app__header {
+  .logo {
+    margin-bottom: 0;               // remove free space undo h1
+    img { vertical-align: middle; } // vertical align image and text by center
+    a:hover { text-decoration: none; }
 
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .menu {
+    li { display: inline-block; }
+
+    .login {
+      background-image: image_url('keys.png');
+      background-repeat: no-repeat;
+      background-position-y: 40%;
+
+      a { padding-left: 2em; }
+    }
+  }
+
+  // flex
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

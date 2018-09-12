@@ -1,15 +1,17 @@
-<h1>
+<h1 class="logo">
   <%= link_to root_path do %>
-    <%= APP::NAME.capitalize %>
+    <%= image_tag 'bell.svg' %>
+    <span><%= APP::NAME.capitalize %></span>
   <% end %>
 </h1>
 
-<ul>
+<ul class="menu">
   <% if !signed_in? %>
-    <li><%= link_to 'Log in', new_account_session_path %></li>
-    <li><%= link_to 'Sign Up', new_account_registration_path %></li>
+    <li class="login"><%= link_to 'Log in', new_account_session_path %></li>
+    <li> | </li>
+    <li><%= link_to 'Sign up', new_account_registration_path %></li>
   <% else %>
     <li><%= link_to 'Settings', settings_path %></li>
-    <li><%= link_to 'Sign Out', destroy_account_session_path, method: :delete %></li>
+    <li><%= link_to 'Sign out', destroy_account_session_path, method: :delete %></li>
   <% end %>
 </ul>
