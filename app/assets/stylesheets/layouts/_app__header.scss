@@ -1,8 +1,12 @@
 .app__header {
+  padding: 1em;
+
   .logo {
     margin-bottom: 0;               // remove free space undo h1
     img { vertical-align: middle; } // vertical align image and text by center
+
     a:hover { text-decoration: none; }
+    a:active, a:focus { outline: none; }
 
     font-size: 2em;
     font-weight: bold;
