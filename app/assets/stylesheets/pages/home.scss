@@ -39,12 +39,31 @@
   }
 
   section.start {
-    a {
-      display: block;
-      margin: .5em;
+    .free {
+      margin-bottom: .5em;
 
+      &::before {
+        content: image_url('money.png');
+        padding-right: .5em;
+        vertical-align: text-top; // align icon and text by middle
+      }
+    }
+
+    a {
+      display: inline-block;
       color: #62baab;
       font-weight: bold;
+
+      &:hover {
+        border-bottom: 4px dotted;
+        text-decoration: none;
+      }
+
+      // hack:
+      // hide footer trimming
+
+      padding-bottom: 4px;
+      &:hover { padding-bottom: 0; }
     }
   }
 }
