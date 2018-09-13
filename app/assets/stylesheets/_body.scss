@@ -7,5 +7,7 @@ body {
       color: black;
       text-decoration: underline;
     }
+
+    @include hide-outline;
   }
 }
