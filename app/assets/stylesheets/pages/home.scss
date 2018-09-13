@@ -1,3 +1,30 @@
 .home {
-  // todo
+  background-color: #f8f8f8;
+  text-align: center;
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+  }
+
+  .light {
+    display: flex;
+    justify-content: center;
+  }
+
+  .color {
+    display: inline-block;
+    background-color: white;
+
+    margin: 0 .7em;
+    padding: 2.5em 2em;
+
+    .text {
+      margin-top: 1.5em;
+      font-weight: bold;
+      font-size: 1.2em;
+
+      .alert { color: #e05b41; }
+    }
+  }
 }

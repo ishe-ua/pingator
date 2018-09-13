@@ -1,0 +1,9 @@
+<%= link_to url, class: "color #{name}" do %>
+  <%= image_tag "color_#{name}.png" %>
+
+  <% if block_given? %>
+    <div class="text">
+      <%= yield %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,18 +1,23 @@
 <section class="header">
-  <h2><%= I18n.t('app.motto') %></h2>
+  <h1><%= I18n.t('app.motto') %></h1>
   <div>Free service with paid features</div>
 </section>
 
 <section class="light">
-  image1
-  image2
-  image3
+
+  <%= render 'color', name: 'green',  url: '/' do %>
+    All right!
+  <% end %>
+
+  <%= render 'color', name: 'yellow', url: '/' do %>
+    Something is wrong
+  <% end %>
+
+  <%= render 'color', name: 'red', url: '/' do %>
+    Alert, something happened<br/>
+    <span class="alert">You have sent a letter</span>
+  <% end %>
+
 </section>
 
-<section class="getting_started">
-  <div class="ad">
-    Gsdfg fdg sdfg sdfg sdf gs dfg sdf gs dfg sdfg sdf g sdfg g ssdfsf.
-  </div>
-
-  <%= link_to "Getting started" %>
-</section>
+<%= link_to "Details" %>
