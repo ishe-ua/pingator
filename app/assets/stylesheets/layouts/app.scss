@@ -1,4 +1,17 @@
 #app {
   @import "app__header";
   @import "app__footer";
+
+  // grid
+
+  display: grid;
+  grid-template-areas: ". header ."
+                         ". main ."
+                         ". footer .";
+
+  //
+
+  .app__main, .main_ext {
+    background-color: #f8f8f8;
+  }
 }

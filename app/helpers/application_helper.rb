@@ -7,4 +7,8 @@ module ApplicationHelper
 
   alias d dashed
   alias dash dashed
+
+  def empty_grid_area(klass = nil)
+    tag.div(class: klass)
+  end
 end
