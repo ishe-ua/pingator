@@ -1,0 +1,30 @@
+.home
+section.light {
+
+  display: flex;
+  justify-content: center;
+
+  margin: 5em 1em;
+  margin-bottom: 4em;
+
+  a.color {
+    display: inline-block;
+    background-color: white;
+
+    border: 3px solid #f3f2f2;
+
+    margin: 0 .7em;
+    padding: 2.5em 2em;
+
+    .text {
+      margin-top: 1.5em;
+      font-size: 1.2em;
+      font-weight: bold;
+
+      .alert { color: #e05b41; }
+    }
+
+    text-decoration: none;
+    &:hover { border-bottom: 4px dotted; }
+  }
+}
