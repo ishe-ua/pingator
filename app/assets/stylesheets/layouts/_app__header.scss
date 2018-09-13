@@ -5,8 +5,10 @@
     margin-bottom: 0;               // remove free space undo h1
     img { vertical-align: middle; } // vertical align image and text by center
 
-    a:hover { text-decoration: none; }
-    a:active, a:focus { outline: none; }
+    a {
+      &:hover { text-decoration: none; }
+      @include hide-outline;
+    }
 
     font-size: 2em;
     font-weight: bold;

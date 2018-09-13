@@ -1,0 +1,3 @@
+@mixin hide-outline {
+  &:active, &:focus { outline: none; };
+}
