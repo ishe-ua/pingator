@@ -33,6 +33,6 @@ module Pingator
     end
 
     # Add fonts folder
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts').to_s
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts').to_s
   end
 end
