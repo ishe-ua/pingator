@@ -4,4 +4,29 @@ section.header {
     font-size: 2.6em;
     margin-bottom: 0;
   }
+
+  hr {
+    display: inline-block;
+    background-color: #62baab;
+
+    width: 2em;
+    height: .1em;
+
+    vertical-align: middle;
+  }
+
+  $line-radius: .1em;
+  $line-margin: .3em;
+
+  hr.left {
+    border-top-left-radius: $line-radius;
+    border-bottom-left-radius: $line-radius;
+    margin-right: $line-margin;
+  }
+
+  hr.right {
+    border-top-right-radius: $line-radius;
+    border-bottom-right-radius: $line-radius;
+    margin-left: $line-margin;
+  }
 }
