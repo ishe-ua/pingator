@@ -11,6 +11,17 @@
 
   //
 
+  .app__header,
+  .app__main,
+  .app__footer {
+    padding: 1em .5em;
+  }
+
+  .app__header,
+  .app__footer {
+    height: 6em;
+  }
+
   .app__main, .main_ext {
     background-color: #f8f8f8;
   }

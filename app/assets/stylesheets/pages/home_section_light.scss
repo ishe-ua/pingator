@@ -1,9 +1,5 @@
 .home
 section.light {
-
-  display: flex;
-  justify-content: center;
-
   margin: 5em 1em;
   margin-bottom: 4em;
 
@@ -29,4 +25,9 @@ section.light {
     text-decoration: none;
     &:hover { border-bottom: 4px dotted; }
   }
+
+  // flex
+
+  display: flex;
+  justify-content: center;
 }
