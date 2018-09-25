@@ -21,6 +21,11 @@
 
       a { padding-left: 2em; }
     }
+
+    a:hover {
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
 
   // flex
