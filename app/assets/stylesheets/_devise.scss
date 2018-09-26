@@ -13,7 +13,9 @@ form {
 }
 
 .sessions,
-.registrations {
+.passwords,
+.registrations,
+.confirmations {
   a {
     color: $sea-green;
     &:hover {
