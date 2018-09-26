@@ -15,6 +15,6 @@ module ValidateUser
       signed_in? &&
       current_user &&
       current_user.invalid? &&
-      !current_path?(controller: 'sessions', action: 'destroy')
+      !current_page?(controller: 'sessions', action: 'destroy')
   end
 end
