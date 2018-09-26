@@ -2,12 +2,12 @@
   font-size: 80%;
 
   a.email_us {
-    color: #7cc4b7;
+    color: $light-sea-green;
     border-bottom: 1px dotted; // increase space between text and underline line
 
     &:hover {
       text-decoration: none;
-      color: green;
+      color: $dark-sea-green;
       font-weight: bold;
     }
 
