@@ -10,15 +10,4 @@ body {
 
     @include hide-outline;
   }
-
-  form { // gem 'devise'
-    br { display: none; }
-
-    #error_explanation {
-      color: $red;
-      ul { font-size: 90%; }
-
-      margin-bottom: 1em;
-    }
-  }
 }

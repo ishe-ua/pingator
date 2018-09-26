@@ -1,0 +1,28 @@
+// gem 'devise'
+
+.sessions,
+.registrations {
+
+  form {
+    br { display: none; }
+    margin: 2em 0 1em;
+
+    #error_explanation {
+      color: $red;
+      margin-bottom: 2em;
+      ul { font-size: 90%; }
+    }
+
+    .actions { margin-top: 2em; }
+    .field_with_errors { display: inline; }
+  }
+
+  a {
+    color: $sea-green;
+    &:hover {
+      color: $dark-sea-green;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}
