@@ -14,6 +14,7 @@ module ValidateUser
     redirect_to edit_user_path(current_user), notice: 'Please fill your data' if
       signed_in? &&
       current_user &&
-      current_user.invalid?
+      current_user.invalid? &&
+      current_path != destroy_account_registration_path
   end
 end
