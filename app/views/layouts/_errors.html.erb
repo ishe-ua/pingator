@@ -1,4 +1,4 @@
-<ul class="errors">
+<ul id="error_explanation"> <%# "id link in gem 'devise' for styling" %>
   <% resource&.errors&.full_messages&.each do |msg| %>
     <li><%= msg.html_safe %></li>
   <% end %>

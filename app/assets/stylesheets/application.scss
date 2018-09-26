@@ -8,9 +8,9 @@ $bourbon: (
 
 @import "base/base";
 @import "mixines";
-@import "fonts";
 @import "body";
-@import "devise";
+@import "fonts";
+@import "form";
 
 @import "layouts/app";
 @import "pages/pages";
