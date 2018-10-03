@@ -7,16 +7,19 @@ module ValidateUser
   EXCLUDED_CONTROLLERS = %w[users sessions].freeze
 
   included do
-    before_action :validate_user
+    # TODO
+    # before_action :validate_user
   end
 
   protected
 
   def validate_user
-    redirect_to edit_user_path(current_user), notice: 'Please fill your data' if
-      signed_in? &&
-      current_user &&
-      current_user.invalid? &&
-      EXCLUDED_CONTROLLERS.exclude?(controller_name)
+    if EXCLUDED_CONTROLLERS.exclude?(controller_name) &&
+       signed_in? &&
+       current_user &&
+       current_user.invalid?
+      flash[:alert] = 'Please fill your data' # TODO: i18n
+      redirect_to edit_user_path(current_user)
+    end
   end
 end
