@@ -1,2 +1,5 @@
-<h2><%= t(:profile) %></h2>
+<% if flash[:alert].blank? && flash.now[:alert].blank? %>
+  <h2><%= t(:profile) %></h2>
+<% end %>
+
 <%= render 'form' %>
