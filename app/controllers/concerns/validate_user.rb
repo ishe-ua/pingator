@@ -7,8 +7,7 @@ module ValidateUser
   EXCLUDED_CONTROLLERS = %w[users sessions].freeze
 
   included do
-    # TODO
-    # before_action :validate_user
+    before_action :validate_user
   end
 
   protected
@@ -18,7 +17,7 @@ module ValidateUser
        signed_in? &&
        current_user &&
        current_user.invalid?
-      flash[:alert] = 'Please fill your data' # TODO: i18n
+      flash[:alert] = 'Please fill your profile' # TODO: i18n
       redirect_to edit_user_path(current_user)
     end
   end
