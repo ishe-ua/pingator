@@ -4,6 +4,8 @@
 module ValidateUser
   extend ActiveSupport::Concern
 
+  EXCLUDED_CONTROLLERS = %w[users sessions].freeze
+
   included do
     before_action :validate_user
   end
@@ -15,6 +17,6 @@ module ValidateUser
       signed_in? &&
       current_user &&
       current_user.invalid? &&
-      !current_page?(controller: 'sessions', action: 'destroy')
+      EXCLUDED_CONTROLLERS.exclude?(controller_name)
   end
 end
