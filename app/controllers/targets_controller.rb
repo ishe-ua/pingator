@@ -8,6 +8,7 @@ class TargetsController < ApplicationController
 
   def new
     @target = current_user.targets.build
+    @target.plan = nil
   end
 
   def create
