@@ -7,7 +7,8 @@ module ValidateUser
   EXCLUDED_CONTROLLERS = %w[users sessions].freeze
 
   included do
-    before_action :validate_user
+    # TODO
+    # before_action :validate_user
   end
 
   protected
