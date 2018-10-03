@@ -4,10 +4,6 @@
     <li class="alert"><%= (flash[:alert] || flash.now[:alert]).squish.html_safe %></li>
   <% end %>
 
-  <% if flash[:notice].present? || flash.now[:notice].present? %>
-    <li class="notice"><%= (flash[:notice] || flash.now[:notice]).squish.html_safe %></li>
-  <% end %>
-
   <% resource&.errors&.full_messages&.each do |msg| %>
     <li><%= msg.html_safe %></li>
   <% end %>
