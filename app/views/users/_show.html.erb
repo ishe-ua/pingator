@@ -1,16 +1,14 @@
-<h3><%= User.model_name.human %>:</h3>
+<h3><%= User.model_name.human %> info</h3>
 
 <div class="field">
-  <%= User.human_attribute_name(:name) %>:
-  <span class="bold"><%= current_user.name %></span>
+  <label><%= User.human_attribute_name(:name) %>:</label>
+  <span class="bold"><%= d current_user.name %></span>
 </div>
 
 <div class="field">
-  <%= User.human_attribute_name(:country) %>:
+  <label><%= User.human_attribute_name(:country) %>:</label>
   <span class="bold"><%= d Country::COUNTRIES_HASH[current_user.country] %></span>
 </div>
-
-<br/>
 
 <%= link_to edit_user_path(current_user) do %>
   <button><%= t :edit %></button>
