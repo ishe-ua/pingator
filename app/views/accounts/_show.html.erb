@@ -2,8 +2,8 @@
   <label><%= Account.human_attribute_name(:email) %>:</label>
   <span class="bold"><%= current_account.email %></span>
 
-  <% if current_account.confirmed? %>
-    <span class="red italic">
+  <% unless current_account.confirmed? %>
+    <span class="not_confirmed">
       &nbsp;<%= t('.email_not_confirmed') %>
     </span>
   <% end %>
