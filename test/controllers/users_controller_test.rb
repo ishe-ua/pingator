@@ -15,6 +15,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update company' do
     patch user_path(id: @user.id), params: { user: { name: 'new name' } }
-    assert_redirected_to settings_path
+    assert_redirected_to profile_path
   end
 end

@@ -15,9 +15,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to controller: :pages, action: :home
   end
 
-  test 'settings' do
+  test 'profile' do
     sign_in accounts(:mary)
-    get settings_url
+    get profile_url
     assert_response :success
   end
 end

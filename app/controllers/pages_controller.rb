@@ -13,5 +13,5 @@ class PagesController < ApplicationController
     redirect_to(root_path) if flash.notice.blank? && flash.alert.blank?
   end
 
-  def settings; end
+  def profile; end
 end
