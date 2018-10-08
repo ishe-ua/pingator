@@ -6,7 +6,7 @@
 module Url
   extend ActiveSupport::Concern
 
-  SUPPORTED_SCHEMES = %w[https].freeze
+  SUPPORTED_SCHEMES = %w[https http].freeze
 
   MAX_LENGTH = 256
 
