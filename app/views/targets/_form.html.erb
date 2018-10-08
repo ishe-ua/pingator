@@ -1,7 +1,7 @@
 <%= form_with model: @target, local: true do |f| %>
   <%= render 'layouts/errors' %>
 
-  <%= f.url_field :url, placeholder: 'Url', title: 'Url', autofocus: true %><br/>
+  <%= f.url_field :url, placeholder: 'https://', title: 'Url (with scheme)', autofocus: true %><br/>
   <%= f.select :plan, plans_for_select, { include_blank: '- Ping every -' }, { title: 'Ping every' } %><br/>
 
   <br/>
