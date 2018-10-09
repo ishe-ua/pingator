@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # HTTP status code to color matching:
-# 1. _green_ Success
+# 1. _green_  Success
 # 2. _yellow_ Warm
-# 3. _red_ Fail
+# 3. _red_    Fail
 #
 # See Status
 module Color
