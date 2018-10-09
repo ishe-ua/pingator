@@ -4,7 +4,7 @@ en:
       subject: Url has been destroyed
   targets_helper:
     current_status:
-      lockes: Locked
+      locked: Locked
       verification:
         wait: Wait
         verified: Verified
