@@ -15,7 +15,7 @@ module Color
 
   LIST = [GREEN, YELLOW, RED].freeze
 
-  GREEN_CODES  = (200...300).to_a
+  GREEN_CODES  = (200...300).to_a # http status codes
   YELLOW_CODES = (300...400).to_a
   RED_CODES    = (400...600).to_a + [Code::BAD_CONNECTION]
 
