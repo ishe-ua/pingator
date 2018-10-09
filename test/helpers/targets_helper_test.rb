@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class TargetsHelperTest < ActionView::TestCase
-  test 'current_status locales presence' do
+  test '#current_status - locales presence' do
     assert_key_presence 'locked'
 
     assert_key_presence 'verification.wait'
@@ -12,6 +12,11 @@ class TargetsHelperTest < ActionView::TestCase
 
     assert_key_presence 'status.success'
     assert_key_presence 'status.fail'
+  end
+
+  test '#current_status_class - locales presence' do
+    assert_key_presence 'status.success'
+    assert_key_presence 'verification.verified'
   end
 
   private

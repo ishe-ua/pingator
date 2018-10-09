@@ -20,9 +20,12 @@ module TargetsHelper
       raise('Current status not found')
   end
 
-  # hack
   def current_status_class(target)
-    current_status(target) == 'SUCCESS' ? 'green' : 'red'
+    s1 = I18n.t('targets_helper.current_status.status.success')
+    s2 = I18n.t('targets_helper.current_status.verification.verified')
+
+    s = current_status(target)
+    s == s1 || s == s2 ? 'green' : 'red'
   end
 
   def last_ping_time(target)
