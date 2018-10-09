@@ -3,11 +3,13 @@
 module TargetsHelper
   def current_status(target) # rubocop:disable all
     if target.locked?
-      Lock::LOCKED
+      'LOCKED'
     elsif target.not_verified?
-      Verification::FAIL
+      'NOT VERIFIED'
+    elsif target.wait?
+      'WAIT'
     elsif target.verified? && target.pings.empty?
-      Verification::SUCCESS
+      'VERIFIED'
     elsif target.success?
       Status::SUCCESS
     elsif target.fail?
