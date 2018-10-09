@@ -2,3 +2,13 @@ en:
   targets_mailer:
     destroy_notification:
       subject: Url has been destroyed
+  targets_helper:
+    current_status:
+      lockes: Locked
+      verification:
+        wait: Wait
+        verified: Verified
+        not_verified: NOT verified
+      status:
+        success: Success
+        fail: Fail

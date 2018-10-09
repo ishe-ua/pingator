@@ -2,21 +2,22 @@
 
 module TargetsHelper
   def current_status(target) # rubocop:disable all
-    if target.locked?
-      'LOCKED'
-    elsif target.not_verified?
-      'NOT VERIFIED'
-    elsif target.wait?
-      'WAIT'
-    elsif target.verified? && target.pings.empty?
-      'VERIFIED'
-    elsif target.success?
-      Status::SUCCESS
-    elsif target.fail?
-      Status::FAIL
-    else
-      raise 'Current status not found'
-    end
+    key = if target.locked?
+            'locked'
+          elsif target.wait?
+            'verification.wait'
+          elsif target.verified? && target.pings.empty?
+            'verification.verified'
+          elsif target.not_verified?
+            'verification.not_verified'
+          elsif target.success?
+            'status.success'
+          else target.fail?
+               'status.fail'
+          end
+
+    I18n.t("targets_helper.current_status.#{key}")&.strip ||
+      raise('Current status not found')
   end
 
   # hack
