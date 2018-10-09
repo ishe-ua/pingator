@@ -4,7 +4,7 @@ Ping every <b><%= Target.plans[target.plan] %></b> minutes<br/>
 Status: <%= link_to current_status(target), target_pings_path(target), class: (current_status_class(target) + " bold") %>,
 <span class="f90">last ping: <time><%= last_ping_time(target) %></time>, <%= link_to 'Details', target_pings_path(target) %></span>
 
-<% if target.not_verified? %>
+<% if target.wait? %>
   <%= render 'dns', target: target %>
 <% end %>
 
