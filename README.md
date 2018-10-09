@@ -21,8 +21,7 @@ Url (site) monitoring tool.
 ## Tasks and utils
 
 * bin/doc
-* mina deploy
-* mina restart
+* git push dokku master
 
 ## READ
 
