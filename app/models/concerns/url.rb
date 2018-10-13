@@ -24,7 +24,7 @@ module Url
   def host
     return if url.blank?
 
-    h = URI.parse(url).host.downcase
+    h = URI.parse(URI.escape(url)).host.downcase
     h.start_with?('www.') ? h.remove('www.') : h
   end
 
