@@ -5,18 +5,17 @@
   // grid
 
   display: grid;
-  grid-template-areas: "header" "main" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 6em 1fr 6em;
 
   .app__header > .wrapper,
   .app__main   > .wrapper,
-  .app__footer > .wrapper { max-width: 960px; }
-
-  .app__header > .wrapper,
-  .app__main   > .wrapper,
-  .app__footer > .wrapper { margin: 0 auto; }
-
-  .app__header > .wrapper,
-  .app__footer > .wrapper { height: 6em; }
+  .app__footer > .wrapper {
+    max-width: 960px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1em .5em;
+  }
 
   .app__main { background-color: #f8f8f8; }
 }
