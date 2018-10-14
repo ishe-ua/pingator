@@ -9,7 +9,7 @@
 
   .app__header > .wrapper,
   .app__main   > .wrapper,
-  .app__footer > .wrapper { width: 960px; }
+  .app__footer > .wrapper { max-width: 960px; }
 
   .app__header > .wrapper,
   .app__main   > .wrapper,
