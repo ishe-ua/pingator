@@ -1,4 +1,5 @@
-.app__header {
+.app__header >
+.wrapper {
   .logo {
     margin-bottom: 0;               // remove free space undo h1
     img { vertical-align: middle; } // vertical align image and text by center

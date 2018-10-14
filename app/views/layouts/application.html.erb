@@ -5,30 +5,28 @@
   </head>
 
   <body id="app" class="layout">
-    <%= empty_grid_area :header_ext %>
 
     <header class="app__header">
-      <%= render 'layouts/app/header' %>
+      <div class="wrapper">
+        <%= render 'layouts/app/header' %>
+      </div>
     </header>
 
-    <%= empty_grid_area :header_ext %>
-    <%= empty_grid_area :main_ext %>
-
     <main class="app__main">
-      <div class="<%= controller_name %>">
-        <div class="<%= action_name %>">
-          <%= yield %>
+      <div class="wrapper">
+        <div class="<%= controller_name %>">
+          <div class="<%= action_name %>">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </main>
 
-    <%= empty_grid_area :main_ext %>
-    <%= empty_grid_area :footer_ext %>
-
     <footer class="app__footer">
-      <%= render 'layouts/app/footer' %>
+      <div class="wrapper">
+        <%= render 'layouts/app/footer' %>
+      </div>
     </footer>
 
-    <%= empty_grid_area :footer_ext %>
   </body>
 </html>

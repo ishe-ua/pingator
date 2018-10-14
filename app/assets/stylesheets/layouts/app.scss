@@ -5,24 +5,18 @@
   // grid
 
   display: grid;
-  grid-template-areas: ". header ."
-                         ". main ."
-                         ". footer .";
+  grid-template-areas: "header" "main" "footer";
 
-  //
+  .app__header > .wrapper,
+  .app__main   > .wrapper,
+  .app__footer > .wrapper { width: 960px; }
 
-  .app__header,
-  .app__main,
-  .app__footer {
-    padding: 1em .5em;
-  }
+  .app__header > .wrapper,
+  .app__main   > .wrapper,
+  .app__footer > .wrapper { margin: 0 auto; }
 
-  .app__header,
-  .app__footer {
-    height: 6em;
-  }
+  .app__header > .wrapper,
+  .app__footer > .wrapper { height: 6em; }
 
-  .app__main, .main_ext {
-    background-color: #f8f8f8;
-  }
+  .app__main { background-color: #f8f8f8; }
 }
