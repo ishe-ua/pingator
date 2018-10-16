@@ -31,3 +31,6 @@ https://www.metabrew.com/article/a-million-user-comet-application-with-mochiweb-
 
 * Подтверждение права собственности на домен с помощью записи TXT
 https://support.google.com/a/answer/183895
+
+* Увидеть все txt-записи домена
+dig +nocmd -t txt pingator.io +noall
