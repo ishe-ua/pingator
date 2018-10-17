@@ -40,6 +40,7 @@ module Color
      (RED    if red?)    || APP::UNDEFINED)
   end
 
+  # See Code
   def green?
     GREEN_CODES.include?(code)
   end
