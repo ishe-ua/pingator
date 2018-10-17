@@ -10,7 +10,7 @@ module Plan
   # For NAMES
   PRICES = { a: 0, b: 2, c: 5, d: 15 }.freeze
 
-  # How many days keep Ping.
+  # How many days keep (store in db) Ping.
   #
   # See CleanPingsRunnerJob
   KEEP = { a: 2, b: 10, c: 20, d: 30 }.freeze
