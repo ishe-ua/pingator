@@ -18,13 +18,13 @@ module Url
               presence: true,
               uniqueness: { scope: :user },
               length: { maximum: MAX_LENGTH },
-              format: { with: URI::DEFAULT_PARSER.make_regexp }
+              format: { with: URI::DEFAULT_PARSER.make_regexp } # TODO
   end
 
   def host
     return if url.blank?
 
-    h = URI.parse(URI.escape(url)).host.downcase
+    h = URI.parse(url).host.downcase
     h.start_with?('www.') ? h.remove('www.') : h
   end
 
