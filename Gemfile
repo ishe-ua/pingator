@@ -68,7 +68,6 @@ gem 'bitters', '~> 1.8.0'
 gem 'autoprefixer-rails'
 
 gem 'devise'
-gem 'dnsruby' # TODO
+gem 'kaminari'
 gem 'faraday'
 gem 'rchardet'
-gem 'kaminari'
