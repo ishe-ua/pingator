@@ -6,7 +6,7 @@ class CreatePings < ActiveRecord::Migration[5.2]
       t.belongs_to :target, foreign_key: true
 
       t.datetime :start, null: false
-      t.integer :duration, null: false, comment: 'in milliseconds'
+      t.integer :duration, null: false
 
       t.integer :code, null: false
       t.text    :body

@@ -1,17 +1,16 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: pings
 #
-#  id                        :bigint(8)        not null, primary key
-#  target_id                 :bigint(8)
-#  start                     :datetime         not null
-#  duration(in milliseconds) :integer          not null
-#  code                      :integer          not null
-#  body                      :text
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
+#  id         :bigint(8)        not null, primary key
+#  target_id  :bigint(8)
+#  start      :datetime         not null
+#  duration   :integer          not null
+#  code       :integer          not null
+#  body       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
@@ -21,6 +20,7 @@
 #
 #  fk_rails_...  (target_id => targets.id)
 #
+
 class Ping < ApplicationRecord
   belongs_to :target
 

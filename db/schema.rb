@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
   create_table "pings", force: :cascade do |t|
     t.bigint "target_id"
     t.datetime "start", null: false
-    t.integer "duration", null: false, comment: "in milliseconds"
+    t.integer "duration", null: false
     t.integer "code", null: false
     t.text "body"
     t.datetime "created_at", null: false
