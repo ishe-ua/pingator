@@ -4,24 +4,20 @@
 #
 # Table name: targets
 #
-#  id                 :bigint(8)        not null, primary key
-#  user_id            :bigint(8)
-#  url                :string           not null
-#  plan               :float            not null
-#  verification       :integer
-#  verification_token :string
-#  locked_at          :datetime
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id         :bigint(8)        not null, primary key
+#  user_id    :bigint(8)
+#  url        :string           not null
+#  plan       :float            not null
+#  locked_at  :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_targets_on_locked_at           (locked_at)
-#  index_targets_on_plan                (plan)
-#  index_targets_on_url                 (url)
-#  index_targets_on_user_id             (user_id)
-#  index_targets_on_verification        (verification)
-#  index_targets_on_verification_token  (verification_token) UNIQUE
+#  index_targets_on_locked_at  (locked_at)
+#  index_targets_on_plan       (plan)
+#  index_targets_on_url        (url)
+#  index_targets_on_user_id    (user_id)
 #
 # Foreign Keys
 #
@@ -34,7 +30,6 @@ class Target < ApplicationRecord
   include Url
   include Plan
   include Status
-  include Verification
   include Lock
 
   def last_ping

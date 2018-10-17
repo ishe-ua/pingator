@@ -1,11 +1,7 @@
 DEFAULTS: &DEFAULTS
   user: mary
-
   url: https://blog.example.com/$LABEL
   plan: <%= Target.plans[Target.new.plan] %>
-
-  verification:       <%= Target.verifications[Target.new.verification] %>
-  verification_token: <%= Target.new.verification_token %>-$LABEL
 
 mary:
   <<: *DEFAULTS

@@ -5,10 +5,6 @@ en:
   targets_helper:
     current_status:
       locked: Locked
-      verification:
-        wait: Wait
-        verified: Verified
-        not_verified: NOT verified
-      status:
-        success: Success
-        fail: Fail
+      success: Success
+      fail: Fail
+      wait: Wait

@@ -4,16 +4,12 @@ module TargetsHelper
   def current_status(target) # rubocop:disable all
     key = if target.locked?
             'locked'
-          elsif target.wait?
-            'verification.wait'
-          elsif target.verified? && target.pings.empty?
-            'verification.verified'
-          elsif target.not_verified?
-            'verification.not_verified'
           elsif target.success?
-            'status.success'
-          else target.fail?
-               'status.fail'
+            'success'
+          elsif target.fail?
+            'fail'
+          else
+            'wait'
           end
 
     I18n.t("targets_helper.current_status.#{key}")&.strip ||
@@ -21,11 +17,8 @@ module TargetsHelper
   end
 
   def current_status_class(target)
-    s1 = I18n.t('targets_helper.current_status.status.success')
-    s2 = I18n.t('targets_helper.current_status.verification.verified')
-
-    s = current_status(target)
-    s == s1 || s == s2 ? 'green' : 'red'
+    s1 = I18n.t('targets_helper.current_status.success')
+    s1 == current_status(target) ? 'green' : 'red'
   end
 
   def last_ping_time(target)
