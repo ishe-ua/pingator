@@ -11,7 +11,6 @@
 #  verification       :integer
 #  verification_token :string
 #  locked_at          :datetime
-#  lock_reason        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

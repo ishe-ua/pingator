@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2018_03_05_123352) do
     t.integer "verification"
     t.string "verification_token"
     t.datetime "locked_at"
-    t.integer "lock_reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["locked_at"], name: "index_targets_on_locked_at"

@@ -11,14 +11,14 @@ class LockTest < ActiveSupport::TestCase
     mary = targets(:mary)
     assert_not mary.locked?
 
-    assert mary.lock!(:not_found)
+    assert mary.lock!
     assert mary.locked?
   end
 
   test '#unlock' do
     john = targets(:john)
 
-    assert john.lock!(:not_verified)
+    assert john.lock!
     assert john.locked?
 
     assert john.unlock

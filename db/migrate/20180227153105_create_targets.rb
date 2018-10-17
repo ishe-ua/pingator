@@ -12,8 +12,6 @@ class CreateTargets < ActiveRecord::Migration[5.2]
       t.string   :verification_token
 
       t.datetime :locked_at
-      t.integer  :lock_reason
-
       t.timestamps
     end
 
