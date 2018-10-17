@@ -9,8 +9,4 @@ class TargetTest < ActiveSupport::TestCase
 
   include ValidateInstanceTest
   include ValidateFixturesTest
-
-  test 'pings_with' do
-    skip
-  end
 end

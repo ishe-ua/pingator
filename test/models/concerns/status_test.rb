@@ -34,4 +34,8 @@ class StatusTest < ActiveSupport::TestCase
     assert target.last_ping.red?
     assert target.fail?
   end
+
+  test 'pings_with' do
+    skip
+  end
 end

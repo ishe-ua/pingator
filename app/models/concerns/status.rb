@@ -36,4 +36,9 @@ module Status
   def fail?
     last_ping&.red?
   end
+
+  def pings_with(status)
+    color_name = Ping.color_by(status).to_s.pluralize
+    Ping.send(color_name).where(target_id: id)
+  end
 end

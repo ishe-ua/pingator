@@ -40,9 +40,4 @@ class Target < ApplicationRecord
   def last_ping
     pings.unscoped.order(:created_at).last
   end
-
-  def pings_with(status)
-    color_name = Ping.color_by(status).to_s.pluralize
-    Ping.send(color_name).where(target_id: id)
-  end
 end
