@@ -1,8 +1,6 @@
-.selected {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
 @mixin hide-outline {
   &:active, &:focus { outline: none; };
 }
+
+.bold   { font-style: bold; }
+.italic { font-style: italic; }

@@ -3,25 +3,20 @@
 <div class="wrapper">
   <div class="title">Date / Duration / Response code</div>
 
-  <div class="statuses">
-    <%= link_to 'all', target_pings_path(@target), class: (:selected if select_all?) %>
-    <% Status::LIST.reverse.each do |status| %>
-      <%= link_to(status,
-                  target_pings_path(@target, status: status),
-                  class: (:selected if select?(status))) %>
-    <% end %>
-  </div>
-
-  <div class="pings">
-    <% if @pings.any? %>
-      <% @pings.each do |ping| %>
-        <%= render ping %>
+  <% if @pings.any? %>
+    <div class="statuses">
+      <%= link_to 'all', target_pings_path(@target), class: (:selected if select_all?) %>
+      <% Status::LIST.reverse.each do |status| %>
+        <%= link_to(status,
+                    target_pings_path(@target, status: status),
+                    class: (:selected if select?(status))) %>
       <% end %>
-      <br/>
-      <%= paginate @pings %>
-    <% else %>
+    </div>
 
-      <p class="any">Any pings at the moment</p>
-    <% end %>
-  </div>
+    <% @pings.each do |ping| %><%= render ping %><% end %>
+    <%= paginate @pings %>
+
+  <% else %>
+    <p class="any">Any pings <span class="italic">!</span></p>
+  <% end %>
 </div>

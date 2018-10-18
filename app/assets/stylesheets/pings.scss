@@ -10,14 +10,18 @@
       font-weight: bold;
     }
 
-    margin-top: .5em;
     margin-bottom: 1em;
   }
 
+  .selected {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
   .any {
+    margin-top: 1em;
     color: $red;
     font-weight: bold;
     font-size: 120%;
-    //font-style: italic;
   }
 }
