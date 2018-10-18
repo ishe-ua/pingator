@@ -4,6 +4,11 @@
     padding: 1em;
   }
 
+  .title a {
+    font-style: italic;
+    color: $yellow;
+  }
+
   .statuses {
     a {
       color: $green;
