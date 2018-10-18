@@ -32,4 +32,15 @@
     font-weight: bold;
     font-size: 120%;
   }
+
+  .pagination { // gem 'kaminari'
+    margin-top: 2em;
+    .page { padding-right: .2em; }
+    .current {
+      color: $red;
+      font-size: 120%;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
 }
