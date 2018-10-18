@@ -1,4 +1,4 @@
-<div class="ping <%= 'red' if ping.red? %>">
+<div class="ping <%= color_class(ping) %>">
   <%= time_tag ping.start %> /
   <%= number_with_delimiter ping.duration %> mc /
   <%= ping.code_with_name %>
