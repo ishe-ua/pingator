@@ -7,10 +7,11 @@ $bourbon: (
 );
 
 @import "base/base";
-@import "mixines";
+@import "base";
 @import "body";
 @import "fonts";
 @import "form";
 
 @import "layouts/app";
 @import "pages/pages";
+@import "pings";

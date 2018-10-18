@@ -1,0 +1,23 @@
+.pings .index {
+  .wrapper {
+    background-color: white;
+    padding: 1em;
+  }
+
+  .statuses {
+    a {
+      color: $green;
+      font-weight: bold;
+    }
+
+    margin-top: .5em;
+    margin-bottom: 1em;
+  }
+
+  .any {
+    color: $red;
+    font-weight: bold;
+    font-size: 120%;
+    //font-style: italic;
+  }
+}

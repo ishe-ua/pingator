@@ -1,0 +1,8 @@
+.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+@mixin hide-outline {
+  &:active, &:focus { outline: none; };
+}
