@@ -1,9 +1,9 @@
-<div class="<%= 'red' if ping.red? %>">
+<div class="ping <%= 'red' if ping.red? %>">
   <%= time_tag ping.start %> /
   <%= number_with_delimiter ping.duration %> mc /
   <%= ping.code_with_name %>
 
   <% if ping.red? %>
-    <%= link_to 'Details', [ping.target, ping], class: 'f90 italic' %>
+    <%= link_to 'Details', [ping.target, ping] %>
   <% end %>
 </div>

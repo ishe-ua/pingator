@@ -23,6 +23,14 @@
     text-decoration: underline;
   }
 
+  .ping {
+    a {
+      color: $sea-green;
+      font-size: 90%;
+      padding-left: .2em;
+    }
+  }
+
   .any {
     margin-top: 1em;
     color: $red;
