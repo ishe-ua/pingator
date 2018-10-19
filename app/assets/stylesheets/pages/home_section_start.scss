@@ -4,9 +4,11 @@ section.start {
     margin-bottom: .5em;
 
     &::before {
-      content: image_url('money.png');
+      content: image_url('money.svg');
+      display: inline-block;
+      width: 2.2em;
       padding-right: .5em;
-      vertical-align: text-top; // align icon and text by middle
+      vertical-align: middle; // align icon and text by middle
     }
   }
 
