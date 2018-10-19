@@ -1,4 +1,4 @@
-<%= render 'title', text: 'Ping', url: @ping.target.url %>
+<%= render 'layouts/app/title', text: 'Ping', url: @ping.target.url %>
 
 <div class="<%= 'red' if @ping.red? %>">
   <div title="Status Code"><%= @ping.code_with_name %></div>
