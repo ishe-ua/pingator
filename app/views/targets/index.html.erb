@@ -1,6 +1,6 @@
 <%= render 'layouts/app/title', text: 'My Urls' %>
 
-<%= link_to 'Add new', new_target_path %>
+<%= link_to 'Add new', new_target_path, class: "add" %>
 
 <% if current_user.targets.any? %>
 
@@ -12,9 +12,6 @@
 
 <% else %>
 
-  <div class="any">
-    <br/>
-    Add first and start monitoring
-  </div>
+  <p class="any">Add first and start monitoring</p>
 
 <% end %>
