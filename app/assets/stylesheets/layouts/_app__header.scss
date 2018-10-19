@@ -16,7 +16,9 @@
     .login {
       background-image: image-url('icons/lock.svg');
       background-repeat: no-repeat;
-      a { padding-left: 2em; }
+      background-size: 1.4em;
+
+      a { padding-left: 1.9em; }
     }
 
     a:hover {
