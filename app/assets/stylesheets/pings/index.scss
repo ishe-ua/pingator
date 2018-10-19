@@ -1,8 +1,5 @@
 .index {
-  .wrapper {
-    background-color: white;
-    padding: 1em;
-  }
+  .wrapper { @include white-block; }
 
   .statuses {
     a {

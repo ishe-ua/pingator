@@ -2,6 +2,11 @@
   &:active, &:focus { outline: none; };
 }
 
+@mixin white-block {
+  background-color: white;
+  padding: 1em;
+}
+
 .bold   { font-style: bold; }
 .italic { font-style: italic; }
 
