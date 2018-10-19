@@ -14,10 +14,8 @@
     li { display: inline-block; }
 
     .login {
-      background-image: image_url('keys.png');
+      background-image: image-url('icons/lock.svg');
       background-repeat: no-repeat;
-      background-position-y: 40%;
-
       a { padding-left: 2em; }
     }
 
