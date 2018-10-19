@@ -17,6 +17,6 @@
     <%= paginate @pings %>
 
   <% else %>
-    <p class="any">Any pings <span class="italic">!</span></p>
+    <%= render 'shared/any', text: 'Any pings <span class="italic">!</span>' %>
   <% end %>
 </div>
