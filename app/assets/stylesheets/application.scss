@@ -7,6 +7,9 @@ $bourbon: (
 );
 
 @import "base/base";
+@import "mixines/**/*";
+@import "shared/**/*";
+
 @import "base";
 @import "body";
 @import "fonts";
@@ -14,5 +17,5 @@ $bourbon: (
 
 @import "layouts/app";
 @import "pages/pages";
-@import "pings/pings";
-@import "targets/targets";
+@import "pings";
+@import "targets";
