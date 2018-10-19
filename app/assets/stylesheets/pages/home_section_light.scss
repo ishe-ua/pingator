@@ -10,7 +10,6 @@ section.light {
     border: 3px solid #f3f2f2;
     border-radius: .25em;
 
-
     margin: 0 .7em;
     padding: 2.5em 2em;
 
@@ -19,6 +18,7 @@ section.light {
       font-size: 1.2em;
       font-weight: bold;
 
+      color: black;
       .alert { color: $red; }
     }
 
