@@ -16,6 +16,7 @@ $bourbon: (
 @import "form";
 
 @import "layouts/app";
+
 @import "pages/pages";
-@import "pings";
-@import "targets";
+@import "pings/pings";
+@import "targets/targets";
