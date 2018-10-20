@@ -3,4 +3,10 @@
     color: $sea-green;
     font-weight: bold;
   }
+
+  .item {
+    @include white-block;
+    padding: 1em;
+    margin: 1.5em 0;
+  }
 }

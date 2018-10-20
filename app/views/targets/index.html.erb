@@ -3,11 +3,11 @@
 <% if current_user.targets.any? %>
   <%= link_to 'Add new', new_target_path, class: "add" %>
 
-  <ol>
+  <ul>
     <% current_user.targets.each do |target| %>
-      <li><%= render target %></li>
+      <li class="item"><%= render target %></li>
     <% end %>
-  </ol>
+  </ul>
 
 <% else %>
 
