@@ -1,8 +1,7 @@
 <%= render 'shared/title', text: 'My Urls' %>
 
-<%= link_to 'Add new', new_target_path, class: "add" %>
-
 <% if current_user.targets.any? %>
+  <%= link_to 'Add new', new_target_path, class: "add" %>
 
   <ol>
     <% current_user.targets.each do |target| %>
@@ -11,5 +10,11 @@
   </ol>
 
 <% else %>
+
   <%= render 'shared/any', text: 'Add first and start monitoring' %>
+
+  <%= link_to new_target_path do %>
+    <button>Add</button>
+  <% end %>
+
 <% end %>
