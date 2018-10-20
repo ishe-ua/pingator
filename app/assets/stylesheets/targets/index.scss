@@ -2,6 +2,7 @@
   a.add {
     color: $sea-green;
     font-weight: bold;
+    @include dotted-underline(2px);
   }
 
   .item {

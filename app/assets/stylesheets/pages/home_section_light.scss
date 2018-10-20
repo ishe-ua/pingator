@@ -4,8 +4,10 @@ section.light {
   margin-bottom: 4em;
 
   a.color {
-    @include white-block;
     display: inline-block;
+
+    @include white-block;
+    @include dotted-underline;
 
     border: 3px solid #f3f2f2;
     border-radius: .25em;
@@ -22,8 +24,6 @@ section.light {
       .alert { color: $red; }
     }
 
-    text-decoration: none;
-    &:hover { border-bottom: 4px dotted; }
   }
 
   // flex

@@ -1,0 +1,6 @@
+@mixin dotted-underline($size: 4px) {
+  &:hover {
+    text-decoration: none;
+    border-bottom: $size dotted;
+  }
+}

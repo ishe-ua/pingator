@@ -17,10 +17,7 @@ section.start {
     color: $sea-green;
     font-weight: bold;
 
-    &:hover {
-      border-bottom: 4px dotted;
-      text-decoration: none;
-    }
+    @include dotted-underline;
 
     // hack:
     // hide footer trimming
