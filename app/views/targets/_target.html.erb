@@ -1,13 +1,24 @@
-<%= link_to target.url, target.url %><br/>
+<%= link_to target.url, target.url, class: "url" %>
 
-Ping every <b><%= Target.plans[target.plan] %></b> minutes<br/>
-Status: <%= link_to current_status(target), target_pings_path(target), class: (current_status_class(target) + " bold") %>,
-<span class="f90">last ping: <time><%= last_ping_time(target) %></time>, <%= link_to 'Details', target_pings_path(target) %></span>
+<p class="plan">
+  Ping every <b><%= Target.plans[target.plan] %></b> minutes
+</p>
 
-<br/>
-<br/>
+<p class="status">
+  <span class="name">
+    Status: <%=
+            link_to current_status(target),
+            target_pings_path(target), class: (current_status_class(target)) %>
+  </span>
 
-<div class="f90">
-  <%= link_to t(:edit) + '...', edit_target_path(target) %>
-  <%= link_to t(:destroy) + '...', target, method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
+  <span class="time">
+    Last ping: <time><%= last_ping_time(target) %></time>
+  </span>
+
+  <%= link_to 'Details', target_pings_path(target), class: "link" %>
+</p>
+
+<p class="links">
+  <%= link_to t(:edit), edit_target_path(target) %>
+  <%= link_to t(:destroy), target, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
