@@ -15,7 +15,7 @@
 
     .status {
       margin: 1em 0;
-      font-size: smaller;
+      font-size: 90%;
 
       .name, .time, .link {
         display: inline-block;
@@ -29,10 +29,20 @@
     .links {
       a {
         display: inline-block;
-        padding-right: .5em;
-        font-size: smaller;
         color: $medium-gray;
+        font-size: 95%;
+
+        margin-right: 0.5em;
+        padding-left: 1.5em;
+        padding-right: .5em;
+
+        background-repeat: no-repeat;
+        background-size: .85em;
+        background-position: left 40%;
       }
+
+      a.edit    { background-image: image-url("crud/edit.svg"); }
+      a.destroy { background-image: image-url("crud/destroy.svg"); }
     }
   }
 }
