@@ -7,11 +7,11 @@ am.default_url_options[:port] = APP::PORT unless prod?
 if prod?
   am.delivery_method = :smtp
   am.smtp_settings = {
-    address:   cred(:smtp, :server),
-    port:      cred(:smtp, :port),
+    address: cred(:smtp, :server),
+    port: cred(:smtp, :port),
     user_name: cred(:smtp, :username),
-    password:  cred(:smtp, :password),
-    domain:    APP::HOST,
+    password: cred(:smtp, :password),
+    domain: APP::HOST,
     authentication: :login,
     enable_starttls_auto: true
   }

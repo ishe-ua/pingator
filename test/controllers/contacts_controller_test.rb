@@ -12,7 +12,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
     assert_enqueued_emails 2 do
       post contacts_path, params: { email: 'user@example.com',
                                     theme: 'aa',
-                                    text:  'bb' }
+                                    text: 'bb' }
     end
 
     assert_redirected_to controller: :pages, action: :info
@@ -22,7 +22,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
     assert_no_emails do
       post contacts_path, params: { email: 'user@example.com',
                                     theme: '',
-                                    text:  '' }
+                                    text: '' }
       assert_response :success
     end
   end
