@@ -4,7 +4,7 @@
   <%= link_to 'Add new', new_target_path, class: "add" %>
 
   <ul>
-    <% current_user.targets.each do |target| %>
+    <% current_user.targets.order(created_at: :desc).each do |target| %>
       <li class="target"><%= render target %></li>
     <% end %>
   </ul>
