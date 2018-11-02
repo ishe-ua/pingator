@@ -1,6 +1,6 @@
 <%= render 'shared/title', text: 'Ping', url: @ping.target.url %>
 
-<div class="<%= 'red' if @ping.red? %>">
+<div class="<%= @ping.color %>">
   <div title="Status Code"><%= @ping.code_with_name %></div>
   <div title="Duration"><%= number_with_delimiter @ping.duration %> mc</div>
 
