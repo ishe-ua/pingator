@@ -33,6 +33,6 @@ class Target < ApplicationRecord
   include Lock
 
   def last_ping
-    pings.unscoped.order(:created_at).last
+    pings.order(:created_at).last
   end
 end
