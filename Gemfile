@@ -60,7 +60,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-normalize.css', '8.0.0'
+  gem 'rails-assets-normalize-scss', '3.0.3'
 end
 
 gem 'bourbon', '~> 5.1.0'
