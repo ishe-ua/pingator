@@ -3,15 +3,16 @@
 <div class="wrapper">
   <div class="title">Date / Duration / Response code</div>
 
+  <div class="statuses">
+    <%= link_to 'all', target_pings_path(@target), class: (:selected if select_all?) %>
+    <% Status::LIST.reverse.each do |status| %>
+      <%= link_to(status,
+                  target_pings_path(@target, status: status),
+                  class: (:selected if select?(status))) %>
+    <% end %>
+  </div>
+
   <% if @pings.any? %>
-    <div class="statuses">
-      <%= link_to 'all', target_pings_path(@target), class: (:selected if select_all?) %>
-      <% Status::LIST.reverse.each do |status| %>
-        <%= link_to(status,
-                    target_pings_path(@target, status: status),
-                    class: (:selected if select?(status))) %>
-      <% end %>
-    </div>
 
     <% @pings.each do |ping| %><%= render ping %><% end %>
     <%= paginate @pings %>
