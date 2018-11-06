@@ -1,0 +1,12 @@
+.info {
+  margin: 4em auto;
+  text-align: center;
+
+  .alert { color: $red; }
+  .notice { color: $yellow; }
+
+  a.home {
+    color: $sea-green;
+    font-weight: bold;
+  }
+}
