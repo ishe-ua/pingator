@@ -5,15 +5,15 @@
 #
 module Plan
   # Check Url every minutes
-  NAMES = { a: 15, b: 5, c: 1, d: 0.5 }.freeze
+  NAMES = { a: 5, b: 1, c: 0.5 }.freeze
 
   # For NAMES
-  PRICES = { a: 0, b: 2, c: 5, d: 15 }.freeze
+  PRICES = { a: 0, b: 2, c: 5 }.freeze
 
-  # How many days keep (store in db) Ping.
+  # How many months keep (store in db) Ping.
   #
   # See CleanPingsRunnerJob
-  KEEP = { a: 2, b: 10, c: 20, d: 30 }.freeze
+  KEEP = { a: 1, b: 2, c: 12 }.freeze
 
   if defined?(Rails)
     extend ActiveSupport::Concern
