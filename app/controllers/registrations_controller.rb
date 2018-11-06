@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(_resource)
-    flash.notice = 'We have sent you an Email'
+    flash.notice = I18n.t('registrations.we_sent_you_email')
     info_url
   end
 end
