@@ -10,7 +10,6 @@ class PlanTest < ActiveSupport::TestCase
   test 'protect enum values' do
     assert_equal instance_class.plans[:a], 5
     assert_equal instance_class.plans[:b], 1
-    assert_equal instance_class.plans[:c], 0.5
   end
 
   test 'required field' do
