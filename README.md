@@ -10,8 +10,8 @@ Url (site) monitoring tool.
 
 ## Links
 
-* [pingator.com](http://pingator.com)
-* [pingator.com/sidekiq](http://pingator.com/sidekiq)
+* [pingator.io](http://pingator.io)
+* [pingator.io/sidekiq](http://pingator.io/sidekiq)
 
 # External services
 
