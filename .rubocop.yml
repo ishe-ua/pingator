@@ -1,55 +1,50 @@
+require:
+  - rubocop-performance # gem 'rubocop-performance'
+  - rubocop-rails       # gem 'rubocop-rails'
+
 AllCops:
   Exclude:
     - bin/**/*
     - tmp/**/*  # sometimes we put something there
     - vendor/**/*
+    - node_modules/**/*
     - db/schema.rb
     - db/structure.sql
     - config/application.rb
     - config/environments/*
 
-Rails:
-  Enabled: true
+Bundler/OrderedGems:
+  Exclude:
+    - Gemfile
 
-BlockLength:
+Metrics/BlockLength:
   Exclude:
     - Guardfile
     - config/routes.rb
 
-ClassAndModuleChildren:
-  Enabled: false
-  # Exclude:
-  #   - test/test_helper.rb
-
-CyclomaticComplexity:
+Metrics/LineLength:
   Enabled: false
 
-Documentation:
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Exclude:
+    - test/support/build.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
   Exclude:
     - app/helpers/**/*
     - db/migrate/**/*
     - test/**/*
-
-FileName:
-  Exclude:
-    - Gemfile
-    - Rakefile
-    - Guardfile
-
-LineLength:
-  Exclude:
-    - config/**/*
-    - Rakefile
-    - Gemfile
-    - Guardfile
-
-MethodLength:
-  Exclude:
-    - db/migrate/*
-
-OrderedGems:
-  Exclude:
-    - Gemfile
-
-Rails/LexicallyScopedActionFilter:
-  Enabled: false

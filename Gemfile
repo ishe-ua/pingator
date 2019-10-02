@@ -41,7 +41,10 @@ group :development do
   gem 'brakeman', require: false
   gem 'bullet'
   gem 'rdoc'
+
   gem 'rubocop', require: false
+  gem 'rubocop-rails'
+  gem 'rubocop-performance'
 
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

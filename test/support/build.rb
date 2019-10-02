@@ -4,7 +4,7 @@
 def build(model_name, attributes = {}) # rubocop:disable AbcSize, MethodLength
   hash = begin
            path = fixtures_path + '/' + model_name.to_s.pluralize + '.yml'
-           line = YAML.load(ERB.new(File.read(path)).result)['DEFAULTS'] # rubocop:disable YAMLLoad, LineLength
+           line = YAML.load(ERB.new(File.read(path)).result)['DEFAULTS'] # rubocop:disable YAMLLoad
            instance_eval(ERB.new(line.to_s.gsub('$LABEL', 'sample')).result)
          end
 

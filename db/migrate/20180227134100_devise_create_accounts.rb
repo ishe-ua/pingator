@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable AbcSize, LineLength
+# rubocop:disable AbcSize
 
 class DeviseCreateAccounts < ActiveRecord::Migration[5.2]
   def change
@@ -44,4 +44,4 @@ class DeviseCreateAccounts < ActiveRecord::Migration[5.2]
   end
 end
 
-# rubocop:enable AbcSize, LineLength
+# rubocop:enable AbcSize
