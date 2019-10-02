@@ -2,7 +2,7 @@
 
 # gem 'devise' redefinition
 class RegistrationsController < Devise::RegistrationsController
-  prepend_before_action :check_recaptcha, only: [:create]
+  prepend_before_action :check_recaptcha, only: [:create], if: :prod?
 
   protected
 
